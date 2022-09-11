@@ -1,7 +1,5 @@
-
-
 <?php $__env->startSection('title'); ?>
-    <?php echo app('translator')->get('translation.Recover_Password'); ?> 2
+    Verify Password
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
@@ -25,7 +23,6 @@
                             <div class="w-100">
                                 <div class="bg-overlay"></div>
                                 <div class="d-flex h-100 flex-column">
-
 
                                     <div class="p-4 mt-auto">
                                         <div class="row justify-content-center">
@@ -98,53 +95,27 @@
                                     <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text-primary"> Reset Password</h5>
+                                            <h5 class="text-primary"> Verify Password</h5>
                                             <p class="text-muted">Re-Password with Skote.</p>
                                         </div>
 
                                         <div class="mt-4">
-                                            <?php if(session('status')): ?>
-                                                <div class="alert alert-success text-center mb-4" role="alert">
-                                                    <?php echo e(session('status')); ?>
+                                            <div class="card-body">
+                                                <?php if(session('resent')): ?>
+                                                    <div class="alert alert-success" role="alert">
+                                                        <?php echo e(__('A fresh verification link has been sent to your email address.')); ?>
 
-                                                </div>
-                                            <?php endif; ?>
-                                            <form class="form-horizontal" method="POST"
-                                                action="<?php echo e(route('password.email')); ?>">
-                                                <?php echo csrf_field(); ?>
-                                                <div class="mb-3">
-                                                    <label for="useremail" class="form-label">Email</label>
-                                                    <input type="email"
-                                                        class="form-control <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>"
-                                                        id="useremail" name="email" placeholder="Enter email"
-                                                        value="<?php echo e(old('email')); ?>" id="email">
-                                                    <?php $__errorArgs = ['email'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong><?php echo e($message); ?></strong>
-                                                        </span>
-                                                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                </div>
+                                                    </div>
+                                                <?php endif; ?>
 
-                                                <div class="text-end">
-                                                    <button class="btn btn-primary w-md waves-effect waves-light"
-                                                        type="submit">Reset</button>
-                                                </div>
+                                                <?php echo e(__('Before proceeding, please check your email for a verification link.')); ?>
 
-                                            </form>
+                                                <?php echo e(__('If you did not receive the email')); ?>,
+                                                <form class="d-inline" method="POST" action="<?php echo e(route('verification.resend')); ?>">
+                                                    <?php echo csrf_field(); ?>
+                                                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline"><?php echo e(__('click here to request another')); ?></button>.
+                                                </form>
+                                            </div>
                                             <div class="mt-5 text-center">
                                                 <p>Remember It ? <a href="<?php echo e(url('login')); ?>"
                                                         class="font-weight-medium text-primary"> Sign In here</a> </p>
@@ -160,8 +131,6 @@ unset($__errorArgs, $__bag); ?>
                                             Themesbrand</p>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -181,4 +150,4 @@ unset($__errorArgs, $__bag); ?>
         <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
     <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/auth/passwords/email.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/auth/verify.blade.php ENDPATH**/ ?>

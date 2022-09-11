@@ -102,27 +102,20 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                                                @csrf
-                                                <div class="mb-3">
-                                                    <label for="username">email</label>
-                                                    <input name="email" type="email"
-                                                        class="form-control @error('email') is-invalid @enderror"
-                                                        @if (old('email'))
-                                                    value="{{ old('email') }}" @endif id="email"
-                                                    placeholder="Enter email" autocomplete="email" autofocus>
-                                                    @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
+                                            <div class="card-body">
+                                                @if (session('resent'))
+                                                    <div class="alert alert-success" role="alert">
+                                                        {{ __('A fresh verification link has been sent to your email address.') }}
+                                                    </div>
+                                                @endif
 
-                                                <div class="text-end">
-                                                    <button class="btn btn-primary w-md waves-effect waves-light"
-                                                        type="submit">Reset</button>
-                                                </div>
-                                            </form>
+                                                {{ __('Before proceeding, please check your email for a verification link.') }}
+                                                {{ __('If you did not receive the email') }},
+                                                <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                                                </form>
+                                            </div>
                                             <div class="mt-5 text-center">
                                                 <p>Remember It ? <a href="{{ url('login') }}"
                                                         class="font-weight-medium text-primary"> Sign In here</a> </p>
