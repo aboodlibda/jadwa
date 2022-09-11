@@ -1,12 +1,10 @@
-
-
 <?php $__env->startSection('title'); ?>
 <?php echo app('translator')->get('translation.Login'); ?>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
 <!-- owl.carousel css -->
-    <link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
+<link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('body'); ?>
@@ -33,7 +31,7 @@
 
                                                 <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary">5k</span>+ Satisfied clients</h4>
 
-                                                <div dir="ltr">
+                                                <div dir="rtl">
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                         <div class="item">
                                                             <div class="py-3">
@@ -83,7 +81,7 @@
                         <div class="w-100">
 
                             <div class="d-flex flex-column h-100">
-                                <div class="mb-4 mb-md-5">
+                                <div class="mb-4 mb-md-5 text">
                                     <a href="index" class="d-block auth-logo">
                                         <img src="<?php echo e(URL::asset('/assets/images/logo-dark.png')); ?>" alt="" height="18" class="auth-logo-dark">
                                         <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-light">
@@ -92,15 +90,15 @@
                                 <div class="my-auto">
 
                                     <div>
-                                        <h5 class="text-primary">Welcome Back !</h5>
-                                        <p class="text-muted">Sign in to continue to Skote.</p>
+                                        <h5 class="text-primary text">للمتابعة قم بتسجيل الدخول</h5>
+                                        <p class="text-muted text">جدوى في السعر - جدوى في الوقت</p>
                                     </div>
 
                                     <div class="mt-4">
                                         <form class="form-horizontal" method="POST" action="<?php echo e(route('login')); ?>">
                                             <?php echo csrf_field(); ?>
                                             <div class="mb-3">
-                                                <label for="username" class="form-label">Email</label>
+                                                <label for="username" class="form-label colors fon">البريد الإلكتروني</label>
                                                 <input name="email" type="email" class="form-control <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -108,7 +106,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('email', 'admin@themesbrand.com')); ?>" id="username" placeholder="Enter Email" autocomplete="email" autofocus>
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('email')); ?>" id="username" placeholder="Enter Email" autocomplete="email" autofocus>
                                                 <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -126,10 +124,10 @@ unset($__errorArgs, $__bag); ?>
                                             <div class="mb-3">
                                                 <div class="float-end">
                                                     <?php if(Route::has('password.request')): ?>
-                                                    <a href="<?php echo e(route('password.request')); ?>" class="text-muted">Forgot password?</a>
+                                                    <a href="<?php echo e(route('password.request')); ?>" class="text-muted yell">نسيت كلمة المرور</a>
                                                     <?php endif; ?>
                                                 </div>
-                                                <label class="form-label">Password</label>
+                                                <label class="form-label colors fon">كلمة المرور</label>
                                                 <div class="input-group auth-pass-inputgroup <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -145,7 +143,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="userpassword" value="123456" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+unset($__errorArgs, $__bag); ?>" id="userpassword" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
                                                     <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -164,50 +162,25 @@ unset($__errorArgs, $__bag); ?>
 
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
-                                                <label class="form-check-label" for="remember">
-                                                    Remember me
+                                                <label class="form-check-label colors" for="remember">
+                                                 تذكرني
                                                 </label>
                                             </div>
 
                                             <div class="mt-3 d-grid">
-                                                <button class="btn btn-primary waves-effect waves-light" type="submit">Log
-                                                    In</button>
+                                                <button class="btn btn-primary waves-effect waves-light log" type="submit">
+                                                    تسجيل دخول</button>
                                             </div>
 
-                                            <div class="mt-4 text-center">
-                                                <h5 class="font-size-14 mb-3">Sign in with</h5>
 
-                                                <ul class="list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-primary text-white border-primary">
-                                                            <i class="mdi mdi-facebook"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-info text-white border-info">
-                                                            <i class="mdi mdi-twitter"></i>
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#" class="social-list-item bg-danger text-white border-danger">
-                                                            <i class="mdi mdi-google"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </form>
-                                        <div class="mt-5 text-center">
-                                            <p>Don't have an account ? <a href="<?php echo e(url('register')); ?>" class="fw-medium text-primary"> Signup now </a> </p>
+                                        <div class="mt-5 text-center yell">
+                                            <p>ليس لديك حساب ? <a href="<?php echo e(url('register')); ?>" class="fw-medium yell"> حساب جديد</a> </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                                        Themesbrand</p>
-                                </div>
+
                             </div>
 
 

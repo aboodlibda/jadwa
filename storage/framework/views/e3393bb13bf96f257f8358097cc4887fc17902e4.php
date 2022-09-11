@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" dir="rtl">
 
     <head>
         <meta charset="utf-8" />
@@ -15,9 +15,10 @@
   </head>
 
     <?php echo $__env->yieldContent('body'); ?>
-    
+
     <?php echo $__env->yieldContent('content'); ?>
 
     <?php echo $__env->make('layouts.vendor-scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </body>
-</html><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/layouts/master-without-nav.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH E:\Documents\GitHub\jadwa\resources\views/layouts/master-without-nav.blade.php ENDPATH**/ ?>
