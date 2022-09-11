@@ -1,21 +1,20 @@
-@extends('layouts.master-without-nav')
 
-@section('title')
-    @lang('translation.Register') 2
-@endsection
 
-@section('css')
+<?php $__env->startSection('title'); ?>
+    <?php echo app('translator')->get('translation.Recover_Password'); ?> 2
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('css'); ?>
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-    <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
-@endsection
+    <link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <body class="auth-body-bg">
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('content')
+    <?php $__env->startSection('content'); ?>
 
         <div>
             <div class="container-fluid p-0">
@@ -26,6 +25,7 @@
                             <div class="w-100">
                                 <div class="bg-overlay"></div>
                                 <div class="d-flex h-100 flex-column">
+
 
                                     <div class="p-4 mt-auto">
                                         <div class="row justify-content-center">
@@ -89,93 +89,70 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('/assets/images/logo-dark.png') }}" alt="" height="18"
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-dark.png')); ?>" alt="" height="18"
                                                 class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18"
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18"
                                                 class="auth-logo-light">
                                         </a>
                                     </div>
                                     <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text-primary">Register account</h5>
-                                            <p class="text-muted">Get your free Skote account now.</p>
+                                            <h5 class="text-primary"> Reset Password</h5>
+                                            <p class="text-muted">Re-Password with Skote.</p>
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
-                                                @csrf
+                                            <?php if(session('status')): ?>
+                                                <div class="alert alert-success text-center mb-4" role="alert">
+                                                    <?php echo e(session('status')); ?>
+
+                                                </div>
+                                            <?php endif; ?>
+                                            <form class="form-horizontal" method="POST"
+                                                action="<?php echo e(route('password.email')); ?>">
+                                                <?php echo csrf_field(); ?>
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email</label>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="useremail"
-                                                    value="{{ old('email') }}" name="email" placeholder="Enter email" autofocus required>
-                                                    @error('email')
+                                                    <input type="email"
+                                                        class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                                        id="useremail" name="email" placeholder="Enter email"
+                                                        value="<?php echo e(old('email')); ?>" id="email">
+                                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                                    @enderror
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="phone" class="form-label">Phone</label>
-                                                    <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                                    value="{{ old('phone') }}" id="phone" name="phone" autofocus required
-                                                        placeholder="Enter phone number">
-                                                    @error('phone')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
+                                                <div class="text-end">
+                                                    <button class="btn btn-primary w-md waves-effect waves-light"
+                                                        type="submit">Reset</button>
                                                 </div>
 
-                                                <div class="mb-3">
-                                                    <label for="userpassword" class="form-label">Password</label>
-                                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
-                                                        placeholder="Enter password" autofocus required>
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <label for="confirmpassword" class="form-label">Confirm Password</label>
-                                                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
-                                                    name="password_confirmation" placeholder="Enter Confirm password" autofocus required>
-                                                    @error('password_confirmation')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
-
-
-                                                <div class="mt-4 d-grid">
-                                                    <button class="btn btn-primary waves-effect waves-light"
-                                                        type="submit">Register</button>
-                                                </div>
-
-                                                <div class="mt-4 text-center">
-                                                    <h5 class="font-size-14 mb-3">Sign up using</h5>
-                                                    
-                                                </div>
-
-                                                <div class="mt-4 text-center">
-                                                    <p class="mb-0">By registering you agree to the Skote <a href="#"
-                                                            class="text-primary">Terms of Use</a></p>
-                                                </div>
                                             </form>
-
-                                            <div class="mt-3 text-center">
-                                                <p>Already have an account ? <a href="{{ url('login') }}"
-                                                        class="fw-medium text-primary"> Login</a> </p>
+                                            <div class="mt-5 text-center">
+                                                <p>Remember It ? <a href="<?php echo e(url('login')); ?>"
+                                                        class="font-weight-medium text-primary"> Sign In here</a> </p>
                                             </div>
-
                                         </div>
                                     </div>
 
-                                    <div class="mt-4 mt-md-3 text-center">
+                                    <div class="mt-4 mt-md-5 text-center">
                                         <p class="mb-0">© <script>
                                                 document.write(new Date().getFullYear())
 
@@ -195,11 +172,13 @@
             <!-- end container-fluid -->
         </div>
 
-    @endsection
-    @section('script')
-        <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <?php $__env->stopSection(); ?>
+
+    <?php $__env->startSection('script'); ?>
         <!-- owl.carousel js -->
-        <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js')); ?>"></script>
         <!-- auth-2-carousel init -->
-        <script src="{{ URL::asset('/assets/js/pages/auth-2-carousel.init.js') }}"></script>
-    @endsection
+        <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/auth/passwords/email.blade.php ENDPATH**/ ?>
