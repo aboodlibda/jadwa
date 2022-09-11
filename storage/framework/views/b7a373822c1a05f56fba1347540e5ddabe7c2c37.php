@@ -16,4 +16,5 @@
         </div>
     </div>
 </div>
-<!-- end page title --><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/components/breadcrumb.blade.php ENDPATH**/ ?>
+<!-- end page title -->
+<?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/components/breadcrumb.blade.php ENDPATH**/ ?>

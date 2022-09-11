@@ -74,6 +74,14 @@
                 <li class="menu-title" key="t-apps"><?php echo app('translator')->get('translation.Apps'); ?></li>
 
                 <li>
+                    <a href="<?php echo e(route('users.index')); ?>" class="waves-effect">
+                        <i class="bx bx-calendar"></i>
+                        <span >المستخدمين</span>
+                    </a>
+
+                </li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>
                         <span key="t-dashboards"><?php echo app('translator')->get('translation.Calendars'); ?></span>

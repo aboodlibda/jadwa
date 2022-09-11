@@ -158,7 +158,7 @@
 
                                                 <div class="mt-4 text-center">
                                                     <h5 class="font-size-14 mb-3">Sign up using</h5>
-                                                    
+
                                                 </div>
 
                                                 <div class="mt-4 text-center">
