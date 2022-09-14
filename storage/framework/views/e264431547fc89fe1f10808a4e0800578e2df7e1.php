@@ -27,7 +27,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
                                     <?php $__errorArgs = ['name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -53,7 +53,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('email')); ?>" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
                                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -76,7 +76,7 @@ unset($__errorArgs, $__bag); ?>
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+$message = $__bag->first($__errorArgs[0]); ?> value="<?php echo e(old('phone')); ?>" is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
@@ -104,7 +104,7 @@ unset($__errorArgs, $__bag); ?>
                                     <label for="country" class="form-label">الدولة</label>
                                     <!-- All countries -->
                                     <select id="country" class="form-select" name="country">
-                                        <option selected disabled hidden>-- إختر --</option>
+                                        <option selected disabled hidden >-- إختر --</option>
                                         <option value="Afghanistan">أفغانستان</option>
                                         <option value="Aland Islands">جزر آلاند</option>
                                         <option value="Albania">ألبانيا</option>
@@ -371,7 +371,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="city" placeholder="قم بإدخال المدينة">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('city')); ?>" id="city" placeholder="قم بإدخال المدينة">
 
                                     </select>
                                 </div>
@@ -380,7 +380,8 @@ unset($__errorArgs, $__bag); ?>" id="city" placeholder="قم بإدخال الم
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="address" class="form-label">العنوان</label>
-                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1">
+                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1"><?php echo e(old('address')); ?>
+
                                     </textarea>
                                 </div>
                             </div>
@@ -457,15 +458,29 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                       <div class="row">
-                          <div class="col-lg-4">
+                          <div class="col-lg-2">
                               <div class="mb-3">
                                   <div class="form-check">
                                       <label class="form-label" for="gridCheck">الجنس :</label>
                                       <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
-                                          <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
-                                          <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
-                                          <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
-                                          <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
+                                          <input type="radio" class="btn-check" name="gender" value="male" id="gender-radio1">
+                                          <label class="btn btn-outline-primary" for="gender-radio1">ذكر</label>
+                                          <input type="radio" class="btn-check" name="gender" value="female" id="gender-radio2">
+                                          <label class="btn btn-outline-secondary" for="gender-radio2">أنثى</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-2">
+                              <div class="mb-3">
+                                  <div class="form-check">
+                                      <label class="form-label" for="gridCheck">الحالة :</label>
+                                      <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                          <input type="radio" class="btn-check" name="status" value="active" id="active-radio1" required>
+                                          <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                          <input type="radio" class="btn-check" name="status" value="inactive" id="active-radio2" required>
+                                          <label class="btn btn-outline-danger" for="active-radio2">غير نشط</label>
                                       </div>
                                   </div>
                               </div>

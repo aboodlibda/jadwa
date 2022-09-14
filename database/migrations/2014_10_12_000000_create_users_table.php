@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->enum('gender',['male','female'])->nullable();
             $table->enum('type',['client','admin'])->default('client');
+            $table->enum('status',['active','inactive'])->default('active');
             $table->string('password');
             $table->string('country')->nullable();
             $table->string('city')->nullable();

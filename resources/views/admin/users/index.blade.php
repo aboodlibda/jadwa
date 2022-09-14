@@ -41,6 +41,7 @@
                                 <th class="align-middle">البريد الإلكتروني</th>
                                 <th class="align-middle">رقم الجوال</th>
                                 <th class="align-middle">المنطقة</th>
+                                <th class="align-middle">الحالة</th>
                                 <th class="align-middle">العمليات</th>
                             </tr>
                             </thead>
@@ -50,13 +51,33 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->phone}}</td>
+                                    <td><button type="button" class="btn btn-info btn-sm waves-effect waves-light">{{$user->phone}}</button></td>
                                     <td>{{$user->country .' | ' . $user->city}}</td>
                                     <td>
+                                        @if($user->status == 'active')
+                                            <button type="button" class="btn btn-success waves-effect btn-label btn-sm"><i class="bx bx-check-double label-icon"></i> نشط </button>
+                                        @else
+                                            <button type="button" class="btn btn-danger waves-effect btn-label btn-sm"><i class="bx bx-block label-icon"></i> غير نشط </button>
+                                        @endif
+                                    </td>
+                                    <td>
                                         <div class="d-flex gap-3">
-                                            <a href="{{ route('users.edit' , $user->id) }}" class="text-success"><i
+                                            {{--verifying user email--}}
+                                                <a data-bs-toggle="modal" data-bs-target="#kt_modal_1" title="تأكيد البريد" style="cursor: pointer"  data-id="{{ $user->id }}" class="text-primary"><i
+                                                        class="mdi mdi-email-send font-size-18"></i></a>
+                                            {{--activating & deactivating user--}}
+                                            @if($user->status == 'active')
+                                                <a data-bs-toggle="modal" data-bs-target="#kt_modal_4" title="حظر المستخدم" style="cursor: pointer"  data-id="{{ $user->id }}" class="text-danger"><i
+                                                        class="mdi mdi-toggle-switch-off font-size-20"></i></a>
+                                            @else
+                                                <a data-bs-toggle="modal" data-bs-target="#kt_modal_3" title="نفعيل المستخدم" style="cursor: pointer"  data-id="{{ $user->id }}" class="text-success"><i
+                                                        class="mdi mdi-toggle-switch font-size-20"></i></a>
+                                            @endif
+                                            {{--editing user--}}
+                                            <a href="{{ route('users.edit' , $user->id) }}" title="تعديل" class="text-success"><i
                                                     class="mdi mdi-pencil font-size-18"></i></a>
-                                            <a href="javascript:void(0);" class="text-danger"><i
+                                            {{--deleting user--}}
+                                            <a data-bs-toggle="modal" data-bs-target="#kt_modal_2" title="حذف" style="cursor: pointer"  data-id="{{ $user->id }}"  class="text-danger"><i
                                                     class="mdi mdi-delete font-size-18"></i></a>
                                         </div>
                                     </td>
@@ -65,27 +86,162 @@
                             @endforeach
                         </table>
                     </div>
-                    <ul class="pagination pagination-rounded justify-content-end mb-2">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="javascript: void(0);" aria-label="Previous">
-                                <i class="mdi mdi-chevron-left"></i>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="javascript: void(0);">1</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript: void(0);">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript: void(0);">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript: void(0);">4</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript: void(0);">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="javascript: void(0);" aria-label="Next">
-                                <i class="mdi mdi-chevron-right"></i>
-                            </a>
-                        </li>
+
+                    <ul class="pagination pagination-rounded justify-content-center mb-2">
+                        {{ $users->links() }}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- end row -->
+    <div class="modal fade" tabindex="-1" id="kt_modal_1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تأكيد البريد</h5>
 
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <form action="user/verify" method="POST">.
+                    @method('POST')
+                    @csrf
+                    <div class="modal-body">
+                        <p>هل أنت متأكد من عملية تأكيد البريد ؟</p>
+                        <input type="hidden" id="id" name="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">تأكيد</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="kt_modal_2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">حذف المستخدم</h5>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <form action="users/destroy" method="POST">.
+                    @method('DELETE')
+                    @csrf
+                    <div class="modal-body">
+                        <p>هل أنت متأكد من عملية الحذف ؟</p>
+                        <input type="hidden" id="id" name="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="submit" class="btn btn-danger">حذف</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="kt_modal_3">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">تفعيل المستخدم</h5>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <form action="user/active" method="POST">.
+                    @method('POST')
+                    @csrf
+                    <div class="modal-body">
+                        <p>هل أنت متأكد من عملية تفعيل المستخدم ؟</p>
+                        <input type="hidden" id="id" name="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">تأكيد</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="kt_modal_4">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">حظر المستخدم</h5>
+
+                    <!--begin::Close-->
+                    <div class="btn btn-icon btn-sm btn-active-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span class="svg-icon svg-icon-2x"></span>
+                    </div>
+                    <!--end::Close-->
+                </div>
+
+                <form action="user/deactivate" method="POST">.
+                    @method('POST')
+                    @csrf
+                    <div class="modal-body">
+                        <p>هل أنت متأكد من عملية حظر المستخدم ؟</p>
+                        <input type="hidden" id="id" name="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">تأكيد</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+@endsection
+
+@section('script-bottom')
+    <script>
+        $('#kt_modal_1').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+        })
+
+        $('#kt_modal_2').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+        })
+
+        $('#kt_modal_3').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+        })
+
+        $('#kt_modal_4').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget)
+            var id = button.data('id')
+            var modal = $(this)
+            modal.find('.modal-body #id').val(id);
+        })
+    </script>
 @endsection

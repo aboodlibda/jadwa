@@ -105,7 +105,7 @@ unset($__errorArgs, $__bag); ?>
                                     <label for="country" class="form-label">الدولة</label>
                                     <!-- All countries -->
                                     <select id="country" class="form-select" name="country">
-                                        <option selected value="<?php echo e($user->country); ?>"><?php echo e($user->country); ?></option>
+                                        <option selected hidden value="<?php echo e($user->country); ?>"><?php echo e($user->country); ?></option>
                                         <option value="Afghanistan">أفغانستان</option>
                                         <option value="Aland Islands">جزر آلاند</option>
                                         <option value="Albania">ألبانيا</option>
@@ -373,8 +373,6 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="city" placeholder="قم بإدخال المدينة">
-
-                                    </select>
                                 </div>
                             </div>
 
@@ -403,7 +401,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="userpassword" name="password"
-                                           placeholder="قم بإدخال كلمة المرور" autofocus required>
+                                           placeholder="قم بإدخال كلمة المرور" autofocus >
                                     <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -430,7 +428,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="confirmpassword"
-                                           name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus required>
+                                           name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus >
                                     <?php $__errorArgs = ['password_confirmation'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -451,7 +449,7 @@ unset($__errorArgs, $__bag); ?>
                                     <label for="type" class="form-label">الدور</label>
                                     <!-- All countries -->
                                     <select id="type" class="form-select" name="type">
-                                        <option selected value="<?php echo e($user->type); ?>"><?php echo e($user->type); ?></option>
+                                        <option selected hidden value="<?php echo e($user->type); ?>"><?php echo e($user->type == 'admin' ? 'مشرف' : 'مستخدم'); ?></option>
                                         <option value="admin">مشرف</option>
                                         <option value="client">مستخدم</option>
                                     </select>
@@ -460,15 +458,29 @@ unset($__errorArgs, $__bag); ?>
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <div class="mb-3">
                                     <div class="form-check">
                                         <label class="form-label" for="gridCheck">الجنس :</label>
                                         <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
-                                            <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
-                                            <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
+                                            <input type="radio" class="btn-check" name="gender" value="male" <?php echo e($user->gender == 'male' ? 'checked' : ''); ?> id="gender-radio1">
+                                            <label class="btn btn-outline-primary" for="gender-radio1">ذكر</label>
+                                            <input type="radio" class="btn-check" name="gender" value="female" <?php echo e($user->gender == 'female' ? 'checked' : ''); ?> id="gender-radio2">
+                                            <label class="btn btn-outline-secondary" for="gender-radio2">أنثى</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <label class="form-label" for="gridCheck">الحالة :</label>
+                                        <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                            <input type="radio" class="btn-check" name="status" value="active" <?php echo e($user->status == 'active' ? 'checked' : ''); ?> id="active-radio1">
+                                            <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                            <input type="radio" class="btn-check" name="status" value="inactive" <?php echo e($user->status == 'inactive' ? 'checked' : ''); ?> id="active-radio2">
+                                            <label class="btn btn-outline-danger" for="active-radio2">غير نشط</label>
                                         </div>
                                     </div>
                                 </div>

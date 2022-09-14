@@ -22,7 +22,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-firstname-input" class="form-label">الإسم</label>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">البريد الإلكتروني</label>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
+                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -46,7 +46,7 @@
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">رقم الجوال</label>
-                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control @error('phone') is-invalid @enderror" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
+                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control @error('phone') value="{{old('phone')}}" is-invalid @enderror" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
                                     <label for="country" class="form-label">الدولة</label>
                                     <!-- All countries -->
                                     <select id="country" class="form-select" name="country">
-                                        <option selected disabled hidden>-- إختر --</option>
+                                        <option selected disabled hidden >-- إختر --</option>
                                         <option value="Afghanistan">أفغانستان</option>
                                         <option value="Aland Islands">جزر آلاند</option>
                                         <option value="Albania">ألبانيا</option>
@@ -324,7 +324,7 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="city" class="form-label">المدينة</label>
-                                    <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" id="city" placeholder="قم بإدخال المدينة">
+                                    <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{old('city')}}" id="city" placeholder="قم بإدخال المدينة">
 
                                     </select>
                                 </div>
@@ -333,7 +333,7 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="address" class="form-label">العنوان</label>
-                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1">
+                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1">{{old('address')}}
                                     </textarea>
                                 </div>
                             </div>
@@ -382,15 +382,29 @@
                         </div>
 
                       <div class="row">
-                          <div class="col-lg-4">
+                          <div class="col-lg-2">
                               <div class="mb-3">
                                   <div class="form-check">
                                       <label class="form-label" for="gridCheck">الجنس :</label>
                                       <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
-                                          <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
-                                          <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
-                                          <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
-                                          <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
+                                          <input type="radio" class="btn-check" name="gender" value="male" id="gender-radio1">
+                                          <label class="btn btn-outline-primary" for="gender-radio1">ذكر</label>
+                                          <input type="radio" class="btn-check" name="gender" value="female" id="gender-radio2">
+                                          <label class="btn btn-outline-secondary" for="gender-radio2">أنثى</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="col-lg-2">
+                              <div class="mb-3">
+                                  <div class="form-check">
+                                      <label class="form-label" for="gridCheck">الحالة :</label>
+                                      <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                          <input type="radio" class="btn-check" name="status" value="active" id="active-radio1" required>
+                                          <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                          <input type="radio" class="btn-check" name="status" value="inactive" id="active-radio2" required>
+                                          <label class="btn btn-outline-danger" for="active-radio2">غير نشط</label>
                                       </div>
                                   </div>
                               </div>

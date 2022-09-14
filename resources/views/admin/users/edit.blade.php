@@ -65,7 +65,7 @@
                                     <label for="country" class="form-label">الدولة</label>
                                     <!-- All countries -->
                                     <select id="country" class="form-select" name="country">
-                                        <option selected value="{{$user->country}}">{{$user->country}}</option>
+                                        <option selected hidden value="{{$user->country}}">{{$user->country}}</option>
                                         <option value="Afghanistan">أفغانستان</option>
                                         <option value="Aland Islands">جزر آلاند</option>
                                         <option value="Albania">ألبانيا</option>
@@ -326,8 +326,6 @@
                                 <div class="mb-3">
                                     <label for="city" class="form-label">المدينة</label>
                                     <input type="text" name="city" value="{{$user->city}}" class="form-control @error('city') is-invalid @enderror" id="city" placeholder="قم بإدخال المدينة">
-
-                                    </select>
                                 </div>
                             </div>
 
@@ -348,7 +346,7 @@
                                 <div class="mb-3">
                                     <label for="userpassword" class="form-label">كلمة المرور</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
-                                           placeholder="قم بإدخال كلمة المرور" autofocus required>
+                                           placeholder="قم بإدخال كلمة المرور" autofocus >
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -361,7 +359,7 @@
                                 <div class="mb-3">
                                     <label for="confirmpassword" class="form-label">تأكيد كلمة المرور</label>
                                     <input type="password" class="form-control  @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
-                                           name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus required>
+                                           name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus >
                                     @error('password_confirmation')
                                     <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -375,7 +373,7 @@
                                     <label for="type" class="form-label">الدور</label>
                                     <!-- All countries -->
                                     <select id="type" class="form-select" name="type">
-                                        <option selected value="{{$user->type}}">{{$user->type}}</option>
+                                        <option selected hidden value="{{$user->type}}">{{$user->type == 'admin' ? 'مشرف' : 'مستخدم'}}</option>
                                         <option value="admin">مشرف</option>
                                         <option value="client">مستخدم</option>
                                     </select>
@@ -384,15 +382,29 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-2">
                                 <div class="mb-3">
                                     <div class="form-check">
                                         <label class="form-label" for="gridCheck">الجنس :</label>
                                         <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
-                                            <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
-                                            <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
+                                            <input type="radio" class="btn-check" name="gender" value="male" {{$user->gender == 'male' ? 'checked' : ''}} id="gender-radio1">
+                                            <label class="btn btn-outline-primary" for="gender-radio1">ذكر</label>
+                                            <input type="radio" class="btn-check" name="gender" value="female" {{$user->gender == 'female' ? 'checked' : ''}} id="gender-radio2">
+                                            <label class="btn btn-outline-secondary" for="gender-radio2">أنثى</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <label class="form-label" for="gridCheck">الحالة :</label>
+                                        <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                            <input type="radio" class="btn-check" name="status" value="active" {{$user->status == 'active' ? 'checked' : ''}} id="active-radio1">
+                                            <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                            <input type="radio" class="btn-check" name="status" value="inactive" {{$user->status == 'inactive' ? 'checked' : ''}} id="active-radio2">
+                                            <label class="btn btn-outline-danger" for="active-radio2">غير نشط</label>
                                         </div>
                                     </div>
                                 </div>

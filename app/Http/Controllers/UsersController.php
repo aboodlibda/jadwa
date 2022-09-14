@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Testing\Fluent\Concerns\Has;
+use Illuminate\Support\Arr;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::query()->latest()->paginate(20);
+        $users = User::query()->latest()->paginate(2);
         return view('admin.users.index',compact('users'));
     }
 
@@ -40,7 +39,7 @@ class UsersController extends Controller
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
         $data = $request->only([
-            'name', 'phone', 'email', 'password', 'country', 'city', 'address','type','age',
+            'name', 'phone', 'email', 'password', 'country', 'city', 'address','type','gender','status'
         ]);
         $data['password'] = Hash::make($data['password']);
 
@@ -53,5 +52,68 @@ class UsersController extends Controller
             return back()->with('failed', 'حدث خطأ !');
         }
 
+    }
+
+    public function update(Request $request , User $user){
+
+        $request->validate([
+            'name' => 'required| string| min:3| max:30',
+            'phone' => 'required| string| min:8| max:11|unique:users,phone,'.$user->id,
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
+        ]);
+
+        $data = $request->only([
+            'name', 'phone', 'email', 'password', 'country', 'city', 'address','type','gender','status'
+        ]);
+
+        if(!empty($data['password'])){
+            $data['password'] = Hash::make($data['password']);
+        }else{
+            $data = Arr::except($data,array('password'));
+        }
+        $user = User::query()->findOrFail($user->id)->update($data);
+
+        if ($user) {
+            return redirect()->route('users.index')->with('success', 'تم التعديل على بيانات المستخدم بنجاح');
+        }
+        else {
+            return back()->with('error', 'حدث خطأ !');
+        }
+    }
+
+    public function destroy(Request $request){
+        $user = User::query()->findOrFail($request->id)->delete();
+        if ($user){
+            return redirect()->route('users.index')->with('success', 'تم حذف المستخدم بنجاح');
+        }else{
+            return back()->with('error', 'حدث خطأ !');
+        }
+    }
+
+    public function verify_user(Request $request){
+        $user = User::query()->findOrFail($request->id)->markEmailAsVerified();
+        if ($user){
+            return redirect()->route('users.index')->with('success', 'تم تأكيد البريد الإلكتروني بنجاح');
+        }else{
+            return back()->with('error', 'حدث خطأ !');
+        }
+    }
+
+    public function active_user(Request $request){
+        $user = User::query()->findOrFail($request->id)->update(['status' => 'active']);
+        if ($user){
+            return redirect()->route('users.index')->with('success', 'تم تفعيل المستخدم بنجاح');
+        }else{
+            return back()->with('error', 'حدث خطأ !');
+        }
+    }
+
+    public function deactivate_user(Request $request){
+        $user = User::query()->findOrFail($request->id)->update(['status' => 'inactive']);
+        if ($user){
+            return redirect()->route('users.index')->with('success', 'تم حظر المستخدم بنجاح');
+        }else{
+            return back()->with('error', 'حدث خطأ !');
+        }
     }
 }
