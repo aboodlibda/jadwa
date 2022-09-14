@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
     <?php echo app('translator')->get('translation.Register'); ?> 2
 <?php $__env->stopSection(); ?>
@@ -129,10 +127,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                 </div>
-        
+
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Username</label>
-                                                    <input type="text" class="form-control <?php $__errorArgs = ['name'];
+                                                    <label for="phone" class="form-label">Phone</label>
+                                                    <input type="text" class="form-control <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -140,9 +138,9 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                                    value="<?php echo e(old('name')); ?>" id="username" name="name" autofocus required
-                                                        placeholder="Enter username">
-                                                    <?php $__errorArgs = ['name'];
+                                                    value="<?php echo e(old('phone')); ?>" id="phone" name="phone" autofocus required
+                                                        placeholder="Enter phone number">
+                                                    <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -155,7 +153,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                 </div>
-        
+
                                                 <div class="mb-3">
                                                     <label for="userpassword" class="form-label">Password</label>
                                                     <input type="password" class="form-control <?php $__errorArgs = ['password'];
@@ -180,7 +178,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                 </div>
-        
+
                                                 <div class="mb-3">
                                                     <label for="confirmpassword" class="form-label">Confirm Password</label>
                                                     <input type="password" class="form-control <?php $__errorArgs = ['password_confirmation'];
@@ -205,93 +203,18 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                                 </div>
-        
-                                                <div class="mb-3">
-                                                    <label for="userdob">Date of Birth</label>
-                                                    <div class="input-group" id="datepicker1">
-                                                        <input type="text" class="form-control <?php $__errorArgs = ['dob'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" placeholder="dd-mm-yyyy"
-                                                            data-date-format="dd-mm-yyyy" data-date-container='#datepicker1' data-date-end-date="0d" value="<?php echo e(old('dob')); ?>"
-                                                            data-provide="datepicker" name="dob" autofocus required>
-                                                        <span class="input-group-text"><i class="mdi mdi-calendar"></i></span>
-                                                        <?php $__errorArgs = ['dob'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong><?php echo e($message); ?></strong>
-                                                            </span>
-                                                        <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                    </div>
-                                                </div>
-        
-                                                <div class="mb-3">
-                                                    <label for="avatar">Profile Picture</label>
-                                                    <div class="input-group">
-                                                        <input type="file" class="form-control <?php $__errorArgs = ['avatar'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>" id="inputGroupFile02" name="avatar" autofocus required>
-                                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                                                    </div>
-                                                    <?php $__errorArgs = ['avatar'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong><?php echo e($message); ?></strong>
-                                                        </span>
-                                                    <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?>
-                                                </div>
-        
+
+
                                                 <div class="mt-4 d-grid">
                                                     <button class="btn btn-primary waves-effect waves-light"
                                                         type="submit">Register</button>
                                                 </div>
-        
+
                                                 <div class="mt-4 text-center">
                                                     <h5 class="font-size-14 mb-3">Sign up using</h5>
-        
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item">
-                                                            <a href="#"
-                                                                class="social-list-item bg-primary text-white border-primary">
-                                                                <i class="mdi mdi-facebook"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a href="#"
-                                                                class="social-list-item bg-info text-white border-info">
-                                                                <i class="mdi mdi-twitter"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a href="#"
-                                                                class="social-list-item bg-danger text-white border-danger">
-                                                                <i class="mdi mdi-google"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
+
                                                 </div>
-        
+
                                                 <div class="mt-4 text-center">
                                                     <p class="mb-0">By registering you agree to the Skote <a href="#"
                                                             class="text-primary">Terms of Use</a></p>

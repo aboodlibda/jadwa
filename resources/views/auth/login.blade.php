@@ -85,14 +85,14 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5 text">
                                     <a href="index" class="d-block auth-logo">
-                                        <img src="{{ URL::asset('/assets/images/logo-dark.png') }}" alt="" height="18" class="auth-logo-dark">
+                                        <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
                                         <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
                                     </a>
                                 </div>
                                 <div class="my-auto">
 
                                     <div>
-                                        <h5 class="text-primary text">للمتابعة قم بتسجيل الدخول</h5>
+                                        <h5 class="text colors">للمتابعة قم بتسجيل الدخول</h5>
                                         <p class="text-muted text">جدوى في السعر - جدوى في الوقت</p>
                                     </div>
 

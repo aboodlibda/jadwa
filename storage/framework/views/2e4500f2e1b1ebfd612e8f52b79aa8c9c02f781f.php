@@ -28,4 +28,4 @@
         <?php echo $__env->renderComponent(); ?>
     <?php $__env->endSlot(); ?>
 <?php echo $__env->renderComponent(); ?>
-<?php /**PATH C:\MAMP\htdocs\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/text/message.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/text/message.blade.php ENDPATH**/ ?>

@@ -45,4 +45,4 @@
 </body>
 
 </html>
-<?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/layouts/master.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\resources\views/layouts/master.blade.php ENDPATH**/ ?>

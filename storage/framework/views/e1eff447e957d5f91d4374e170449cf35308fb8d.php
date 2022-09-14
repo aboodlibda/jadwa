@@ -1,9 +1,9 @@
 <!-- JAVASCRIPT -->
-<script src="<?php echo e(URL::asset('assets/libs/jquery/jquery.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/bootstrap/bootstrap.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/metismenu/metismenu.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/simplebar/simplebar.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/node-waves/node-waves.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/jquery/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/bootstrap/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/metismenu/metismenu.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/simplebar/simplebar.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/node-waves/node-waves.min.js')); ?>"></script>
 <script>
     $('#change-password').on('submit',function(event){
         event.preventDefault();
@@ -27,11 +27,11 @@
                 $('#current_passwordError').text('');
                 $('#passwordError').text('');
                 $('#password_confirmError').text('');
-                if(response.isSuccess == false){ 
+                if(response.isSuccess == false){
                     $('#current_passwordError').text(response.Message);
                 }else if(response.isSuccess == true){
-                    setTimeout(function () {   
-                        window.location.href = "<?php echo e(route('root')); ?>"; 
+                    setTimeout(function () {
+                        window.location.href = "<?php echo e(route('root')); ?>";
                     }, 1000);
                 }
             },
@@ -47,6 +47,7 @@
 <?php echo $__env->yieldContent('script'); ?>
 
 <!-- App js -->
-<script src="<?php echo e(URL::asset('assets/js/app.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
 
-<?php echo $__env->yieldContent('script-bottom'); ?><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/layouts/vendor-scripts.blade.php ENDPATH**/ ?>
+<?php echo $__env->yieldContent('script-bottom'); ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\resources\views/layouts/vendor-scripts.blade.php ENDPATH**/ ?>

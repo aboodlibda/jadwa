@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title'); ?>
     Verify Password
 <?php $__env->stopSection(); ?>
@@ -150,4 +152,4 @@
         <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
     <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/auth/verify.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/auth/verify.blade.php ENDPATH**/ ?>

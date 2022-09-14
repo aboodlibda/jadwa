@@ -17,4 +17,4 @@
 </td>
 </tr>
 </table>
-<?php /**PATH C:\MAMP\htdocs\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/html/button.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/html/button.blade.php ENDPATH**/ ?>

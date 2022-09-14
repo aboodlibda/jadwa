@@ -58,4 +58,4 @@ width: 100% !important;
 </table>
 </body>
 </html>
-<?php /**PATH C:\MAMP\htdocs\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/html/layout.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\vendor\laravel\framework\src\Illuminate\Mail/resources/views/html/layout.blade.php ENDPATH**/ ?>

@@ -62,4 +62,4 @@
 <?php $__env->endSlot(); ?>
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
-<?php /**PATH C:\MAMP\htdocs\jadwa\vendor\laravel\framework\src\Illuminate\Notifications/resources/views/email.blade.php ENDPATH**/ ?>
+<?php /**PATH E:\Documents\GitHub\jadwa\vendor\laravel\framework\src\Illuminate\Notifications/resources/views/email.blade.php ENDPATH**/ ?>

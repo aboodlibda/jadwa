@@ -1,20 +1,18 @@
-@extends('layouts.master-without-nav')
+<?php $__env->startSection('title'); ?>
+    <?php echo app('translator')->get('translation.Recover_Password'); ?> 2
+<?php $__env->stopSection(); ?>
 
-@section('title')
-    @lang('translation.Recover_Password') 2
-@endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-@endsection
+    <link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <body class="auth-body-bg">
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('content')
+    <?php $__env->startSection('content'); ?>
 
         <div>
             <div class="container-fluid p-0">
@@ -89,8 +87,8 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
+                                            <img src="<?php echo e(URL::asset('assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-dark">
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-light">
                                         </a>
                                     </div>
                                     <div class="my-auto" style="padding-bottom: 180px;">
@@ -101,25 +99,40 @@
                                         </div>
 
                                         <div class="mt-4">
-                                            @if (session('status'))
+                                            <?php if(session('status')): ?>
                                                 <div class="alert alert-success text-center mb-4" role="alert">
-                                                    {{ session('status') }}
+                                                    <?php echo e(session('status')); ?>
+
                                                 </div>
-                                            @endif
+                                            <?php endif; ?>
                                             <form class="form-horizontal" method="POST"
-                                                action="{{ route('password.email') }}">
-                                                @csrf
+                                                action="<?php echo e(route('password.email')); ?>">
+                                                <?php echo csrf_field(); ?>
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label colors fon">البريد الالكتروني</label>
                                                     <input type="email"
-                                                        class="form-control @error('email') is-invalid @enderror"
+                                                        class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                                         id="useremail" name="email" placeholder="Enter email"
-                                                        value="{{ old('email') }}" id="email">
-                                                    @error('email')
+                                                        value="<?php echo e(old('email')); ?>" id="email">
+                                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                                    @enderror
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                 </div>
 
                                                 <div class="mt-3 d-grid">
@@ -146,11 +159,13 @@
             <!-- end container-fluid -->
         </div>
 
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('script')
+    <?php $__env->startSection('script'); ?>
         <!-- owl.carousel js -->
-        <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js')); ?>"></script>
         <!-- auth-2-carousel init -->
-        <script src="{{ URL::asset('/assets/js/pages/auth-2-carousel.init.js') }}"></script>
-    @endsection
+        <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/auth/passwords/email.blade.php ENDPATH**/ ?>
