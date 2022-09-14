@@ -15,13 +15,22 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
+                            <form action="{{ route('search_user') }}" method="post">
                             <div class="search-box me-2 mb-2 d-inline-block">
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="بحث ...">
-                                    <i class="bx bx-search-alt search-icon"></i>
+                                        @csrf
+                                        @method('POST')
+                                        <input type="text" name="query" class="form-control" placeholder="الاسم,المنطقة,البريد,رقم الجوال">
+                                        <i class="bx bx-search-alt search-icon"></i>
+
                                 </div>
+
                             </div>
+                            <button type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light"> بحث <i
+                                    class="bx bx-search-alt search-icon me-1"></i></button>
+                            </form>
                         </div>
+
                         <div class="col-sm-8">
                             <div class="text-sm-end">
                                 <a href="{{ route('users.create') }}"
@@ -51,7 +60,7 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td><button type="button" class="btn btn-info btn-sm waves-effect waves-light">{{$user->phone}}</button></td>
+                                    <td><button type="button" class="btn btn-info btn-sm btn-rounded waves-effect waves-light">{{$user->phone}}</button></td>
                                     <td>{{$user->country .' | ' . $user->city}}</td>
                                     <td>
                                         @if($user->status == 'active')

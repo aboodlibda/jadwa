@@ -27,7 +27,7 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-// Route::get('success',function(){return view('auth.passwords.success');});
+
 
 
 
@@ -35,3 +35,4 @@ Route::resource('users',UsersController::class);
 Route::post('user/verify',[UsersController::class,'verify_user'])->name('verify_user');
 Route::post('user/active',[UsersController::class,'active_user'])->name('active_user');
 Route::post('user/deactivate',[UsersController::class,'deactivate_user'])->name('deactivate_user');
+Route::post('user/search',[UsersController::class,'search_user'])->name('search_user');

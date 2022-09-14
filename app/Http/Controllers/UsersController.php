@@ -11,7 +11,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::query()->latest()->paginate(2);
+        $users = User::query()->latest()->paginate(15);
         return view('admin.users.index',compact('users'));
     }
 
@@ -115,5 +115,20 @@ class UsersController extends Controller
         }else{
             return back()->with('error', 'حدث خطأ !');
         }
+    }
+
+    public function search_user(Request $request){
+
+        $search = $request->get('query', false);
+        $users = User::query()->where(function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->orWhere('phone', 'like', '%' . $search . '%')
+                ->orWhere('country', 'like', '%' . $search . '%')
+                ->orWhere('city', 'like', '%' . $search . '%');
+        })->latest()->paginate(20);
+
+        return view('admin.users.index',compact('users'));
+
     }
 }

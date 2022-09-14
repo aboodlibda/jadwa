@@ -1,9 +1,9 @@
 <!-- JAVASCRIPT -->
-<script src="<?php echo e(URL::asset('assets/libs/jquery/jquery.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/bootstrap/bootstrap.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/metismenu/metismenu.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/simplebar/simplebar.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/libs/node-waves/node-waves.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/jquery/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/bootstrap/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/metismenu/metismenu.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/simplebar/simplebar.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/libs/node-waves/node-waves.min.js')); ?>"></script>
 <script>
     $('#change-password').on('submit',function(event){
         event.preventDefault();
@@ -47,6 +47,10 @@
 <?php echo $__env->yieldContent('script'); ?>
 
 <!-- App js -->
+
+<script src="<?php echo e(URL::asset('/assets/js/app.min.js')); ?>"></script>
+
+
 <script src="<?php echo e(URL::asset('assets/js/app.min.js')); ?>"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -82,6 +86,7 @@
     });
 
 </script>
+
 
 <?php echo $__env->yieldContent('script-bottom'); ?>
 <?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/layouts/vendor-scripts.blade.php ENDPATH**/ ?>
