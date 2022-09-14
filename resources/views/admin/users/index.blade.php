@@ -64,9 +64,9 @@
                                     <td>{{$user->country .' | ' . $user->city}}</td>
                                     <td>
                                         @if($user->status == 'active')
-                                            <button type="button" class="btn btn-success waves-effect btn-label btn-sm"><i class="bx bx-check-double label-icon"></i> نشط </button>
+                                            <button type="button" style="cursor: auto" class="btn btn-success waves-effect btn-label btn-sm"><i class="bx bx-check-double label-icon"></i> نشط </button>
                                         @else
-                                            <button type="button" class="btn btn-danger waves-effect btn-label btn-sm"><i class="bx bx-block label-icon"></i> غير نشط </button>
+                                            <button type="button" style="cursor: auto" class="btn btn-danger waves-effect btn-label btn-sm"><i class="bx bx-block label-icon"></i> غير نشط </button>
                                         @endif
                                     </td>
                                     <td>

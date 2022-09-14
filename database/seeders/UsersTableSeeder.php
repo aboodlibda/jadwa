@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
@@ -16,6 +17,7 @@ class UsersTableSeeder extends Seeder
             'phone' => '0592171803',
             'password' => Hash::make('123456789'),
             'type' => 'admin',
+            'email_verified_at' => Date::now(),
         ]);
     }
 }
