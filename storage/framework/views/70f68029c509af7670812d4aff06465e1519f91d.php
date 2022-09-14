@@ -85,26 +85,24 @@
                             <div class="w-100">
 
                                 <div class="d-flex flex-column h-100">
-                                    <div class="mb-4 mb-md-5">
+                                    <div class="mb-4 mb-md-5 text">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="<?php echo e(URL::asset('/assets/images/logo-dark.png')); ?>" alt="" height="18"
-                                                class="auth-logo-dark">
-                                            <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18"
-                                                class="auth-logo-light">
+                                            <img src="<?php echo e(URL::asset('assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-dark">
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-light">
                                         </a>
                                     </div>
                                     <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text-primary">Register account</h5>
-                                            <p class="text-muted">Get your free Skote account now.</p>
+                                            <h5 class="text colors">للمتابعة قم  بانشاء حساب</h5>
+                                            <p class="text-muted text">جدوى في السعر - جدوى في الوقت</p>
                                         </div>
 
                                         <div class="mt-4">
                                             <form method="POST" class="form-horizontal" action="<?php echo e(route('register')); ?>" enctype="multipart/form-data">
                                                 <?php echo csrf_field(); ?>
                                                 <div class="mb-3">
-                                                    <label for="useremail" class="form-label">Email</label>
+                                                    <label for="useremail" class="form-label colors fon">البريد الالكتروني</label>
                                                     <input type="email" class="form-control <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -113,7 +111,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="useremail"
-                                                    value="<?php echo e(old('email')); ?>" name="email" placeholder="Enter email" autofocus required>
+                                                    value="<?php echo e(old('email')); ?>" name="email" placeholder="ادخل البريد الالكتروني" autofocus required>
                                                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -129,7 +127,7 @@ unset($__errorArgs, $__bag); ?>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="phone" class="form-label">Phone</label>
+                                                    <label for="phone" class="form-label colors fon">الهاتف</label>
                                                     <input type="text" class="form-control <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -139,7 +137,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                                     value="<?php echo e(old('phone')); ?>" id="phone" name="phone" autofocus required
-                                                        placeholder="Enter phone number">
+                                                        placeholder="ادخل رقم الهاتف">
                                                     <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -155,7 +153,7 @@ unset($__errorArgs, $__bag); ?>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="userpassword" class="form-label">Password</label>
+                                                    <label for="userpassword" class="form-label colors fon">كلمة المرور</label>
                                                     <input type="password" class="form-control <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -164,7 +162,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="userpassword" name="password"
-                                                        placeholder="Enter password" autofocus required>
+                                                        placeholder="ادخل كلمة المرور" autofocus required>
                                                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -180,7 +178,7 @@ unset($__errorArgs, $__bag); ?>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="confirmpassword" class="form-label">Confirm Password</label>
+                                                    <label for="confirmpassword" class="form-label colors fon">تاكيد كلمة المرور </label>
                                                     <input type="password" class="form-control <?php $__errorArgs = ['password_confirmation'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -189,7 +187,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" id="confirmpassword"
-                                                    name="password_confirmation" placeholder="Enter Confirm password" autofocus required>
+                                                    name="password_confirmation" placeholder="تاكيد كلمة المرور" autofocus required>
                                                     <?php $__errorArgs = ['password_confirmation'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -206,36 +204,24 @@ unset($__errorArgs, $__bag); ?>
 
 
                                                 <div class="mt-4 d-grid">
-                                                    <button class="btn btn-primary waves-effect waves-light"
-                                                        type="submit">Register</button>
+                                                    <button class="btn btn-primary waves-effect waves-light log"
+                                                        type="submit">تسجيل </button>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
-                                                    <h5 class="font-size-14 mb-3">Sign up using</h5>
+                                                
 
-                                                </div>
-
-                                                <div class="mt-4 text-center">
-                                                    <p class="mb-0">By registering you agree to the Skote <a href="#"
-                                                            class="text-primary">Terms of Use</a></p>
-                                                </div>
+                                                
                                             </form>
 
-                                            <div class="mt-3 text-center">
-                                                <p>Already have an account ? <a href="<?php echo e(url('login')); ?>"
-                                                        class="fw-medium text-primary"> Login</a> </p>
+                                            <div class="mt-3 text-center yell">
+                                                <p>هل لديك حساب  ؟ <a href="<?php echo e(url('login')); ?>"
+                                                        class="fw-medium  yell"> تسجيل دخول</a> </p>
                                             </div>
 
                                         </div>
                                     </div>
 
-                                    <div class="mt-4 mt-md-3 text-center">
-                                        <p class="mb-0">© <script>
-                                                document.write(new Date().getFullYear())
-
-                                            </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
-                                            Themesbrand</p>
-                                    </div>
+                                    
                                 </div>
 
 

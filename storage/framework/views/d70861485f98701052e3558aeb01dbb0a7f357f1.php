@@ -27,11 +27,11 @@
                 $('#current_passwordError').text('');
                 $('#passwordError').text('');
                 $('#password_confirmError').text('');
-                if(response.isSuccess == false){ 
+                if(response.isSuccess == false){
                     $('#current_passwordError').text(response.Message);
                 }else if(response.isSuccess == true){
-                    setTimeout(function () {   
-                        window.location.href = "<?php echo e(route('root')); ?>"; 
+                    setTimeout(function () {
+                        window.location.href = "<?php echo e(route('root')); ?>";
                     }, 1000);
                 }
             },
@@ -48,5 +48,40 @@
 
 <!-- App js -->
 <script src="<?php echo e(URL::asset('assets/js/app.min.js')); ?>"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-<?php echo $__env->yieldContent('script-bottom'); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/layouts/vendor-scripts.blade.php ENDPATH**/ ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-left",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 1000,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        <?php if(Session::has('error')): ?>
+        toastr.error('<?php echo e(Session::get('error')); ?>');
+        <?php elseif(Session::has('success')): ?>
+        toastr.success('<?php echo e(Session::get('success')); ?>');
+        <?php endif; ?>
+    });
+
+</script>
+
+<?php echo $__env->yieldContent('script-bottom'); ?>
+<?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/layouts/vendor-scripts.blade.php ENDPATH**/ ?>

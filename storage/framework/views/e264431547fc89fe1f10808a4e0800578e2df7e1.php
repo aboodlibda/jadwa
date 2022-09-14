@@ -1,58 +1,97 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?> <?php echo e('إنشاء مستخدم'); ?> <?php $__env->stopSection(); ?>
 
-@section('title') {{'تعديل مستخدم'}} @endsection
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-    @component('components.breadcrumb')
-        @slot('li_1') المستخدمين @endslot
-        @slot('title') تعديل مستخدم @endslot
-    @endcomponent
+    <?php $__env->startComponent('components.breadcrumb'); ?>
+        <?php $__env->slot('li_1'); ?> المستخدمين <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?> إنشاء مستخدم <?php $__env->endSlot(); ?>
+    <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">التعديل على بيانات المستخدم</h4>
+                    <h4 class="card-title mb-4">قم بإدخال بيانات المستخدم</h4>
 
-                    <form action="{{ route('users.update' , $user->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
+                    <form action="<?php echo e(route('users.store')); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
                         <div class="row">
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-firstname-input" class="form-label">الإسم</label>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{$user->name}}" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
-                                    @error('name')
+                                    <input type="text" name="name" class="form-control <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
+                                    <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">البريد الإلكتروني</label>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{$user->email}}" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
-                                    @error('email')
+                                    <input type="email" name="email" class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
+                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">رقم الجوال</label>
-                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control @error('phone') is-invalid @enderror"  value="{{$user->phone}}" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
-                                    @error('phone')
+                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
+                                    <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
@@ -65,7 +104,7 @@
                                     <label for="country" class="form-label">الدولة</label>
                                     <!-- All countries -->
                                     <select id="country" class="form-select" name="country">
-                                        <option selected value="{{$user->country}}">{{$user->country}}</option>
+                                        <option selected disabled hidden>-- إختر --</option>
                                         <option value="Afghanistan">أفغانستان</option>
                                         <option value="Aland Islands">جزر آلاند</option>
                                         <option value="Albania">ألبانيا</option>
@@ -325,7 +364,14 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="city" class="form-label">المدينة</label>
-                                    <input type="text" name="city" value="{{$user->city}}" class="form-control @error('city') is-invalid @enderror" id="city" placeholder="قم بإدخال المدينة">
+                                    <input type="text" name="city" class="form-control <?php $__errorArgs = ['city'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="city" placeholder="قم بإدخال المدينة">
 
                                     </select>
                                 </div>
@@ -335,7 +381,6 @@
                                 <div class="mb-3">
                                     <label for="address" class="form-label">العنوان</label>
                                     <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1">
-                                        {{$user->address}}
                                     </textarea>
                                 </div>
                             </div>
@@ -344,38 +389,66 @@
 
                         <div class="row">
 
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="userpassword" class="form-label">كلمة المرور</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
-                                           placeholder="قم بإدخال كلمة المرور" autofocus required>
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="userpassword" class="form-label">كلمة المرور</label>
+                                        <input type="password" class="form-control <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="userpassword" name="password"
+                                               placeholder="قم بإدخال كلمة المرور" autofocus required>
+                                        <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="invalid-feedback" role="alert">
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="confirmpassword" class="form-label">تأكيد كلمة المرور</label>
-                                    <input type="password" class="form-control  @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
-                                           name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus required>
-                                    @error('password_confirmation')
-                                    <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="confirmpassword" class="form-label">تأكيد كلمة المرور</label>
+                                        <input type="password" class="form-control  <?php $__errorArgs = ['password_confirmation'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="confirmpassword"
+                                               name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus required>
+                                        <?php $__errorArgs = ['password_confirmation'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <span class="invalid-feedback" role="alert">
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
                                 </div>
-                            </div>
 
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="type" class="form-label">الدور</label>
                                     <!-- All countries -->
                                     <select id="type" class="form-select" name="type">
-                                        <option selected value="{{$user->type}}">{{$user->type}}</option>
+                                        <option selected disabled hidden>-- إختر --</option>
                                         <option value="admin">مشرف</option>
                                         <option value="client">مستخدم</option>
                                     </select>
@@ -383,21 +456,21 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <label class="form-label" for="gridCheck">الجنس :</label>
-                                        <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
-                                            <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
-                                            <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
-                                            <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="row">
+                          <div class="col-lg-4">
+                              <div class="mb-3">
+                                  <div class="form-check">
+                                      <label class="form-label" for="gridCheck">الجنس :</label>
+                                      <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                          <input type="radio" class="btn-check" name="age" value="male" id="vbtn-radio1">
+                                          <label class="btn btn-outline-primary" for="vbtn-radio1">ذكر</label>
+                                          <input type="radio" class="btn-check" name="age" value="female" id="vbtn-radio2">
+                                          <label class="btn btn-outline-primary" for="vbtn-radio2">أنثى</label>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
 
                         <div class="text-center">
                             <button type="submit" class="btn btn-success w-lg">حفظ</button>
@@ -411,14 +484,16 @@
         <!-- end col -->
     </div>
     <!-- end row -->
-    <script>
-        function isNumber(evt) {
-            evt = (evt) ? evt : window.event;
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                return false;
-            }
-            return true;
+<script>
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
         }
-    </script>
-@endsection
+        return true;
+    }
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\MAMP\htdocs\jadwa\resources\views/admin/users/create.blade.php ENDPATH**/ ?>

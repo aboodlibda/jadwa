@@ -87,28 +87,26 @@
                             <div class="w-100">
 
                                 <div class="d-flex flex-column h-100">
-                                    <div class="mb-4 mb-md-5">
+                                    <div class="mb-4 mb-md-5 text">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('/assets/images/logo-dark.png') }}" alt="" height="18"
-                                                class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18"
-                                                class="auth-logo-light">
+                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
+                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
                                         </a>
                                     </div>
                                     <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text-primary">Register account</h5>
-                                            <p class="text-muted">Get your free Skote account now.</p>
+                                            <h5 class="text colors">للمتابعة قم  بانشاء حساب</h5>
+                                            <p class="text-muted text">جدوى في السعر - جدوى في الوقت</p>
                                         </div>
 
                                         <div class="mt-4">
                                             <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
-                                                    <label for="useremail" class="form-label">Email</label>
+                                                    <label for="useremail" class="form-label colors fon">البريد الالكتروني</label>
                                                     <input type="email" class="form-control @error('email') is-invalid @enderror" id="useremail"
-                                                    value="{{ old('email') }}" name="email" placeholder="Enter email" autofocus required>
+                                                    value="{{ old('email') }}" name="email" placeholder="ادخل البريد الالكتروني" autofocus required>
                                                     @error('email')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -117,10 +115,10 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="phone" class="form-label">Phone</label>
+                                                    <label for="phone" class="form-label colors fon">الهاتف</label>
                                                     <input type="text" class="form-control @error('phone') is-invalid @enderror"
                                                     value="{{ old('phone') }}" id="phone" name="phone" autofocus required
-                                                        placeholder="Enter phone number">
+                                                        placeholder="ادخل رقم الهاتف">
                                                     @error('phone')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -129,9 +127,9 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="userpassword" class="form-label">Password</label>
+                                                    <label for="userpassword" class="form-label colors fon">كلمة المرور</label>
                                                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
-                                                        placeholder="Enter password" autofocus required>
+                                                        placeholder="ادخل كلمة المرور" autofocus required>
                                                         @error('password')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -140,9 +138,9 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="confirmpassword" class="form-label">Confirm Password</label>
+                                                    <label for="confirmpassword" class="form-label colors fon">تاكيد كلمة المرور </label>
                                                     <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
-                                                    name="password_confirmation" placeholder="Enter Confirm password" autofocus required>
+                                                    name="password_confirmation" placeholder="تاكيد كلمة المرور" autofocus required>
                                                     @error('password_confirmation')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -152,36 +150,36 @@
 
 
                                                 <div class="mt-4 d-grid">
-                                                    <button class="btn btn-primary waves-effect waves-light"
-                                                        type="submit">Register</button>
+                                                    <button class="btn btn-primary waves-effect waves-light log"
+                                                        type="submit">تسجيل </button>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
+                                                {{-- <div class="mt-4 text-center">
                                                     <h5 class="font-size-14 mb-3">Sign up using</h5>
 
-                                                </div>
+                                                </div> --}}
 
-                                                <div class="mt-4 text-center">
+                                                {{-- <div class="mt-4 text-center">
                                                     <p class="mb-0">By registering you agree to the Skote <a href="#"
                                                             class="text-primary">Terms of Use</a></p>
-                                                </div>
+                                                </div> --}}
                                             </form>
 
-                                            <div class="mt-3 text-center">
-                                                <p>Already have an account ? <a href="{{ url('login') }}"
-                                                        class="fw-medium text-primary"> Login</a> </p>
+                                            <div class="mt-3 text-center yell">
+                                                <p>هل لديك حساب  ؟ <a href="{{ url('login') }}"
+                                                        class="fw-medium  yell"> تسجيل دخول</a> </p>
                                             </div>
 
                                         </div>
                                     </div>
 
-                                    <div class="mt-4 mt-md-3 text-center">
+                                    {{-- <div class="mt-4 mt-md-3 text-center">
                                         <p class="mb-0">© <script>
                                                 document.write(new Date().getFullYear())
 
                                             </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
                                             Themesbrand</p>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 
