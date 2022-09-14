@@ -1,20 +1,18 @@
-@extends('layouts.master-without-nav')
+<?php $__env->startSection('title'); ?>
+<?php echo app('translator')->get('translation.Recover_Password'); ?> 2
+<?php $__env->stopSection(); ?>
 
-@section('title')
-@lang('translation.Recover_Password') 2
-@endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
 <!-- owl.carousel css -->
-<link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-@endsection
+<link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
 <body class="auth-body-bg">
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('content')
+    <?php $__env->startSection('content'); ?>
 
     <div>
         <div class="container-fluid p-0">
@@ -85,8 +83,8 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5 text">
                                     <a href="index" class="d-block auth-logo">
-                                        <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
-                                        <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
+                                        <img src="<?php echo e(URL::asset('assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-dark">
+                                        <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18" class="auth-logo-light">
                                     </a>
                                 </div>
                                 <div class="my-auto" style="padding-bottom: 180px;">
@@ -96,35 +94,77 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <form class="form-horizontal" method="POST" action="{{ route('password.update') }}">
-                                            @csrf
-                                            <input type="hidden" name="token" value="{{ $token }}">
+                                        <form class="form-horizontal" method="POST" action="<?php echo e(route('password.update')); ?>">
+                                            <?php echo csrf_field(); ?>
+                                            <input type="hidden" name="token" value="<?php echo e($token); ?>">
 
 
                                             <div class="mb-3">
                                                 <label for="userpassword" class="form-label colors fon">كلمة المرور الجديدة </label>
-                                                <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
-                                                    <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" id="userpassword" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
+                                                <div class="input-group auth-pass-inputgroup <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
+                                                    <input type="password" name="password" class="form-control  <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="userpassword" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
                                                     <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    @error('password')
+                                                    <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong><?php echo e($message); ?></strong>
                                                     </span>
-                                                    @enderror
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                 </div>
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="userpassword" class="form-label colors fon">تاكيد كلمة المرور</label>
 
-                                                <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
-                                                    <input type="password" name="password-confirm" class="form-control  @error('password-confirm') is-invalid @enderror" id="password-confirm" placeholder="Enter password" aria-label="password-confirm" aria-describedby="password-addon">
+                                                <div class="input-group auth-pass-inputgroup <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
+                                                    <input type="password" name="password-confirm" class="form-control  <?php $__errorArgs = ['password-confirm'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="password-confirm" placeholder="Enter password" aria-label="password-confirm" aria-describedby="password-addon">
                                                     <button class="btn btn-light " type="button" name="password_confirmation" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    @error('password')
+                                                    <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                                     <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong><?php echo e($message); ?></strong>
                                                     </span>
-                                                    @enderror
+                                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                                 </div>
                                             </div>
 
@@ -152,10 +192,12 @@
         <!-- end container-fluid -->
     </div>
 
-    @endsection
-    @section('script')
+    <?php $__env->stopSection(); ?>
+    <?php $__env->startSection('script'); ?>
     <!-- owl.carousel js -->
-    <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+    <script src="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js')); ?>"></script>
     <!-- auth-2-carousel init -->
-    <script src="{{ URL::asset('/assets/js/pages/auth-2-carousel.init.js') }}"></script>
-    @endsection
+    <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/auth/passwords/reset.blade.php ENDPATH**/ ?>

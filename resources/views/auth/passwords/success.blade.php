@@ -92,50 +92,12 @@
                                 <div class="my-auto" style="padding-bottom: 180px;">
 
                                     <div>
-                                        <h5 class="text colors">اعادة تعيين كلمة المرور </h5>
+                                        <img src="{{ URL::asset('assets/images/email.png') }}" alt=""  class="success">
+
+                                        <h5 class="text colors">تم التحقق بنجاح !</h5>
                                     </div>
 
-                                    <div class="mt-4">
-                                        <form class="form-horizontal" method="POST" action="{{ route('password.update') }}">
-                                            @csrf
-                                            <input type="hidden" name="token" value="{{ $token }}">
 
-
-                                            <div class="mb-3">
-                                                <label for="userpassword" class="form-label colors fon">كلمة المرور الجديدة </label>
-                                                <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
-                                                    <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" id="userpassword" placeholder="Enter password" aria-label="Password" aria-describedby="password-addon">
-                                                    <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="userpassword" class="form-label colors fon">تاكيد كلمة المرور</label>
-
-                                                <div class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
-                                                    <input type="password" name="password-confirm" class="form-control  @error('password-confirm') is-invalid @enderror" id="password-confirm" placeholder="Enter password" aria-label="password-confirm" aria-describedby="password-addon">
-                                                    <button class="btn btn-light " type="button" name="password_confirmation" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="mt-3 d-grid">
-                                                <button class="btn btn-primary w-md waves-effect waves-light send"
-                                                    type="submit">اعادة تعيين</button>
-                                            </div>
-
-                                        </form>
-
-                                    </div>
                                 </div>
 
 

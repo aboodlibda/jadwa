@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
 
     <head>
         <meta charset="utf-8" />
@@ -10,12 +10,12 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico')}}">
+        <link rel="shortcut icon" href="{{ URL::asset('/assets/images/favicon.ico')}}">
         @include('layouts.head-css')
   </head>
 
     @yield('body')
-    
+
     @yield('content')
 
     @include('layouts.vendor-scripts')

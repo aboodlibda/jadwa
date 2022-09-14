@@ -3826,7 +3826,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .auth-logo .auth-logo-dark {
-    display: block
+
 }
 
 .auth-logo .auth-logo-light {
@@ -3834,7 +3834,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .auth-body-bg {
-    background-color: #fff
+    background-color: #000103
 }
 
 .auth-pass-inputgroup input[type=input] + .btn .mdi-eye-outline:before {
@@ -3842,7 +3842,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .auth-full-bg {
-    background-color: rgba(85, 110, 230, .25);
+    background-color: rgba(248, 249, 252, 0.774);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex
@@ -4904,4 +4904,40 @@ div.dataTables_wrapper div.dataTables_filter input {
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     margin: 0 auto
+}
+
+.text{
+    text-align: center;
+
+    }
+.colors{
+    color: white;
+}
+.yell{
+    color: #c08f36;
+}
+
+.log{
+    color: #c08f36;
+    font-size: 19px;
+    background-color: #f8f8fa;
+    border-color: #f8f8fa;
+}
+.fon{
+    font-size: 18px;
+}
+
+.send{
+    color: #45ddc6;
+    font-size: 17px;
+    background-color: #f8f8fa;
+    border-color: #f8f8fa;
+    font-weight: 700;
+    margin-top: 11px;
+}
+
+.success{
+    height: 55px;
+    padding-right: 90px;
+    margin-bottom: 27px;
 }

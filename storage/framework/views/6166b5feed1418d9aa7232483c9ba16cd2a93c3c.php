@@ -1,20 +1,20 @@
-@extends('layouts.master-without-nav')
 
-@section('title')
-    @lang('translation.Recover_Password') 2
-@endsection
 
-@section('css')
+<?php $__env->startSection('title'); ?>
+    Verify Password
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('css'); ?>
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-@endsection
+    <link rel="stylesheet" href="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css')); ?>">
+<?php $__env->stopSection(); ?>
 
-@section('body')
+<?php $__env->startSection('body'); ?>
 
     <body class="auth-body-bg">
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('content')
+    <?php $__env->startSection('content'); ?>
 
         <div>
             <div class="container-fluid p-0">
@@ -25,7 +25,6 @@
                             <div class="w-100">
                                 <div class="bg-overlay"></div>
                                 <div class="d-flex h-100 flex-column">
-
 
                                     <div class="p-4 mt-auto">
                                         <div class="row justify-content-center">
@@ -87,55 +86,53 @@
                             <div class="w-100">
 
                                 <div class="d-flex flex-column h-100">
-                                    <div class="mb-4 mb-md-5 text">
+                                    <div class="mb-4 mb-md-5">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-dark.png')); ?>" alt="" height="18"
+                                                class="auth-logo-dark">
+                                            <img src="<?php echo e(URL::asset('/assets/images/logo-light.png')); ?>" alt="" height="18"
+                                                class="auth-logo-light">
                                         </a>
                                     </div>
-                                    <div class="my-auto" style="padding-bottom: 180px;">
+                                    <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text colors">اعادة تعيين كلمة المرور </h5>
-                                            <p class="text-muted text">قم بادخال البريد الالكتروني لارسال التعليمات اليك</p>
+                                            <h5 class="text-primary"> Verify Password</h5>
+                                            <p class="text-muted">Re-Password with Skote.</p>
                                         </div>
 
                                         <div class="mt-4">
-                                            @if (session('status'))
-                                                <div class="alert alert-success text-center mb-4" role="alert">
-                                                    {{ session('status') }}
-                                                </div>
-                                            @endif
-                                            <form class="form-horizontal" method="POST"
-                                                action="{{ route('password.email') }}">
-                                                @csrf
-                                                <div class="mb-3">
-                                                    <label for="useremail" class="form-label colors fon">البريد الالكتروني</label>
-                                                    <input type="email"
-                                                        class="form-control @error('email') is-invalid @enderror"
-                                                        id="useremail" name="email" placeholder="Enter email"
-                                                        value="{{ old('email') }}" id="email">
-                                                    @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-                                                </div>
+                                            <div class="card-body">
+                                                <?php if(session('resent')): ?>
+                                                    <div class="alert alert-success" role="alert">
+                                                        <?php echo e(__('A fresh verification link has been sent to your email address.')); ?>
 
-                                                <div class="mt-3 d-grid">
-                                                    <button class="btn btn-primary w-md waves-effect waves-light send"
-                                                        type="submit">ارسال</button>
-                                                </div>
+                                                    </div>
+                                                <?php endif; ?>
 
-                                            </form>
+                                                <?php echo e(__('Before proceeding, please check your email for a verification link.')); ?>
 
+                                                <?php echo e(__('If you did not receive the email')); ?>,
+                                                <form class="d-inline" method="POST" action="<?php echo e(route('verification.resend')); ?>">
+                                                    <?php echo csrf_field(); ?>
+                                                    <button type="submit" class="btn btn-link p-0 m-0 align-baseline"><?php echo e(__('click here to request another')); ?></button>.
+                                                </form>
+                                            </div>
+                                            <div class="mt-5 text-center">
+                                                <p>Remember It ? <a href="<?php echo e(url('login')); ?>"
+                                                        class="font-weight-medium text-primary"> Sign In here</a> </p>
+                                            </div>
                                         </div>
                                     </div>
 
+                                    <div class="mt-4 mt-md-5 text-center">
+                                        <p class="mb-0">© <script>
+                                                document.write(new Date().getFullYear())
 
+                                            </script> Skote. Crafted with <i class="mdi mdi-heart text-danger"></i> by
+                                            Themesbrand</p>
+                                    </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -146,11 +143,13 @@
             <!-- end container-fluid -->
         </div>
 
-    @endsection
+    <?php $__env->stopSection(); ?>
 
-    @section('script')
+    <?php $__env->startSection('script'); ?>
         <!-- owl.carousel js -->
-        <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
+        <script src="<?php echo e(URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js')); ?>"></script>
         <!-- auth-2-carousel init -->
-        <script src="{{ URL::asset('/assets/js/pages/auth-2-carousel.init.js') }}"></script>
-    @endsection
+        <script src="<?php echo e(URL::asset('/assets/js/pages/auth-2-carousel.init.js')); ?>"></script>
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Documents\GitHub\jadwa\resources\views/auth/verify.blade.php ENDPATH**/ ?>
