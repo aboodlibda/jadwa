@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('project_types', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status',['show','hide'])->default('hide');
+            $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
             $table->softDeletes();
         });
