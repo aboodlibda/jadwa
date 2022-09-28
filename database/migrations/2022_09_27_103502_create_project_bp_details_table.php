@@ -13,26 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('strategic_plans', function (Blueprint $table) {
+        Schema::create('project_bp_details', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('project_id');
+            $table->text('suggested_value');
+            $table->text('target_customer');
             $table->text('vision');
             $table->text('message');
-            $table->json('goals');
-            $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects')->cascadeOnDelete();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
     /**
-
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('strategic_plans');
+        Schema::dropIfExists('project_bp_details');
     }
 };

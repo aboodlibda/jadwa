@@ -13,25 +13,28 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project_details', function (Blueprint $table) {
+        Schema::create('project_target_markets', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('details ');
             $table->unsignedBigInteger('project_id');
+            $table->string('tam');
+            $table->string('value_tam');
+            $table->string('sam');
+            $table->string('value_sam');
+            $table->string('som');
+            $table->string('value_som');
             $table->foreign('project_id')->references('id')->on('projects')->cascadeOnDelete();
             $table->timestamps();
-            $table->softDeletes();
-            
         });
     }
 
     /**
+
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('project_details');
+        Schema::dropIfExists('project_target_markets');
     }
 };

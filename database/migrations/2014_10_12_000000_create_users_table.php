@@ -25,8 +25,8 @@ class CreateUsersTable extends Migration
             $table->enum('type',['client','admin'])->default('client');
             $table->enum('status',['active','inactive'])->default('inactive');
             $table->string('password');
-            $table->string('country')->nullable();
-            $table->string('city')->nullable();
+            $table->integer('country')->nullable();
+            $table->integer('city')->nullable();
             $table->text('address')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('linkedin')->nullable();
