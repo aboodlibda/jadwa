@@ -29,7 +29,7 @@ return new class extends Migration
             $table->float('vat');
             $table->string('currency');
             $table->enum('study_duration',['5','10'])->nullable()->default('5');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('owner_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreign('created_by')->references('id')->on('users')->cascadeOnDelete();
             $table->foreign('project_type_id')->references('id')->on('project_types');
             $table->timestamps();
