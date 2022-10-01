@@ -7,80 +7,31 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu"><?php echo app('translator')->get('translation.Menu'); ?></li>
-
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
-                        <span key="t-dashboards"><?php echo app('translator')->get('translation.Dashboards'); ?></span>
+                        <span>الصفحة الرئيسية</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" key="t-default"><?php echo app('translator')->get('translation.Default'); ?></a></li>
-                        <li><a href="dashboard-saas" key="t-saas"><?php echo app('translator')->get('translation.Saas'); ?></a></li>
-                        <li><a href="dashboard-crypto" key="t-crypto"><?php echo app('translator')->get('translation.Crypto'); ?></a></li>
-                        <li><a href="dashboard-blog" key="t-blog"><?php echo app('translator')->get('translation.Blog'); ?></a></li>
-                        <li><a href="dashboard-job"><span class="badge rounded-pill text-bg-success float-end" key="t-new"><?php echo app('translator')->get('translation.New'); ?></span> <span key="t-jobs"><?php echo app('translator')->get('translation.Jobs'); ?></span></a></li>
-                    </ul>
+
                 </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span key="t-layouts"><?php echo app('translator')->get('translation.Layouts'); ?></span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-vertical"><?php echo app('translator')->get('translation.Vertical'); ?></a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-light-sidebar"
-                                        key="t-light-sidebar"><?php echo app('translator')->get('translation.Light_Sidebar'); ?></a></li>
-                                <li><a href="layouts-compact-sidebar"
-                                        key="t-compact-sidebar"><?php echo app('translator')->get('translation.Compact_Sidebar'); ?></a></li>
-                                <li><a href="layouts-icon-sidebar"
-                                        key="t-icon-sidebar"><?php echo app('translator')->get('translation.Icon_Sidebar'); ?></a></li>
-                                <li><a href="layouts-boxed" key="t-boxed-width"><?php echo app('translator')->get('translation.Boxed_Width'); ?></a>
-                                </li>
-                                <li><a href="layouts-preloader" key="t-preloader"><?php echo app('translator')->get('translation.Preloader'); ?></a>
-                                </li>
-                                <li><a href="layouts-colored-sidebar"
-                                        key="t-colored-sidebar"><?php echo app('translator')->get('translation.Colored_Sidebar'); ?></a></li>
-                                <li><a href="layouts-scrollable" key="t-scrollable"><?php echo app('translator')->get('translation.Scrollable'); ?></a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-horizontal"><?php echo app('translator')->get('translation.Horizontal'); ?></a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal" key="t-horizontal"><?php echo app('translator')->get('translation.Horizontal'); ?></a>
-                                </li>
-                                <li><a href="layouts-hori-topbar-light"
-                                        key="t-topbar-light"><?php echo app('translator')->get('translation.Topbar_Light'); ?></a></li>
-                                <li><a href="layouts-hori-boxed-width"
-                                        key="t-boxed-width"><?php echo app('translator')->get('translation.Boxed_Width'); ?></a></li>
-                                <li><a href="layouts-hori-preloader"
-                                        key="t-preloader"><?php echo app('translator')->get('translation.Preloader'); ?></a></li>
-                                <li><a href="layouts-hori-colored-header"
-                                        key="t-colored-topbar"><?php echo app('translator')->get('translation.Colored_Header'); ?></a></li>
-                                <li><a href="layouts-hori-scrollable"
-                                        key="t-scrollable"><?php echo app('translator')->get('translation.Scrollable'); ?></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu-title" key="t-apps"><?php echo app('translator')->get('translation.Apps'); ?></li>
-
                 <li>
                     <a href="<?php echo e(route('users.index')); ?>" class="waves-effect">
-                        <i class="bx bx-calendar"></i>
-                        <span >المستخدمين</span>
+                        <i class="bx bx-user"></i>
+                        <span>المستخدمين</span>
                     </a>
-
                 </li>
-
+                <li>
+                    <a href="<?php echo e(route('users.index')); ?>" class="waves-effect">
+                        <i class="bx bx-briefcase-alt-2"></i>
+                        <span>المشاريع</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo e(route('users.index')); ?>" class="waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span>بيانات المستخدم</span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>
@@ -113,8 +64,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="ecommerce-products" key="t-products"><?php echo app('translator')->get('translation.Products'); ?></a></li>
-                        <li><a href="ecommerce-product-detail"
-                                key="t-product-detail"><?php echo app('translator')->get('translation.Product_Detail'); ?></a></li>
+                        <li><a href="ecommerce-product-detail" key="t-product-detail"><?php echo app('translator')->get('translation.Product_Detail'); ?></a></li>
                         <li><a href="ecommerce-orders" key="t-orders"><?php echo app('translator')->get('translation.Orders'); ?></a></li>
                         <li><a href="ecommerce-customers" key="t-customers"><?php echo app('translator')->get('translation.Customers'); ?></a></li>
                         <li><a href="ecommerce-cart" key="t-cart"><?php echo app('translator')->get('translation.Cart'); ?></a></li>
@@ -154,12 +104,9 @@
                                 <span key="t-email-templates"><?php echo app('translator')->get('translation.Templates'); ?></span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="email-template-basic"
-                                        key="t-basic-action"><?php echo app('translator')->get('translation.Basic_Action'); ?></a></li>
-                                <li><a href="email-template-alert"
-                                        key="t-alert-email"><?php echo app('translator')->get('translation.Alert_Email'); ?></a></li>
-                                <li><a href="email-template-billing"
-                                        key="t-bill-email"><?php echo app('translator')->get('translation.Billing_Email'); ?></a></li>
+                                <li><a href="email-template-basic" key="t-basic-action"><?php echo app('translator')->get('translation.Basic_Action'); ?></a></li>
+                                <li><a href="email-template-alert" key="t-alert-email"><?php echo app('translator')->get('translation.Alert_Email'); ?></a></li>
+                                <li><a href="email-template-billing" key="t-bill-email"><?php echo app('translator')->get('translation.Billing_Email'); ?></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -229,9 +176,8 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end"
-                            key="t-new"><?php echo app('translator')->get('translation.New'); ?></span>
-                             <i class="bx bx-briefcase-alt"></i>
+                        <span class="badge rounded-pill bg-success float-end" key="t-new"><?php echo app('translator')->get('translation.New'); ?></span>
+                        <i class="bx bx-briefcase-alt"></i>
                         <span key="t-jobs"><?php echo app('translator')->get('translation.Jobs'); ?></span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -272,14 +218,13 @@
                         <li><a href="auth-confirm-mail" key="t-confirm-mail"><?php echo app('translator')->get('translation.Confirm_Mail'); ?></a></li>
                         <li><a href="auth-confirm-mail-2" key="t-confirm-mail-2"><?php echo app('translator')->get('translation.Confirm_Mail'); ?> 2</a>
                         </li>
-                        <li><a href="auth-email-verification"
-                                key="t-email-verification"><?php echo app('translator')->get('translation.Email_verification'); ?></a></li>
-                        <li><a href="auth-email-verification-2"
-                                key="t-email-verification-2"><?php echo app('translator')->get('translation.Email_verification'); ?> 2</a></li>
-                        <li><a href="auth-two-step-verification"
-                                key="t-two-step-verification"><?php echo app('translator')->get('translation.Two_step_verification'); ?></a></li>
-                        <li><a href="auth-two-step-verification-2"
-                                key="t-two-step-verification-2"><?php echo app('translator')->get('translation.Two_step_verification'); ?> 2</a></li>
+                        <li><a href="auth-email-verification" key="t-email-verification"><?php echo app('translator')->get('translation.Email_verification'); ?></a></li>
+                        <li><a href="auth-email-verification-2" key="t-email-verification-2"><?php echo app('translator')->get('translation.Email_verification'); ?> 2</a>
+                        </li>
+                        <li><a href="auth-two-step-verification" key="t-two-step-verification"><?php echo app('translator')->get('translation.Two_step_verification'); ?></a>
+                        </li>
+                        <li><a href="auth-two-step-verification-2" key="t-two-step-verification-2"><?php echo app('translator')->get('translation.Two_step_verification'); ?>
+                                2</a></li>
                     </ul>
                 </li>
 
@@ -331,7 +276,9 @@
                         <li><a href="ui-colors" key="t-colors"><?php echo app('translator')->get('translation.Colors'); ?></a></li>
                         <li><a href="ui-rating" key="t-rating"><?php echo app('translator')->get('translation.Rating'); ?></a></li>
                         <li><a href="ui-notifications" key="t-notifications"><?php echo app('translator')->get('translation.Notifications'); ?></a></li>
-                         <li><a href="ui-utilities"><span key="t-utilities"><?php echo app('translator')->get('translation.Utilities'); ?></span> <span class="badge rounded-pill bg-success float-end" key="t-new"><?php echo app('translator')->get('translation.New'); ?></span></a></li>
+                        <li><a href="ui-utilities"><span key="t-utilities"><?php echo app('translator')->get('translation.Utilities'); ?></span> <span
+                                    class="badge rounded-pill bg-success float-end"
+                                    key="t-new"><?php echo app('translator')->get('translation.New'); ?></span></a></li>
                     </ul>
                 </li>
 
@@ -364,8 +311,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="tables-basic" key="t-basic-tables"><?php echo app('translator')->get('translation.Basic_Tables'); ?></a></li>
                         <li><a href="tables-datatable" key="t-data-tables"><?php echo app('translator')->get('translation.Data_Tables'); ?></a></li>
-                        <li><a href="tables-responsive"
-                                key="t-responsive-table"><?php echo app('translator')->get('translation.Responsive_Table'); ?></a></li>
+                        <li><a href="tables-responsive" key="t-responsive-table"><?php echo app('translator')->get('translation.Responsive_Table'); ?></a></li>
                         <li><a href="tables-editable" key="t-editable-table"><?php echo app('translator')->get('translation.Editable_Table'); ?></a>
                         </li>
                     </ul>
@@ -383,8 +329,7 @@
                         <li><a href="charts-flot" key="t-flot-charts"><?php echo app('translator')->get('translation.Flot_Charts'); ?></a></li>
                         <li><a href="charts-tui" key="t-ui-charts"><?php echo app('translator')->get('translation.Toast_UI_Charts'); ?></a></li>
                         <li><a href="charts-knob" key="t-knob-charts"><?php echo app('translator')->get('translation.Jquery_Knob_Charts'); ?></a></li>
-                        <li><a href="charts-sparkline"
-                                key="t-sparkline-charts"><?php echo app('translator')->get('translation.Sparkline_Charts'); ?></a></li>
+                        <li><a href="charts-sparkline" key="t-sparkline-charts"><?php echo app('translator')->get('translation.Sparkline_Charts'); ?></a></li>
                     </ul>
                 </li>
 
@@ -395,8 +340,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="icons-boxicons" key="t-boxicons"><?php echo app('translator')->get('translation.Boxicons'); ?></a></li>
-                        <li><a href="icons-materialdesign"
-                                key="t-material-design"><?php echo app('translator')->get('translation.Material_Design'); ?></a></li>
+                        <li><a href="icons-materialdesign" key="t-material-design"><?php echo app('translator')->get('translation.Material_Design'); ?></a></li>
                         <li><a href="icons-dripicons" key="t-dripicons"><?php echo app('translator')->get('translation.Dripicons'); ?></a></li>
                         <li><a href="icons-fontawesome" key="t-font-awesome"><?php echo app('translator')->get('translation.Font_awesome'); ?></a></li>
                     </ul>

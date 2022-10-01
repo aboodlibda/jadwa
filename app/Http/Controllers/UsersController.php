@@ -12,7 +12,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-       
+
         return view('admin.users.index');
     }
     public function get_users()
@@ -41,7 +41,7 @@ class UsersController extends Controller
                 $btn = $btn . '&nbsp;<a data-bs-toggle="modal" data-bs-target="#kt_modal_3" title="نفعيل المستخدم" style="cursor: pointer"  data-id="{{ $user->id }}" class="text-success"><i
                                                         class="mdi mdi-toggle-switch font-size-20"></i></a>';
                 }
-                $btn = $btn . '&nbsp;<a href="" title="تعديل" class="text-success"><i
+                $btn = $btn . '&nbsp;<a href="'. route("users.edit" , $row->id) . '" title="تعديل" class="text-success"><i
                                                     class="mdi mdi-pencil font-size-18"></i></a>';
                 $btn = $btn . '&nbsp;<a data-bs-toggle="modal" data-bs-target="#kt_modal_2" title="حذف" style="cursor: pointer"  data-id="{{ $user->id }}"  class="text-danger"><i
                                                     class="mdi mdi-delete font-size-18"></i></a>';
@@ -50,7 +50,7 @@ class UsersController extends Controller
                 return $user->created_at->diffForHumans();
             })
             ->rawColumns(['action' , 'status'])
-           
+
             ->make(true);
     }
     public function create()
