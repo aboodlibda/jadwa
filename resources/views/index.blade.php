@@ -3,13 +3,13 @@
 @section('title') الصفحة الرئيسية @endsection
 
 @section('content')
-    
+
 @component('components.breadcrumb')
 @slot('li_1') Dashboards @endslot
 @slot('title') Dashboard @endslot
 @endcomponent
 
-{{-- <div class="row">
+<div class="row">
     <div class="col-xl-4">
         <div class="card overflow-hidden">
             <div class="bg-primary bg-soft">
@@ -654,7 +654,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <!-- end modal -->
 @endsection
 @section('script')

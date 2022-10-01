@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,8 @@ Route::post('user/verify',[UsersController::class,'verify_user'])->name('verify_
 Route::post('user/active',[UsersController::class,'active_user'])->name('active_user');
 Route::post('user/deactivate',[UsersController::class,'deactivate_user'])->name('deactivate_user');
 Route::post('user/search',[UsersController::class,'search_user'])->name('search_user');
+
+
+
+Route::resource('projects',ProjectController::class);
+Route::get('/get_projects', [App\Http\Controllers\ProjectController::class, 'get_projects'])->name('get_projects');
