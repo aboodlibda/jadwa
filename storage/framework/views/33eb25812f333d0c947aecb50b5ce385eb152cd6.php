@@ -384,4 +384,4 @@
     </div>
 </div>
 <!-- Left Sidebar End -->
-<?php /**PATH D:\my project\jadwa\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\my project\jdwa\resources\views/layouts/sidebar.blade.php ENDPATH**/ ?>

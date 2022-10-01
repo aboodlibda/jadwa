@@ -7,7 +7,8 @@
 @section('css')
     <!-- owl.carousel css -->
     <link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-    <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet"
+        type="text/css">
 @endsection
 
 @section('body')
@@ -16,71 +17,9 @@
     @endsection
 
     @section('content')
-
         <div>
             <div class="container-fluid p-0">
                 <div class="row g-0">
-
-                    <div class="col-xl-9">
-                        <div class="auth-full-bg pt-lg-5 p-4">
-                            <div class="w-100">
-                                <div class="bg-overlay"></div>
-                                <div class="d-flex h-100 flex-column">
-
-                                    <div class="p-4 mt-auto">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-7">
-                                                <div class="text-center">
-
-                                                    <h4 class="mb-3"><i
-                                                            class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span
-                                                            class="text-primary">5k</span>+ Satisfied clients</h4>
-
-                                                    <div dir="ltr">
-                                                        <div class="owl-carousel owl-theme auth-review-carousel"
-                                                            id="auth-review-carousel">
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" Fantastic theme with a
-                                                                        ton of options. If you just want the HTML to
-                                                                        integrate with your project, then this is the
-                                                                        package. You can find the files in the 'dist'
-                                                                        folder...no need to install git and all the other
-                                                                        stuff the documentation talks about. "</p>
-
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">Abs1981</h4>
-                                                                        <p class="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-16 mb-4">" If Every Vendor on Envato
-                                                                        are as supportive as Themesbrand, Development with
-                                                                        be a nice experience. You guys are Wonderful. Keep
-                                                                        us the good work. "</p>
-
-                                                                    <div>
-                                                                        <h4 class="font-size-16 text-primary">nezerious</h4>
-                                                                        <p class="font-size-14 mb-0">- Skote User</p>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col -->
 
                     <div class="col-xl-3">
                         <div class="auth-full-page-content p-md-5 p-4">
@@ -89,24 +28,30 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt="" height="18" class="auth-logo-light">
+                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt=""
+                                                height="18" class="auth-logo-dark">
+                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt=""
+                                                height="18" class="auth-logo-light">
                                         </a>
                                     </div>
                                     <div class="my-auto">
 
                                         <div>
-                                            <h5 class="text colors">للمتابعة قم  بانشاء حساب</h5>
+                                            <h5 class="text colors">للمتابعة قم بانشاء حساب</h5>
                                             <p class="text-muted text">جدوى في السعر - جدوى في الوقت</p>
                                         </div>
 
                                         <div class="mt-4">
-                                            <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
+                                            <form method="POST" class="form-horizontal" action="{{ route('register') }}"
+                                                enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="mb-3">
-                                                    <label for="useremail" class="form-label colors fon">البريد الالكتروني</label>
-                                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="useremail"
-                                                    value="{{ old('email') }}" name="email" placeholder="ادخل البريد الالكتروني" autofocus required>
+                                                    <label for="useremail" class="form-label colors fon">البريد
+                                                        الالكتروني</label>
+                                                    <input type="email"
+                                                        class="form-control @error('email') is-invalid @enderror"
+                                                        id="useremail" value="{{ old('email') }}" name="email"
+                                                        placeholder="ادخل البريد الالكتروني" autofocus required>
                                                     @error('email')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -116,9 +61,10 @@
 
                                                 <div class="mb-3">
                                                     <label for="phone" class="form-label colors fon">الهاتف</label>
-                                                    <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                                    value="{{ old('phone') }}" id="phone" name="phone" autofocus required
-                                                        placeholder="ادخل رقم الهاتف">
+                                                    <input type="text"
+                                                        class="form-control @error('phone') is-invalid @enderror"
+                                                        value="{{ old('phone') }}" id="phone" name="phone" autofocus
+                                                        required placeholder="ادخل رقم الهاتف">
                                                     @error('phone')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -127,10 +73,13 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="userpassword" class="form-label colors fon">كلمة المرور</label>
-                                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
-                                                        placeholder="ادخل كلمة المرور" autofocus required>
-                                                        @error('password')
+                                                    <label for="userpassword" class="form-label colors fon">كلمة
+                                                        المرور</label>
+                                                    <input type="password"
+                                                        class="form-control @error('password') is-invalid @enderror"
+                                                        id="userpassword" name="password" placeholder="ادخل كلمة المرور"
+                                                        autofocus required>
+                                                    @error('password')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -138,9 +87,12 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="confirmpassword" class="form-label colors fon">تاكيد كلمة المرور </label>
-                                                    <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
-                                                    name="password_confirmation" placeholder="تاكيد كلمة المرور" autofocus required>
+                                                    <label for="confirmpassword" class="form-label colors fon">تاكيد كلمة
+                                                        المرور </label>
+                                                    <input type="password"
+                                                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                                                        id="confirmpassword" name="password_confirmation"
+                                                        placeholder="تاكيد كلمة المرور" autofocus required>
                                                     @error('password_confirmation')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -166,8 +118,8 @@
                                             </form>
 
                                             <div class="mt-3 text-center yell">
-                                                <p>هل لديك حساب  ؟ <a href="{{ url('login') }}"
-                                                        class="fw-medium  yell"> تسجيل دخول</a> </p>
+                                                <p>هل لديك حساب ؟ <a href="{{ url('login') }}" class="fw-medium  yell">
+                                                        تسجيل دخول</a> </p>
                                             </div>
 
                                         </div>
@@ -186,13 +138,73 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-9">
+                        <div class="auth-full-bg pt-lg-5 p-4">
+                            <div class="w-100">
+                                <div class="bg-overlay"></div>
+                                <div class="d-flex h-100 flex-column">
+                                    <div class="p-4 mt-auto">
+                                        <div class="row justify-content-center">
+                                            <div class="col-lg-7">
+                                                <div class="text-center">
+                                                    <div dir="ltr">
+                                                        <div class="owl-carousel owl-theme auth-review-carousel"
+                                                            id="auth-review-carousel">
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        التعديل</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">عدل ما تريد في أي وفت خلال فترة التعديل المسموحة وذلك خلال دقائق</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        السعر</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">سيقوم النظام بمساعدتك
+                                                                            وسيقوم بالتحليل المالي وتجهيز الدراسة</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">سهل وبسيط</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">جدوى كلاود تقدم خدماتها
+                                                                            بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك
+                                                                            وبأقل
+                                                                            أسعار</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى كلاود تقدم خدماتها
+                                                                        بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك وبأقل
+                                                                        أسعار</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
                     <!-- end col -->
                 </div>
                 <!-- end row -->
             </div>
             <!-- end container-fluid -->
         </div>
-
     @endsection
     @section('script')
         <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>

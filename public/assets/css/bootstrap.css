@@ -89,6 +89,7 @@ File: Custom Bootstrap Css File
 *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+          font-family: 'Tajawal',Arial, Helvetica, sans-serif !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {

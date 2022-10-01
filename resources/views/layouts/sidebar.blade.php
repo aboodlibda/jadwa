@@ -7,80 +7,31 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
-
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
-                        <span key="t-dashboards">@lang('translation.Dashboards')</span>
+                        <span>الصفحة الرئيسية</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" key="t-default">@lang('translation.Default')</a></li>
-                        <li><a href="dashboard-saas" key="t-saas">@lang('translation.Saas')</a></li>
-                        <li><a href="dashboard-crypto" key="t-crypto">@lang('translation.Crypto')</a></li>
-                        <li><a href="dashboard-blog" key="t-blog">@lang('translation.Blog')</a></li>
-                        <li><a href="dashboard-job"><span class="badge rounded-pill text-bg-success float-end" key="t-new">@lang('translation.New')</span> <span key="t-jobs">@lang('translation.Jobs')</span></a></li>
-                    </ul>
+
                 </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span key="t-layouts">@lang('translation.Layouts')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-vertical">@lang('translation.Vertical')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-light-sidebar"
-                                        key="t-light-sidebar">@lang('translation.Light_Sidebar')</a></li>
-                                <li><a href="layouts-compact-sidebar"
-                                        key="t-compact-sidebar">@lang('translation.Compact_Sidebar')</a></li>
-                                <li><a href="layouts-icon-sidebar"
-                                        key="t-icon-sidebar">@lang('translation.Icon_Sidebar')</a></li>
-                                <li><a href="layouts-boxed" key="t-boxed-width">@lang('translation.Boxed_Width')</a>
-                                </li>
-                                <li><a href="layouts-preloader" key="t-preloader">@lang('translation.Preloader')</a>
-                                </li>
-                                <li><a href="layouts-colored-sidebar"
-                                        key="t-colored-sidebar">@lang('translation.Colored_Sidebar')</a></li>
-                                <li><a href="layouts-scrollable" key="t-scrollable">@lang('translation.Scrollable')</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-horizontal">@lang('translation.Horizontal')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal" key="t-horizontal">@lang('translation.Horizontal')</a>
-                                </li>
-                                <li><a href="layouts-hori-topbar-light"
-                                        key="t-topbar-light">@lang('translation.Topbar_Light')</a></li>
-                                <li><a href="layouts-hori-boxed-width"
-                                        key="t-boxed-width">@lang('translation.Boxed_Width')</a></li>
-                                <li><a href="layouts-hori-preloader"
-                                        key="t-preloader">@lang('translation.Preloader')</a></li>
-                                <li><a href="layouts-hori-colored-header"
-                                        key="t-colored-topbar">@lang('translation.Colored_Header')</a></li>
-                                <li><a href="layouts-hori-scrollable"
-                                        key="t-scrollable">@lang('translation.Scrollable')</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu-title" key="t-apps">@lang('translation.Apps')</li>
-
                 <li>
                     <a href="{{ route('users.index') }}" class="waves-effect">
-                        <i class="bx bx-calendar"></i>
-                        <span >المستخدمين</span>
+                        <i class="bx bx-user"></i>
+                        <span>المستخدمين</span>
                     </a>
-
                 </li>
-
+                <li>
+                    <a href="{{ route('users.index') }}" class="waves-effect">
+                        <i class="bx bx-briefcase-alt-2"></i>
+                        <span>المشاريع</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('users.index') }}" class="waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span>بيانات المستخدم</span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>
@@ -113,8 +64,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="ecommerce-products" key="t-products">@lang('translation.Products')</a></li>
-                        <li><a href="ecommerce-product-detail"
-                                key="t-product-detail">@lang('translation.Product_Detail')</a></li>
+                        <li><a href="ecommerce-product-detail" key="t-product-detail">@lang('translation.Product_Detail')</a></li>
                         <li><a href="ecommerce-orders" key="t-orders">@lang('translation.Orders')</a></li>
                         <li><a href="ecommerce-customers" key="t-customers">@lang('translation.Customers')</a></li>
                         <li><a href="ecommerce-cart" key="t-cart">@lang('translation.Cart')</a></li>
@@ -154,12 +104,9 @@
                                 <span key="t-email-templates">@lang('translation.Templates')</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="email-template-basic"
-                                        key="t-basic-action">@lang('translation.Basic_Action')</a></li>
-                                <li><a href="email-template-alert"
-                                        key="t-alert-email">@lang('translation.Alert_Email')</a></li>
-                                <li><a href="email-template-billing"
-                                        key="t-bill-email">@lang('translation.Billing_Email')</a></li>
+                                <li><a href="email-template-basic" key="t-basic-action">@lang('translation.Basic_Action')</a></li>
+                                <li><a href="email-template-alert" key="t-alert-email">@lang('translation.Alert_Email')</a></li>
+                                <li><a href="email-template-billing" key="t-bill-email">@lang('translation.Billing_Email')</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -229,9 +176,8 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end"
-                            key="t-new">@lang('translation.New')</span>
-                             <i class="bx bx-briefcase-alt"></i>
+                        <span class="badge rounded-pill bg-success float-end" key="t-new">@lang('translation.New')</span>
+                        <i class="bx bx-briefcase-alt"></i>
                         <span key="t-jobs">@lang('translation.Jobs')</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -272,14 +218,13 @@
                         <li><a href="auth-confirm-mail" key="t-confirm-mail">@lang('translation.Confirm_Mail')</a></li>
                         <li><a href="auth-confirm-mail-2" key="t-confirm-mail-2">@lang('translation.Confirm_Mail') 2</a>
                         </li>
-                        <li><a href="auth-email-verification"
-                                key="t-email-verification">@lang('translation.Email_verification')</a></li>
-                        <li><a href="auth-email-verification-2"
-                                key="t-email-verification-2">@lang('translation.Email_verification') 2</a></li>
-                        <li><a href="auth-two-step-verification"
-                                key="t-two-step-verification">@lang('translation.Two_step_verification')</a></li>
-                        <li><a href="auth-two-step-verification-2"
-                                key="t-two-step-verification-2">@lang('translation.Two_step_verification') 2</a></li>
+                        <li><a href="auth-email-verification" key="t-email-verification">@lang('translation.Email_verification')</a></li>
+                        <li><a href="auth-email-verification-2" key="t-email-verification-2">@lang('translation.Email_verification') 2</a>
+                        </li>
+                        <li><a href="auth-two-step-verification" key="t-two-step-verification">@lang('translation.Two_step_verification')</a>
+                        </li>
+                        <li><a href="auth-two-step-verification-2" key="t-two-step-verification-2">@lang('translation.Two_step_verification')
+                                2</a></li>
                     </ul>
                 </li>
 
@@ -331,7 +276,9 @@
                         <li><a href="ui-colors" key="t-colors">@lang('translation.Colors')</a></li>
                         <li><a href="ui-rating" key="t-rating">@lang('translation.Rating')</a></li>
                         <li><a href="ui-notifications" key="t-notifications">@lang('translation.Notifications')</a></li>
-                         <li><a href="ui-utilities"><span key="t-utilities">@lang('translation.Utilities')</span> <span class="badge rounded-pill bg-success float-end" key="t-new">@lang('translation.New')</span></a></li>
+                        <li><a href="ui-utilities"><span key="t-utilities">@lang('translation.Utilities')</span> <span
+                                    class="badge rounded-pill bg-success float-end"
+                                    key="t-new">@lang('translation.New')</span></a></li>
                     </ul>
                 </li>
 
@@ -364,8 +311,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="tables-basic" key="t-basic-tables">@lang('translation.Basic_Tables')</a></li>
                         <li><a href="tables-datatable" key="t-data-tables">@lang('translation.Data_Tables')</a></li>
-                        <li><a href="tables-responsive"
-                                key="t-responsive-table">@lang('translation.Responsive_Table')</a></li>
+                        <li><a href="tables-responsive" key="t-responsive-table">@lang('translation.Responsive_Table')</a></li>
                         <li><a href="tables-editable" key="t-editable-table">@lang('translation.Editable_Table')</a>
                         </li>
                     </ul>
@@ -383,8 +329,7 @@
                         <li><a href="charts-flot" key="t-flot-charts">@lang('translation.Flot_Charts')</a></li>
                         <li><a href="charts-tui" key="t-ui-charts">@lang('translation.Toast_UI_Charts')</a></li>
                         <li><a href="charts-knob" key="t-knob-charts">@lang('translation.Jquery_Knob_Charts')</a></li>
-                        <li><a href="charts-sparkline"
-                                key="t-sparkline-charts">@lang('translation.Sparkline_Charts')</a></li>
+                        <li><a href="charts-sparkline" key="t-sparkline-charts">@lang('translation.Sparkline_Charts')</a></li>
                     </ul>
                 </li>
 
@@ -395,8 +340,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="icons-boxicons" key="t-boxicons">@lang('translation.Boxicons')</a></li>
-                        <li><a href="icons-materialdesign"
-                                key="t-material-design">@lang('translation.Material_Design')</a></li>
+                        <li><a href="icons-materialdesign" key="t-material-design">@lang('translation.Material_Design')</a></li>
                         <li><a href="icons-dripicons" key="t-dripicons">@lang('translation.Dripicons')</a></li>
                         <li><a href="icons-fontawesome" key="t-font-awesome">@lang('translation.Font_awesome')</a></li>
                     </ul>

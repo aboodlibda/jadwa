@@ -32,6 +32,8 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 
 
 Route::resource('users',UsersController::class);
+Route::get('/get_users', [App\Http\Controllers\UsersController::class, 'get_users'])->name('get_users');
+
 Route::post('user/verify',[UsersController::class,'verify_user'])->name('verify_user');
 Route::post('user/active',[UsersController::class,'active_user'])->name('active_user');
 Route::post('user/deactivate',[UsersController::class,'deactivate_user'])->name('deactivate_user');

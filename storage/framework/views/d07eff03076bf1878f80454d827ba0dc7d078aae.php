@@ -150,23 +150,46 @@ unset($__errorArgs, $__bag); ?>
                             <div class="w-100">
                                 <div class="bg-overlay"></div>
                                 <div class="d-flex h-100 flex-column">
-
                                     <div class="p-4 mt-auto">
                                         <div class="row justify-content-center">
                                             <div class="col-lg-7">
                                                 <div class="text-center">
-                                                    <div dir="rtl">
+                                                    <div dir="ltr">
                                                         <div class="owl-carousel owl-theme auth-review-carousel"
                                                             id="auth-review-carousel">
                                                             <div class="item">
                                                                 <div class="py-3">
-                                                                    <p class="font-size-18 mb-4"></p>
-                                                                    <p class="font-size-16 mb-4">مهمتك هي إدخال البيانات وسيقوم النظام بالباقي بأي وقت</p>
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        التعديل</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">عدل ما تريد في أي وفت خلال فترة التعديل المسموحة وذلك خلال دقائق</h4>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="item">
                                                                 <div class="py-3">
-                                                                    <p class="font-size-18 mb-4" >جدوى كلاود تقدم حدماتها
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        السعر</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">سيقوم النظام بمساعدتك
+                                                                            وسيقوم بالتحليل المالي وتجهيز الدراسة</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">سهل وبسيط</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">جدوى كلاود تقدم خدماتها
+                                                                            بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك
+                                                                            وبأقل
+                                                                            أسعار</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى كلاود تقدم خدماتها
                                                                         بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك وبأقل
                                                                         أسعار</p>
                                                                 </div>
