@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo e(route('users.index')); ?>" class="waves-effect">
+                    <a href="<?php echo e(route('projects.index')); ?>" class="waves-effect">
                         <i class="bx bx-briefcase-alt-2"></i>
                         <span>المشاريع</span>
                     </a>

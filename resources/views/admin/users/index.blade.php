@@ -40,7 +40,7 @@
                         <div class="col-sm-8">
                             <div class="text-sm-end">
                                 <a href="{{ route('users.create') }}"
-                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"> إضافة مستخدم
+                                    class="btn btn-warning btn-rounded waves-effect waves-light mb-2 me-2"> إضافة مستخدم
                                     جديد <i class="mdi mdi-plus me-1"></i></a>
                             </div>
                         </div><!-- end col-->

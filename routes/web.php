@@ -32,15 +32,15 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 
 
 
-Route::resource('users',UsersController::class);
-Route::get('/get_users', [App\Http\Controllers\UsersController::class, 'get_users'])->name('get_users');
+Route::resource('users',UsersController::class)->middleware('auth');
+Route::get('/get_users', [App\Http\Controllers\UsersController::class, 'get_users'])->name('get_users')->middleware('auth');
 
-Route::post('user/verify',[UsersController::class,'verify_user'])->name('verify_user');
-Route::post('user/active',[UsersController::class,'active_user'])->name('active_user');
-Route::post('user/deactivate',[UsersController::class,'deactivate_user'])->name('deactivate_user');
-Route::post('user/search',[UsersController::class,'search_user'])->name('search_user');
+Route::post('user/verify',[UsersController::class,'verify_user'])->name('verify_user')->middleware('auth');
+Route::post('user/active',[UsersController::class,'active_user'])->name('active_user')->middleware('auth');
+Route::post('user/deactivate',[UsersController::class,'deactivate_user'])->name('deactivate_user')->middleware('auth');
+Route::post('user/search',[UsersController::class,'search_user'])->name('search_user')->middleware('auth');
 
 
 
-Route::resource('projects',ProjectController::class);
-Route::get('/get_projects', [App\Http\Controllers\ProjectController::class, 'get_projects'])->name('get_projects');
+Route::resource('projects',ProjectController::class)->middleware('auth');
+Route::get('/get_projects', [App\Http\Controllers\ProjectController::class, 'get_projects'])->name('get_projects')->middleware('auth');
