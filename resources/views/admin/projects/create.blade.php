@@ -490,12 +490,12 @@
                                                         <input name="problem" type="text" class="inner form-control"
                                                             placeholder="ادخل المشكلة" />
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
 
                                             </div>
@@ -508,12 +508,12 @@
                                                         <input type="text" name="solution" class="inner form-control"
                                                             placeholder="ادخل الحل" />
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -587,16 +587,18 @@
                                                 <label>قنوات البيع</label>
                                                 <div data-repeater-item class="inner mb-3 row">
                                                     <div class="col-md-8 col-8">
-                                                        <select class="form-control select2">
+                                                        <input type="text" name="channel" class="form-control" id="verticalnav-cstno-input"
+                                                        placeholder="قنوات البيع">
+                                                        {{-- <select class="form-control select2">
                                                             <option>Select</option>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -605,16 +607,18 @@
                                                 <label>قنوات التسويق</label>
                                                 <div data-repeater-item class="inner mb-3 row">
                                                     <div class="col-md-8 col-8">
-                                                        <select class="form-control select2">
+                                                        <input type="text" name="channel_seo" class="form-control" id="verticalnav-cstno-input"
+                                                        placeholder="قنوات التسويق ">
+                                                        {{-- <select class="form-control select2">
                                                             <option>Select</option>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -633,8 +637,10 @@
                                             <div class="mb-3">
                                                 <label>حدد معيار المنافسة الأول </label>
                                                 <div class="col-md-8 col-8">
-                                                    <select class="form-control select2">
-                                                        <option>Select</option>
+                                                    <select class="form-control select2" name="standard_one">
+                                                        <option>السعر</option>
+                                                        <option>وقت التسليم</option>
+                                                        <option>الجودة</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -643,8 +649,10 @@
                                             <div class="mb-3">
                                                 <label>حدد معيار المنافسة الثاني </label>
                                                 <div class="col-md-8 col-8">
-                                                    <select class="form-control select2">
-                                                        <option>Select</option>
+                                                    <select class="form-control select2" name="standard_tow">
+                                                        <option>السعر</option>
+                                                        <option>وقت التسليم</option>
+                                                        <option>الجودة</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -692,20 +700,20 @@
                                                         <input type="text" name="goals" class="inner form-control"
                                                             placeholder="قم بكتابة الهدف" />
                                                     </div>
-                                                    <div class="col-md-2 col-2">
+                                                    {{-- <div class="col-md-2 col-2">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner"  value="حذف" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div data-repeater-item class="inner mb-3 row">
-                                                    <div class="col-md-10 col-10">
-                                                        <input type="text" class="inner form-control"
+                                                    {{-- <div class="col-md-10 col-10">
+                                                        <input type="text"  class="inner form-control"
                                                             placeholder="قم بكتابة المشكلة" />
-                                                    </div>
-                                                    <div class="col-md-2 col-2">
+                                                    </div> --}}
+                                                    {{-- <div class="col-md-2 col-2">
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -725,16 +733,18 @@
                                                 <label>مصادر الايرادات</label>
                                                 <div data-repeater-item class="inner mb-3 row">
                                                     <div class="col-md-8 col-8">
-                                                        <select class="form-control select2">
+                                                        <input type="text" name="revenue_sources" class="form-control" id="verticalnav-cstno-input"
+                                                        placeholder="مصادر الايرادات">
+                                                        {{-- <select class="form-control select2">
                                                             <option>Select</option>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -743,16 +753,18 @@
                                                 <label>هيكل التكاليف</label>
                                                 <div data-repeater-item class="inner mb-3 row">
                                                     <div class="col-md-8 col-8">
-                                                        <select class="form-control select2">
+                                                        <input type="text" name="cost_structure" class="form-control" id="verticalnav-cstno-input"
+                                                        placeholder="هيكل التكاليف">
+                                                        {{-- <select class="form-control select2">
                                                             <option>Select</option>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -761,16 +773,18 @@
                                                 <label>الأنشطة الرئيسية</label>
                                                 <div data-repeater-item class="inner mb-3 row">
                                                     <div class="col-md-8 col-8">
-                                                        <select class="form-control select2">
+                                                        <input type="text" name="main_activities" class="form-control" id="verticalnav-cstno-input"
+                                                        placeholder="الانشطة الرئيسية">
+                                                        {{-- <select class="form-control select2">
                                                             <option>Select</option>
-                                                        </select>
+                                                        </select> --}}
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -858,12 +872,12 @@
                                                         <input type="text" class="inner form-control"
                                                             placeholder="اسم الخدمة" />
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -875,12 +889,12 @@
                                                         <input type="text" class="inner form-control"
                                                             placeholder="وصف الخدمة" />
                                                     </div>
-                                                    <div class="col-md-4 col-4">
+                                                    {{-- <div class="col-md-4 col-4">
                                                         <input data-repeater-delete type="button"
                                                             class="btn btn-danger inner" value="حذف" />
                                                         <input data-repeater-create type="button"
                                                             class="btn btn-warning inner" value="اضافة" />
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
