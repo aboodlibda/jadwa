@@ -1,13 +1,13 @@
-@extends('layouts.master')
 
-@section('title') @lang('translation.Form_Elements') @endsection
 
-@section('content')
+<?php $__env->startSection('title'); ?> <?php echo app('translator')->get('translation.Form_Elements'); ?> <?php $__env->stopSection(); ?>
 
-@component('components.breadcrumb')
-@slot('li_1') Forms @endslot
-@slot('title') Form Elements @endslot
-@endcomponent
+<?php $__env->startSection('content'); ?>
+
+<?php $__env->startComponent('components.breadcrumb'); ?>
+<?php $__env->slot('li_1'); ?> Forms <?php $__env->endSlot(); ?>
+<?php $__env->slot('title'); ?> Form Elements <?php $__env->endSlot(); ?>
+<?php echo $__env->renderComponent(); ?>
 
 <div class="row">
     <div class="col-12">
@@ -679,7 +679,5 @@
 </div>
 <!-- end row -->
 
-@endsection
-
-
-
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\hp\Documents\GitHub\jadwa\resources\views/form-elements.blade.php ENDPATH**/ ?>

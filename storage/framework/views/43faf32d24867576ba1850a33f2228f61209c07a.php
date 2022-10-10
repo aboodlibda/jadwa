@@ -1,13 +1,13 @@
-@extends('layouts.master')
 
-@section('title') {{'إنشاء مستخدم'}} @endsection
 
-@section('content')
+<?php $__env->startSection('title'); ?> <?php echo e('إنشاء مستخدم'); ?> <?php $__env->stopSection(); ?>
 
-    @component('components.breadcrumb')
-        @slot('li_1') المستخدمين @endslot
-        @slot('title') إنشاء مستخدم @endslot
-    @endcomponent
+<?php $__env->startSection('content'); ?>
+
+    <?php $__env->startComponent('components.breadcrumb'); ?>
+        <?php $__env->slot('li_1'); ?> المستخدمين <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?> إنشاء مستخدم <?php $__env->endSlot(); ?>
+    <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
         <div class="col-xl-12">
@@ -15,43 +15,85 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">قم بإدخال بيانات المستخدم</h4>
 
-                    <form action="{{ route('users.store') }}" method="POST">
-                        @csrf
+                    <form action="<?php echo e(route('users.store')); ?>" method="POST">
+                        <?php echo csrf_field(); ?>
                         <div class="row">
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-firstname-input" class="form-label">الإسم</label>
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
-                                    @error('name')
+                                    <input type="text" name="name" class="form-control <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('name')); ?>" id="formrow-firstname-input" placeholder="قم بإدخال الاسم">
+                                    <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                     <strong>{{ $message }}</strong>
+                                     <strong><?php echo e($message); ?></strong>
                                      </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">البريد الإلكتروني</label>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
-                                    @error('email')
+                                    <input type="email" name="email" class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('email')); ?>" id="formrow-email-input" placeholder="قم بإدخال البريد الإلكتروني">
+                                    <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="formrow-email-input" class="form-label">رقم الجوال</label>
-                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control @error('phone') value="{{old('phone')}}" is-invalid @enderror" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
-                                    @error('phone')
+                                    <input type="text" name="phone" onkeypress="return isNumber(event)" class="form-control <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> value="<?php echo e(old('phone')); ?>" is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="formrow-email-input" placeholder="قم بإدخال رقم الجوال">
+                                    <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                    @enderror
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
 
@@ -324,7 +366,14 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="city" class="form-label">المدينة</label>
-                                    <input type="text" name="city" class="form-control @error('city') is-invalid @enderror" value="{{old('city')}}" id="city" placeholder="قم بإدخال المدينة">
+                                    <input type="text" name="city" class="form-control <?php $__errorArgs = ['city'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('city')); ?>" id="city" placeholder="قم بإدخال المدينة">
 
                                     </select>
                                 </div>
@@ -333,7 +382,8 @@
                             <div class="col-lg-4">
                                 <div class="mb-3">
                                     <label for="address" class="form-label">العنوان</label>
-                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1">{{old('address')}}
+                                    <textarea type="text" name="address" class="form-control" id="address" maxlength="200" rows="1"><?php echo e(old('address')); ?>
+
                                     </textarea>
                                 </div>
                             </div>
@@ -345,26 +395,54 @@
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="userpassword" class="form-label">كلمة المرور</label>
-                                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
+                                        <input type="password" class="form-control <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="userpassword" name="password"
                                                placeholder="قم بإدخال كلمة المرور" autofocus required>
-                                        @error('password')
+                                        <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                        @enderror
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="mb-3">
                                         <label for="confirmpassword" class="form-label">تأكيد كلمة المرور</label>
-                                        <input type="password" class="form-control  @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
+                                        <input type="password" class="form-control  <?php $__errorArgs = ['password_confirmation'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="confirmpassword"
                                                name="password_confirmation" placeholder="قم بتأكيد كلمة المرور" autofocus required>
-                                        @error('password_confirmation')
+                                        <?php $__errorArgs = ['password_confirmation'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                         <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
+                                                            <strong><?php echo e($message); ?></strong>
                                                         </span>
-                                        @enderror
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
 
@@ -433,4 +511,6 @@
         return true;
     }
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\hp\Documents\GitHub\jadwa\resources\views/admin/users/create.blade.php ENDPATH**/ ?>

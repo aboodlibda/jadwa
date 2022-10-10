@@ -41,6 +41,7 @@
                     </div>
 
                     <div class="table-responsive">
+<<<<<<< Updated upstream
                         <table class="table align-middle table-nowrap table-check">
                             <thead class="table-light">
                             <tr>
@@ -95,6 +96,23 @@
                                 </tbody>
                             @endforeach
                         </table>
+=======
+                        <table class="table" id="table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: right">#</th>
+                                    <th style="text-align: right">الاسم</th>
+                                    <th style="text-align: right">البريد الإلكتروني</th>
+                                    <th style="text-align: right">رقم الجوال</th>
+                                    <th style="text-align: right">المنطقة</th>
+                                    <th style="text-align: right">الحالة</th>
+                                    <th style="text-align: right">العمليات</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    
+>>>>>>> Stashed changes
                     </div>
 
                     <ul class="pagination pagination-rounded justify-content-center mb-2">

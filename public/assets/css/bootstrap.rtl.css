@@ -1905,7 +1905,7 @@ progress {
     --bs-table-hover-bg: #f8f9fa;
     width: 100%;
     margin-bottom: 1rem;
-    color: #495057;
+    color: #F9AA1C;
     vertical-align: top;
     border-color: #eff2f7;
 }
@@ -3116,8 +3116,13 @@ fieldset:disabled .btn {
 }
 .btn-success {
     color: #fff;
+<<<<<<< Updated upstream
     background-color: #f1b44c;
     /* border-color: #34c38f; */
+=======
+    background-color: #F9AA1C;
+    border-color: #F9AA1C;
+>>>>>>> Stashed changes
 }
 .btn-check:focus + .btn-success,
 .btn-success:focus,

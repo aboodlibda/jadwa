@@ -32,7 +32,11 @@
                         <span>بيانات المستخدم</span>
                     </a>
                 </li>
+<<<<<<< Updated upstream
 
+=======
+                
+>>>>>>> Stashed changes
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>

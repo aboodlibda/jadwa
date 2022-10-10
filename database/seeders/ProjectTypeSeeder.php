@@ -15,18 +15,30 @@ class ProjectTypeSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< Updated upstream
         
+=======
+       
+>>>>>>> Stashed changes
         ProjectType::query()->create([
             'title' => 'صناعي',
           
         ]);
         ProjectType::query()->create([
+<<<<<<< Updated upstream
             'title' => 'تجاري',
+=======
+            'title' => 'تحاري',
+>>>>>>> Stashed changes
           
         ]);
         ProjectType::query()->create([
             'title' => 'تعليمي',
           
         ]);
+<<<<<<< Updated upstream
+=======
+   
+>>>>>>> Stashed changes
     }
 }

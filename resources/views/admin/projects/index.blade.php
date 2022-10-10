@@ -20,13 +20,23 @@
                                 <div class="position-relative">
                                         @csrf
                                         @method('POST')
+<<<<<<< Updated upstream
                                         <input type="text" name="query" class="form-control" placeholder=" ابحث عن المشروع">
+=======
+                                        <input type="text" name="query" class="form-control"
+                                            placeholder="ابحث عن مشروع">
+>>>>>>> Stashed changes
                                         <i class="bx bx-search-alt search-icon"></i>
 
                                 </div>
+<<<<<<< Updated upstream
 
                             </div>
                         
+=======
+                                {{-- <button type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light"> بحث
+                                    <i class="bx bx-search-alt search-icon me-1"></i></button> --}}
+>>>>>>> Stashed changes
                             </form>
                         </div>
 
@@ -113,9 +123,15 @@
                     <!--end::Close-->
                 </div>
 
+<<<<<<< Updated upstream
                 <form id="del_event" action="{{ route('projects.destroy', $project) }}" method="post"style="display: inline;">
                     {!! method_field('delete') !!}
                     {{ csrf_field() }}
+=======
+                <form action="projects/destroy" method="POST">.
+                    @method('DELETE')
+                    @csrf
+>>>>>>> Stashed changes
                     <div class="modal-body">
                         <p>هل أنت متأكد من عملية الحذف ؟</p>
                         <input type="hidden" id="id" name="id">

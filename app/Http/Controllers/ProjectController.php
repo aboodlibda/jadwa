@@ -6,6 +6,7 @@ use App\Models\admin\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\ProjectType;
+<<<<<<< Updated upstream
 use App\Models\SystemServices;
 use App\Models\User;
 use Carbon\Carbon;
@@ -13,6 +14,10 @@ use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
+=======
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> Stashed changes
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 
@@ -59,13 +64,18 @@ class ProjectController extends Controller
     {
         $user=User::where('type','client')->get();
         $protype = ProjectType::all();
+<<<<<<< Updated upstream
 
+=======
+      
+>>>>>>> Stashed changes
         return view('admin.projects.create',compact('user' , 'protype'));
     }
 
    
     public function store(StoreProjectRequest $request)
     {
+<<<<<<< Updated upstream
 
         $user_id = auth()->user()->id;
         $data =$request->validated();
@@ -80,6 +90,24 @@ class ProjectController extends Controller
       
           $project = Project::create($data);
                $project->save();
+=======
+        // $validated = $request->validated();
+dd('ff');
+        
+        $request->created_by = Auth::user()->id;
+        $protype = ProjectType::find($request->project_type_id);
+        $request->projectType()->associate($protype);
+        $data =$request->validated()->all();
+        if($request->file('logo')){
+            $file = $request->file('logo');
+            $filename = date('Ymdhi').$file->getClientOriginalName();
+            $file->move(public_path('upload/logo/'),$filename);
+            $project['logo'] = $filename;
+           }
+           $project = Project::create($data);
+
+           $project->save();
+>>>>>>> Stashed changes
            return redirect()->route('projects.index');
         }
 
@@ -91,6 +119,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+<<<<<<< Updated upstream
     //    $dates= $project->development_duration+$project->start_date; 
   
     $date = new DateTime($project->start_date);
@@ -111,6 +140,9 @@ class ProjectController extends Controller
         $services = SystemServices::where('status','active')->get();
   
        return view('admin.projects.show',compact('project','services','dateStartOper','year','numofday','numofmonth'));
+=======
+ 
+>>>>>>> Stashed changes
     }
 
     /**

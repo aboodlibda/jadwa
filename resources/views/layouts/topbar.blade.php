@@ -27,20 +27,280 @@
             </button>
 
            <!-- App Search-->
-           <form class="app-search d-none d-lg-block">
+           {{-- <form class="app-search d-none d-lg-block">
             <div class="position-relative">
                 <input type="text" class="form-control" placeholder="@lang('translation.Search')">
                 <span class="bx bx-search-alt"></span>
             </div>
-        </form>
+        </form> --}}
 
+<<<<<<< Updated upstream
       
+=======
+        <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+            {{-- <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                <span key="t-megamenu">@lang('translation.Mega_Menu')</span>
+                <i class="mdi mdi-chevron-down"></i>
+            </button> --}}
+            {{-- <div class="dropdown-menu dropdown-megamenu">
+                <div class="row">
+                    <div class="col-sm-8">
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5 class="font-size-14 mt-0" key="t-ui-components">@lang('translation.UI_Components')</h5>
+                                <ul class="list-unstyled megamenu-list">
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-lightbox">@lang('translation.Lightbox')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-range-slider">@lang('translation.Range_Slider')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-sweet-alert">@lang('translation.Sweet_Alert')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-rating">@lang('translation.Rating')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-forms">@lang('translation.Forms')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-tables">@lang('translation.Tables')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-charts">@lang('translation.Charts')</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h5 class="font-size-14 mt-0" key="t-applications">@lang('translation.Applications')</h5>
+                                <ul class="list-unstyled megamenu-list">
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-ecommerce">@lang('translation.Ecommerce')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-calendar">@lang('translation.Calendars')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-email">@lang('translation.Email')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-projects">@lang('translation.Projects')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-tasks">@lang('translation.Tasks')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-contacts">@lang('translation.Contacts')</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h5 class="font-size-14 mt-0" key="t-extra-pages">@lang('translation.Extra_Pages')</h5>
+                                <ul class="list-unstyled megamenu-list">
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-light-sidebar">@lang('translation.Light_Sidebar')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-compact-sidebar">@lang('translation.Compact_Sidebar')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-horizontal">@lang('translation.Horizontal_layout')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-maintenance">@lang('translation.Maintenance')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-coming-soon">@lang('translation.Coming_Soon')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-timeline">@lang('translation.Timeline')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-faqs">@lang('translation.FAQs')</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="font-size-14 mt-0" key="t-ui-components">@lang('translation.UI_Components')</h5>
+                                <ul class="list-unstyled megamenu-list">
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-lightbox">@lang('translation.Lightbox')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-range-slider">@lang('translation.Range_Slider')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-sweet-alert">@lang('translation.Sweet_Alert')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-rating">@lang('translation.Rating')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-forms">@lang('translation.Forms')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-tables">@lang('translation.Tables')</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" key="t-charts">@lang('translation.Charts')</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <div>
+                                    <img src="{{ URL::asset ('/assets/images/megamenu-img.png') }}" alt="" class="img-fluid mx-auto d-block">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div> --}}
+        </div>
+>>>>>>> Stashed changes
     </div>
 
     <div class="d-flex">
 
+<<<<<<< Updated upstream
        
      
+=======
+        {{-- <div class="dropdown d-inline-block d-lg-none ms-2">
+            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="mdi mdi-magnify"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                aria-labelledby="page-header-search-dropdown">
+
+                <form class="p-3">
+                    <div class="form-group m-0">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="@lang('translation.Search')" aria-label="Search input">
+
+                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> --}}
+
+        {{-- <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item waves-effect"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @switch(Session::get('lang'))
+                    @case('ru')
+                        <img src="{{ URL::asset('/assets/images/flags/russia.jpg')}}" alt="Header Language" height="16">
+                    @break
+                    @case('it')
+                        <img src="{{ URL::asset('/assets/images/flags/italy.jpg')}}" alt="Header Language" height="16">
+                    @break
+                    @case('de')
+                        <img src="{{ URL::asset('/assets/images/flags/germany.jpg')}}" alt="Header Language" height="16">
+                    @break
+                    @case('es')
+                        <img src="{{ URL::asset('/assets/images/flags/spain.jpg')}}" alt="Header Language" height="16">
+                    @break
+                    @default
+                        <img src="{{ URL::asset('/assets/images/flags/us.jpg')}}" alt="Header Language" height="16">
+                @endswitch
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+
+                <!-- item-->
+                <a href="{{ url('index/en') }}" class="dropdown-item notify-item language" data-lang="eng">
+                    <img src="{{ URL::asset ('/assets/images/flags/us.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                </a>
+                <!-- item-->
+                <a href="{{ url('index/es') }}" class="dropdown-item notify-item language" data-lang="sp">
+                    <img src="{{ URL::asset ('/assets/images/flags/spain.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                </a>
+
+                <!-- item-->
+                <a href="{{ url('index/de') }}" class="dropdown-item notify-item language" data-lang="gr">
+                    <img src="{{ URL::asset ('/assets/images/flags/germany.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                </a>
+
+                <!-- item-->
+                <a href="{{ url('index/it') }}" class="dropdown-item notify-item language" data-lang="it">
+                    <img src="{{ URL::asset ('/assets/images/flags/italy.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                </a>
+
+                <!-- item-->
+                <a href="{{ url('index/ru') }}" class="dropdown-item notify-item language" data-lang="ru">
+                    <img src="{{ URL::asset ('/assets/images/flags/russia.jpg') }}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                </a>
+            </div>
+        </div> --}}
+
+        {{-- <div class="dropdown d-none d-lg-inline-block ms-1">
+            <button type="button" class="btn header-item noti-icon waves-effect"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bx bx-customize"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                <div class="px-lg-2">
+                    <div class="row g-0">
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/github.png') }}" alt="Github">
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/bitbucket.png') }}" alt="bitbucket">
+                                <span>Bitbucket</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/dribbble.png') }}" alt="dribbble">
+                                <span>Dribbble</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row g-0">
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/dropbox.png') }}" alt="dropbox">
+                                <span>Dropbox</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/mail_chimp.png') }}" alt="mail_chimp">
+                                <span>Mail Chimp</span>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a class="dropdown-icon-item" href="#">
+                                <img src="{{ URL::asset ('/assets/images/brands/slack.png') }}" alt="slack">
+                                <span>Slack</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown d-none d-lg-inline-block ms-1">
+            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                <i class="bx bx-fullscreen"></i>
+            </button>
+        </div> --}}
+>>>>>>> Stashed changes
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -131,7 +391,13 @@
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< Updated upstream
               
+=======
+                {{-- <img class="rounded-circle header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/assets/images/users/avatar-1.jpg') }}"
+                    alt="Header Avatar"> --}}
+                    {{-- {{ucfirst(Auth::user()->name)}} --}}
+>>>>>>> Stashed changes
                 <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->name)}}</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>
@@ -148,7 +414,15 @@
                 </form>
             </div>
         </div>
+<<<<<<< Updated upstream
       
+=======
+        {{-- <div class="dropdown d-inline-block">
+            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                <i class="bx bx-cog bx-spin"></i>
+            </button>
+        </div> --}}
+>>>>>>> Stashed changes
     </div>
 </div>
 </header>

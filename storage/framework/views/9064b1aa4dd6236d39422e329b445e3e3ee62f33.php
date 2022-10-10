@@ -4,6 +4,10 @@
 <script src="<?php echo e(URL::asset('/assets/libs/metismenu/metismenu.min.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/libs/simplebar/simplebar.min.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/libs/node-waves/node-waves.min.js')); ?>"></script>
+    <!-- init js -->
+    <script src="<?php echo e(URL::asset('/assets/js/pages/form-editor.init.js')); ?>"></script>
+     <!--tinymce js-->
+     <script src="<?php echo e(URL::asset('/assets/libs/tinymce/tinymce.min.js')); ?>"></script>
 <script>
     $('#change-password').on('submit',function(event){
         event.preventDefault();

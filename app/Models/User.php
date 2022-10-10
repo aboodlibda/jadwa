@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\admin\Project;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -49,7 +50,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     public function projects(){
         return $this->hasMany(Project::class , "user_id" , 'id');
     }
 }
+
+
+

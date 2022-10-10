@@ -11,6 +11,7 @@ class ProjectType extends Model
     use HasFactory;
 
     protected $guraded = [];
+<<<<<<< Updated upstream
     protected $fillable =['title','status'];
       public function projects(){
         return $this->hasMany(Project::class );
@@ -19,4 +20,10 @@ class ProjectType extends Model
     public function projectResource(){
       return $this->hasMany(ProjectBpChannelResource::class );
   }
+=======
+
+      public function projects(){
+        return $this->hasMany(Project::class);
+    }
+>>>>>>> Stashed changes
 }

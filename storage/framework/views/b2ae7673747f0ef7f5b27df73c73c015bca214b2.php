@@ -27,20 +27,30 @@
             </button>
 
            <!-- App Search-->
-           <form class="app-search d-none d-lg-block">
-            <div class="position-relative">
-                <input type="text" class="form-control" placeholder="<?php echo app('translator')->get('translation.Search'); ?>">
-                <span class="bx bx-search-alt"></span>
-            </div>
-        </form>
+           
 
+<<<<<<< Updated upstream
       
+=======
+        <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+            
+            
+        </div>
+>>>>>>> Stashed changes
     </div>
 
     <div class="d-flex">
 
+<<<<<<< Updated upstream
        
      
+=======
+        
+
+        
+
+        
+>>>>>>> Stashed changes
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -131,7 +141,12 @@
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<<<<<<< Updated upstream
               
+=======
+                
+                    
+>>>>>>> Stashed changes
                 <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?php echo e(ucfirst(Auth::user()->name)); ?></span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>
@@ -148,7 +163,11 @@
                 </form>
             </div>
         </div>
+<<<<<<< Updated upstream
       
+=======
+        
+>>>>>>> Stashed changes
     </div>
 </div>
 </header>
