@@ -1,13 +1,13 @@
 
 @extends('layouts.master')
 
-@section('title') قنوات البيع @endsection
+@section('title')  قنوات التسويق @endsection
 
 @section('content')
 
     @component('components.breadcrumb')
         @slot('li_1')  @endslot
-        @slot('title') قنوات البيع@endslot
+        @slot('title') قنوات التسويق@endslot
     @endcomponent
 
     <div class="row">
@@ -34,7 +34,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" action="{{ route('projBpChanlRes.store') }}">
+                                                        <form method="POST" action="{{ route('marktchanl.store') }}">
                                                             @csrf
                                                            
                                                             <div class="mb-3">
@@ -44,7 +44,7 @@
 
                                                             
                                                                 <div class="mb-3">
-                                                                    <label for="project_type_id" class="form-label">project_type_id</label>
+                                                                    <label for="project_type_id" class="form-label">نوع المشروع</label>
                                                                     <!-- All countries -->
                                                                     <select id="project_type_id" class="form-select" name="project_type_id">
                                                                         <option selected disabled hidden>-- إختر --</option>
@@ -54,7 +54,7 @@
                                                                     </select>
                                                                 </div>
 
-                                                           <input type="text" name="type" class="form-control" id="type" value="{{'sale_channel'}}">
+                                                           <input type="text" name="type" class="form-control" id="type" value="{{'marketing_channel'}}">
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -69,8 +69,8 @@
                             </div>
                         </div><!-- end col-->
                     </div>
-                    @if (isset($projBpChanlRes))
-                    @if($projBpChanlRes->count() > 0)
+                    @if (isset($markchanl))
+                    @if($markchanl->count() > 0)
 
                     <div class="table-responsive">
                         <table class="table align-middle table-nowrap table-check">
@@ -82,7 +82,7 @@
                                 <th class="align-middle">العمليات</th>
                             </tr>
                             </thead>
-                            @foreach($projBpChanlRes as $key => $item)
+                            @foreach($markchanl as $key => $item)
                                 <tbody>
                                 <tr>
                                     <td>{{$key+1}}</td>
@@ -120,7 +120,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                   <form method="POST" action="projBpChanlRes/{projBpChanlRe}" id="editModal">
+                                   <form method="POST" action="marktchanl/{marktchanl}" id="editModal">
                                         @csrf
                                         @method('put')
                                         <input type="hidden" id="id" name="id">
@@ -196,7 +196,7 @@
                 }).then(function(status) {
                     if (status.value) {
                         $.ajax({
-                            url: '{{ url('projBpChanlRes/{projBpChanlRe}') }}',
+                            url: '{{ url('marktchanl/{marktchanl}') }}',
                             type: 'Delete',
                             data: {
                                 'id': id,

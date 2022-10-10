@@ -6,6 +6,7 @@ use App\Models\ProjectBpChannelResource;
 use App\Http\Requests\StoreProjectBpChannelResourceRequest;
 use App\Http\Requests\UpdateProjectBpChannelResourceRequest;
 use App\Models\ProjectType;
+use Illuminate\Http\Request;
 
 class ProjectBpChannelResourceController extends Controller
 {
@@ -18,7 +19,8 @@ class ProjectBpChannelResourceController extends Controller
     {
         $protype = ProjectType::all();
 
-       $projBpChanlRes=ProjectBpChannelResource::all();
+       $projBpChanlRes=ProjectBpChannelResource::where('type','sale_channel')->get();
+       
        return view('admin.projrctBpChanelRes.index',compact('projBpChanlRes','protype'));
     }
 
@@ -42,9 +44,9 @@ class ProjectBpChannelResourceController extends Controller
     {
         $data =$request->validated();
 
-        $pages = ProjectBpChannelResource::query()->create($data);
+        $projBpChanlRes = ProjectBpChannelResource::query()->create($data);
 
-        if ($pages) {
+        if ($projBpChanlRes) {
             return  redirect()->route('projBpChanlRes.index')->with('success', 'تم إنشاءالصفحة بنجاح');
         }
         else {
@@ -81,9 +83,18 @@ class ProjectBpChannelResourceController extends Controller
      * @param  \App\Models\ProjectBpChannelResource  $projectBpChannelResource
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProjectBpChannelResourceRequest $request, ProjectBpChannelResource $projectBpChannelResource)
+    public function update(Request $request, ProjectBpChannelResource $projectBpChannelResource)
     {
-        //
+        // dd($request->id);
+        $request->validate([
+            'title' => 'required',
+            'project_type_id' => 'required',
+         
+        ]);
+     $projBpChanlRes=   ProjectBpChannelResource::findOrFail($request->id);
+        $projBpChanlRes->update($request->all());
+                  return redirect()->route('projBpChanlRes.index')->with('success', 'تم التعديل على بيانات  بنجاح');
+
     }
 
     /**
@@ -92,8 +103,10 @@ class ProjectBpChannelResourceController extends Controller
      * @param  \App\Models\ProjectBpChannelResource  $projectBpChannelResource
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProjectBpChannelResource $projectBpChannelResource)
+    public function destroy(Request $request)
     {
-        //
+        $projBpChanlRes = ProjectBpChannelResource::findOrFail($request->id);
+        $projBpChanlRes->delete();
+        return response()->json(true, 200);
     }
 }

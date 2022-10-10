@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdministExpenController;
+use App\Http\Controllers\MarketingChannelController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProjectBpChannelResourceController;
 use App\Http\Controllers\ProjectController;
@@ -66,3 +67,4 @@ Route::resource('projectype',ProjectTypeController::class)->middleware('auth');
 Route::resource('adminstExp',AdministExpenController::class)->middleware('auth');
 
 Route::resource('projBpChanlRes',ProjectBpChannelResourceController::class)->middleware('auth');
+Route::resource('marktchanl',MarketingChannelController::class)->middleware('auth');

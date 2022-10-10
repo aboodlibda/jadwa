@@ -81,7 +81,7 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('projectype.index') }}" key="t-tui-calendar">أنواع المشاريع</a></li>
                         <li><a href="{{ route('projBpChanlRes.index') }}" key="t-full-calendar">قنوات البيع</a></li>
-                        <li><a href="calendar-full" key="t-full-calendar">قنوات التسويق</a></li>
+                        <li><a href="{{ route('marktchanl.index') }}" key="t-full-calendar">قنوات التسويق</a></li>
                         <li><a href="calendar-full" key="t-full-calendar"> مصادر الايرادات</a></li>
                         <li><a href="calendar-full" key="t-full-calendar"> هيكل التكاليف </a></li>
                         <li><a href="calendar-full" key="t-full-calendar"> الأنشطة الرئيسية  </a></li>

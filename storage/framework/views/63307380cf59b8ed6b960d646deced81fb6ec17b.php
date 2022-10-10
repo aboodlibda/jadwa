@@ -1,13 +1,13 @@
 
 
 
-<?php $__env->startSection('title'); ?> قنوات البيع <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> أنواع المشاريع  <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 
     <?php $__env->startComponent('components.breadcrumb'); ?>
-        <?php $__env->slot('li_1'); ?>  <?php $__env->endSlot(); ?>
-        <?php $__env->slot('title'); ?> قنوات البيع<?php $__env->endSlot(); ?>
+        <?php $__env->slot('li_1'); ?> المشاريع <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?>  أنواع المشاريع <?php $__env->endSlot(); ?>
     <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
@@ -23,7 +23,7 @@
                             <div class="text-sm-end">
                                 
 
-                                        <button type="button" class="btn btn-success  waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">اضافة جديد</button>
+                                        <button type="button" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">اضافة جديد</button>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -32,28 +32,25 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" action="<?php echo e(route('projBpChanlRes.store')); ?>">
+                                                        <form method="POST" action="<?php echo e(route('projectype.store')); ?>">
                                                             <?php echo csrf_field(); ?>
-                                                           
+                                                          
                                                             <div class="mb-3">
-                                                                <label for="title" class="col-form-label">البند</label>
+                                                                <label for="title" class="col-form-label">العنوان</label>
                                                                 <input type="text" name="title" class="form-control" id="title" value="<?php echo e(old('title')); ?>">
                                                             </div>
 
-                                                            
-                                                                <div class="mb-3">
-                                                                    <label for="project_type_id" class="form-label">project_type_id</label>
-                                                                    <!-- All countries -->
-                                                                    <select id="project_type_id" class="form-select" name="project_type_id">
-                                                                        <option selected disabled hidden>-- إختر --</option>
-                                                                        <?php $__currentLoopData = $protype; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                        <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
-                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                    </select>
-                                                                </div>
-
-                                                           <input type="text" name="type" class="form-control" id="type" value="<?php echo e('sale_channel'); ?>">
-
+                                                            <div class="mb-3">
+                                                              
+                                                                <div class="form-check">
+                                                                    <label class="form-label" for="gridCheck">الحالة :</label>
+                                                                    <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                                                        <input type="radio" class="btn-check" name="status" value="active" id="active-radio1" required>
+                                                                        <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                                                        <input type="radio" class="btn-check" name="status" value="inactive" id="active-radio2" required>
+                                                                        <label class="btn btn-outline-danger" for="active-radio2">غير نشط</label>
+                                                                    </div>
+                                                                </div>                                                            </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                 <button type="submit" class="btn btn-primary" >اضافة</button>
@@ -67,8 +64,8 @@
                             </div>
                         </div><!-- end col-->
                     </div>
-                    <?php if(isset($projBpChanlRes)): ?>
-                    <?php if($projBpChanlRes->count() > 0): ?>
+                    <?php if(isset($projType)): ?>
+                    <?php if($projType->count() > 0): ?>
 
                     <div class="table-responsive">
                         <table class="table align-middle table-nowrap table-check">
@@ -76,28 +73,31 @@
                             <tr>
 
                                 <th style="width: 20px;" class="align-middle">#</th>
-                                <th class="align-middle"> البند  </th>
+                                <th class="align-middle">نوع المشروع   </th>
+                                <th class="align-middle"> الحالة  </th>
                                 <th class="align-middle">العمليات</th>
                             </tr>
                             </thead>
-                            <?php $__currentLoopData = $projBpChanlRes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $projType; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tbody>
                                 <tr>
                                     <td><?php echo e($key+1); ?></td>
+                                   
                                     <td><?php echo e($item->title); ?></td>
+                                    <td><?php echo e($item->status); ?></td>
 
                                     <td>
                                         <div class="d-flex gap-3">
 
-                                        
                                             
-                                                    <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-id="<?php echo e($item->id); ?>" 
-                                               data-title="<?php echo e($item->title); ?>"    data-project_type_id="<?php echo e($item->project_type_id); ?>"     
-                                               data-bs-target="#editModal"><i
-                                               class="mdi mdi-pencil font-size-24"></i> </a>
+                                            
+                                                    <a  title="تعديل"  class="text-success"  data-bs-toggle="modal" data-id="<?php echo e($item->id); ?>" 
+                                                        data-status="<?php echo e($item->status); ?>"      data-title="<?php echo e($item->title); ?>"          
+                                            
+                                               data-bs-target="#editModal"> <i
+                                               class="mdi mdi-pencil font-size-24"></i></a>
                                               
-                                           
-
+                                             
                                          <a  title="حذف" style="cursor: pointer"  data-id="<?php echo e($item->id); ?>"  class="text-danger delete">
                                             <i
                                                 class="mdi mdi-delete font-size-18"></i></a>
@@ -116,43 +116,41 @@
                                     <h5 class="modal-title" id="editModalLabel"> تعديل </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                   <form method="POST" action="projBpChanlRes/{projBpChanlRe}" id="editModal">
+                               <div class="modal-body">
+                                   <form method="POST" action="projectype/{projectype}" id="editModal">
                                         <?php echo csrf_field(); ?>
                                         <?php echo method_field('put'); ?>
                                         <input type="hidden" id="id" name="id">
                                 
-                                     
+                     
                                          <div class="mb-3">
-                                            <label for="title" class="col-form-label">البند</label>
-                                            <input type="text" name="title" class="form-control" id="title" value="">
+                                            <label for="title" class="col-form-label">العنوان</label>
+                                            <input type="text" name="title" class="form-control" id="title" value="<?php echo e($item->title); ?>">
                                         </div>  
                 
                                         <div class="mb-3">
-                                            <label for="project_type_id" class="form-label">نوع المشروع</label>
-                                    <!-- All countries -->
-                                    <select id="project_type_id" class="form-select" name="project_type_id">
-                                        
-                                       
-                                        <option selected disabled hidden>-- إختر --</option>
-                                                             <?php $__currentLoopData = $protype; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $protype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                      <option value="<?php echo e($protype->id); ?>"  ><?php echo e($protype->title); ?></option>
-                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                   
-                                    </select>
-                                        </div>  
+                                            <div class="form-check">
+                                                <label class="form-label" for="gridCheck">الحالة :</label>
+                                                <div class="btn-group-horizontal" role="group" aria-label="Horizontal radio toggle button group">
+                                                    <input type="radio" class="btn-check" name="status" value="active" <?php echo e($item->status == 'active' ? 'checked' : ''); ?> id="active-radio1">
+                                                    <label class="btn btn-outline-success" for="active-radio1">نشط</label>
+                                                    <input type="radio" class="btn-check" name="status" value="inactive" <?php echo e($item->status == 'inactive' ? 'checked' : ''); ?> id="inactive-radio2">
+                                                    <label class="btn btn-outline-danger" for="inactive-radio2">غير نشط</label>
+                                                </div>
+                                            </div>
+                                        </div> 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary" >تعديل</button>
                                         </div>
                                     </form> 
-                                </div>
+                                </div>  
                                 
                             </div>
                         </div>
                     </div>
                 <?php endif; ?>
-                <?php endif; ?>
+<?php endif; ?>
 
 
                 </div>
@@ -161,19 +159,19 @@
     </div>
     <!-- end row -->
  
+
  <?php $__env->startSection('script-bottom'); ?>
     <script>
         $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
             var title = button.data('title')
-            var project_type_id  = button.data('project_type_id ')
+            var status = button.data('status')
             
-
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
             modal.find('.modal-body #title').val(title);
-            modal.find('.modal-body #project_type_id ').val(project_type_id );
+            modal.find('.modal-body #status').val(status);
             
 
         })
@@ -193,7 +191,7 @@
                 }).then(function(status) {
                     if (status.value) {
                         $.ajax({
-                            url: '<?php echo e(url('projBpChanlRes/{projBpChanlRe}')); ?>',
+                            url: '<?php echo e(url('projectype/{projectype}')); ?>',
                             type: 'Delete',
                             data: {
                                 'id': id,
@@ -208,10 +206,9 @@
                     }
                 })
             });
-     
-        </script>
+    </script>
 <?php $__env->stopSection(); ?> 
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 <?php $__env->stopSection(); ?>
@@ -222,4 +219,4 @@
 
 
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\hp\Documents\GitHub\jadwa\resources\views/admin/projrctBpChanelRes/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\hp\Documents\GitHub\jadwa\resources\views/admin/ProjectType/index.blade.php ENDPATH**/ ?>

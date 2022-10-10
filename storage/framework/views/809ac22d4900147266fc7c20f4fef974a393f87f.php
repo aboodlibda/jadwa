@@ -1,14 +1,14 @@
 
-@extends('layouts.master')
 
-@section('title') قنوات البيع @endsection
 
-@section('content')
+<?php $__env->startSection('title'); ?>  قنوات التسويق <?php $__env->stopSection(); ?>
 
-    @component('components.breadcrumb')
-        @slot('li_1')  @endslot
-        @slot('title') قنوات البيع@endslot
-    @endcomponent
+<?php $__env->startSection('content'); ?>
+
+    <?php $__env->startComponent('components.breadcrumb'); ?>
+        <?php $__env->slot('li_1'); ?>  <?php $__env->endSlot(); ?>
+        <?php $__env->slot('title'); ?> قنوات التسويق<?php $__env->endSlot(); ?>
+    <?php echo $__env->renderComponent(); ?>
 
     <div class="row">
         <div class="col-12">
@@ -21,9 +21,7 @@
 
                         <div class="col-sm-8">
                             <div class="text-sm-end">
-                                {{-- <a href="{{ route('contacts.create') }}"
-                                   class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"> إضافة  جديد <i
-                                        class="mdi mdi-plus me-1"></i></a> --}}
+                                
 
                                         <button type="button" class="btn btn-success  waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">اضافة جديد</button>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,27 +32,27 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="POST" action="{{ route('projBpChanlRes.store') }}">
-                                                            @csrf
+                                                        <form method="POST" action="<?php echo e(route('marktchanl.store')); ?>">
+                                                            <?php echo csrf_field(); ?>
                                                            
                                                             <div class="mb-3">
                                                                 <label for="title" class="col-form-label">البند</label>
-                                                                <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
+                                                                <input type="text" name="title" class="form-control" id="title" value="<?php echo e(old('title')); ?>">
                                                             </div>
 
                                                             
                                                                 <div class="mb-3">
-                                                                    <label for="project_type_id" class="form-label">project_type_id</label>
+                                                                    <label for="project_type_id" class="form-label">نوع المشروع</label>
                                                                     <!-- All countries -->
                                                                     <select id="project_type_id" class="form-select" name="project_type_id">
                                                                         <option selected disabled hidden>-- إختر --</option>
-                                                                        @foreach ($protype as  $item)
-                                                                        <option value="{{$item->id}}">{{$item->title}}</option>
-                                                                        @endforeach
+                                                                        <?php $__currentLoopData = $protype; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                        <option value="<?php echo e($item->id); ?>"><?php echo e($item->title); ?></option>
+                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                     </select>
                                                                 </div>
 
-                                                           <input type="text" name="type" class="form-control" id="type" value="{{'sale_channel'}}">
+                                                           <input type="text" name="type" class="form-control" id="type" value="<?php echo e('marketing_channel'); ?>">
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -69,8 +67,8 @@
                             </div>
                         </div><!-- end col-->
                     </div>
-                    @if (isset($projBpChanlRes))
-                    @if($projBpChanlRes->count() > 0)
+                    <?php if(isset($markchanl)): ?>
+                    <?php if($markchanl->count() > 0): ?>
 
                     <div class="table-responsive">
                         <table class="table align-middle table-nowrap table-check">
@@ -82,26 +80,25 @@
                                 <th class="align-middle">العمليات</th>
                             </tr>
                             </thead>
-                            @foreach($projBpChanlRes as $key => $item)
+                            <?php $__currentLoopData = $markchanl; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tbody>
                                 <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>{{$item->title}}</td>
+                                    <td><?php echo e($key+1); ?></td>
+                                    <td><?php echo e($item->title); ?></td>
 
                                     <td>
                                         <div class="d-flex gap-3">
 
                                         
-                                            {{-- <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-bs-target="#editModal"   data-id="{{ $item->id }}"><i
-                                                    class="mdi mdi-pencil font-size-24"></i></a> --}}
-                                                    <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-id="{{ $item->id }}" 
-                                               data-title="{{ $item->title }}"    data-project_type_id="{{ $item->project_type_id }}"     
+                                            
+                                                    <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-id="<?php echo e($item->id); ?>" 
+                                               data-title="<?php echo e($item->title); ?>"    data-project_type_id="<?php echo e($item->project_type_id); ?>"     
                                                data-bs-target="#editModal"><i
                                                class="mdi mdi-pencil font-size-24"></i> </a>
                                               
-                                           {{--deleting page--}}
+                                           
 
-                                         <a  title="حذف" style="cursor: pointer"  data-id="{{ $item->id }}"  class="text-danger delete">
+                                         <a  title="حذف" style="cursor: pointer"  data-id="<?php echo e($item->id); ?>"  class="text-danger delete">
                                             <i
                                                 class="mdi mdi-delete font-size-18"></i></a>
 
@@ -109,7 +106,7 @@
                                     </td>
                                 </tr>
                                 </tbody>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </table>
                     </div>
                     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -120,9 +117,9 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                   <form method="POST" action="projBpChanlRes/{projBpChanlRe}" id="editModal">
-                                        @csrf
-                                        @method('put')
+                                   <form method="POST" action="marktchanl/{marktchanl}" id="editModal">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('put'); ?>
                                         <input type="hidden" id="id" name="id">
                                 
                                      
@@ -138,9 +135,9 @@
                                         
                                        
                                         <option selected disabled hidden>-- إختر --</option>
-                                                             @foreach ($protype as  $protype)
-                                      <option value="{{$protype->id}}"  >{{$protype->title}}</option>
-                                                             @endforeach
+                                                             <?php $__currentLoopData = $protype; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $protype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                      <option value="<?php echo e($protype->id); ?>"  ><?php echo e($protype->title); ?></option>
+                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                    
                                     </select>
                                         </div>  
@@ -154,8 +151,8 @@
                             </div>
                         </div>
                     </div>
-                @endif
-                @endif
+                <?php endif; ?>
+                <?php endif; ?>
 
 
                 </div>
@@ -164,7 +161,7 @@
     </div>
     <!-- end row -->
  
- @section('script-bottom')
+ <?php $__env->startSection('script-bottom'); ?>
     <script>
         $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
@@ -196,11 +193,11 @@
                 }).then(function(status) {
                     if (status.value) {
                         $.ajax({
-                            url: '{{ url('projBpChanlRes/{projBpChanlRe}') }}',
+                            url: '<?php echo e(url('marktchanl/{marktchanl}')); ?>',
                             type: 'Delete',
                             data: {
                                 'id': id,
-                                '_token': '{{ csrf_token() }}',
+                                '_token': '<?php echo e(csrf_token()); ?>',
                             },
                             success: function(e) {
                                 location.reload();
@@ -213,14 +210,16 @@
             });
      
         </script>
-@endsection 
-{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
+<?php $__env->stopSection(); ?> 
+
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
 
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\hp\Documents\GitHub\jadwa\resources\views/admin/MarktingChannel/index.blade.php ENDPATH**/ ?>
