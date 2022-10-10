@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('idea');
             $table->string('logo');
-            $table->integer('country');
-            $table->integer('city');
+            $table->string('country');
+            $table->string('city');
             $table->date('start_date');
             $table->integer('development_duration');
             $table->integer('number_days_year');

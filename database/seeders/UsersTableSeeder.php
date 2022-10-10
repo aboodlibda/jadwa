@@ -19,5 +19,31 @@ class UsersTableSeeder extends Seeder
             'type' => 'admin',
             'email_verified_at' => Date::now(),
         ]);
+
+        User::query()->create([
+            'name' => 'ahmad',
+            'email' => 'user1@app.com',
+            'phone' => '0592203534',
+            'password' => Hash::make('123456789'),
+            'type' => 'client',
+            'email_verified_at' => Date::now(),
+        ]);
+        User::query()->create([
+            'name' => 'omar',
+            'email' => 'user2@app.com',
+            'phone' => '0592203532',
+            'password' => Hash::make('123456789'),
+            'type' => 'client',
+            'email_verified_at' => Date::now(),
+        ]);
+        User::query()->create([
+            'name' => 'akram',
+            'email' => 'user3@app.com',
+            'phone' => '0592203531',
+            'password' => Hash::make('123456789'),
+            'type' => 'client',
+            'email_verified_at' => Date::now(),
+        ]);
+        
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') الصفحة الرئيسية @endsection
+@section('title')   الصفحة الرئيسية @endsection
 
 @section('content')
 

@@ -123,43 +123,18 @@
                                                     <div dir="ltr">
                                                         <div class="owl-carousel owl-theme auth-review-carousel"
                                                             id="auth-review-carousel">
+                                                            @foreach ($slider as $item)
+                                                                
+                                                      
                                                             <div class="item">
                                                                 <div class="py-3">
-                                                                    <p class="font-size-18 mb-4">جدوى في
-                                                                        التعديل</p>
+                                                                    <p class="font-size-18 mb-4">{{ $item->title }}</p>
                                                                     <div>
-                                                                        <h4 class="font-size-16">عدل ما تريد في أي وفت خلال فترة التعديل المسموحة وذلك خلال دقائق</h4>
+                                                                        <h4 class="font-size-16">{{ $item->description }} </h4>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-18 mb-4">جدوى في
-                                                                        السعر</p>
-                                                                    <div>
-                                                                        <h4 class="font-size-16">سيقوم النظام بمساعدتك
-                                                                            وسيقوم بالتحليل المالي وتجهيز الدراسة</h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-18 mb-4">سهل وبسيط</p>
-                                                                    <div>
-                                                                        <h4 class="font-size-16">جدوى كلاود تقدم خدماتها
-                                                                            بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك
-                                                                            وبأقل
-                                                                            أسعار</h4>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item">
-                                                                <div class="py-3">
-                                                                    <p class="font-size-18 mb-4">جدوى كلاود تقدم خدماتها
-                                                                        بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك وبأقل
-                                                                        أسعار</p>
-                                                                </div>
-                                                            </div>
+                                                            @endforeach
                                                         </div>
                                                     </div>
                                                 </div>

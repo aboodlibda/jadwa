@@ -32,18 +32,69 @@
                         <span>بيانات المستخدم</span>
                     </a>
                 </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>
-                        <span key="t-dashboards">@lang('translation.Calendars')</span>
+                        <span key="t-dashboards">اعدادات النظام</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="calendar" key="t-tui-calendar">@lang('translation.TUI_Calendar')</a></li>
-                        <li><a href="calendar-full" key="t-full-calendar">@lang('translation.Full_Calendar')</a></li>
+                        <li><a href="{{ route('sliders.index') }}" key="t-tui-calendar">السلايدر </a></li>
+                        <li><a href="{{ route('pages.index') }}" key="t-tui-calendar">الصفحات </a></li>
+                        <li><a href="{{ route('services.index') }}" key="t-tui-calendar">الخدمات </a></li>
+
+                        <li><a href="{{ route('contacts.index') }}" key="t-tui-calendar">معلومات التواصل </a></li>
+
                     </ul>
                 </li>
 
+                {{-- <li>
+                    <a href="{{ route('sliders.index') }}" class="waves-effect">
+                        <i class="bx bx-file"></i>
+                        <span> السلايدر</span>
+                    </a>
+                </li> --}}
+                {{-- <li>
+                    <a href="{{ route('pages.index') }}" class="waves-effect">
+                        <i class="bx bx-detail"></i>
+                        <span> الصفحات</span>
+                    </a>
+                </li> --}}
+                {{-- <li>
+                    <a href="{{ route('contacts.index') }}" class="waves-effect">
+                        <i class="bx bx-detail"></i>
+                        <span> معلومات التواصل</span>
+                    </a>
+                </li> --}}
+
+                {{-- <li>
+                    <a href="{{ route('services.index') }}" class="waves-effect">
+                        <i class="bx bx-detail"></i>
+                        <span>  الخدمات</span>
+                    </a>
+                </li> --}}
                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-calendar"></i>
+                        <span key="t-dashboards">اعدادات المشروع</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('projectype.index') }}" key="t-tui-calendar">أنواع المشاريع</a></li>
+                        <li><a href="{{ route('projBpChanlRes.index') }}" key="t-full-calendar">قنوات البيع</a></li>
+                        <li><a href="calendar-full" key="t-full-calendar">قنوات التسويق</a></li>
+                        <li><a href="calendar-full" key="t-full-calendar"> مصادر الايرادات</a></li>
+                        <li><a href="calendar-full" key="t-full-calendar"> هيكل التكاليف </a></li>
+                        <li><a href="calendar-full" key="t-full-calendar"> الأنشطة الرئيسية  </a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('adminstExp.index') }}" class="waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span> مصاريف ادارية</span>
+                    </a>
+                </li>
+                {{-- <li>
                     <a href="chat" class="waves-effect">
                         <i class="bx bx-chat"></i>
                         <span key="t-chat">@lang('translation.Chat')</span>
@@ -376,7 +427,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
         </div>

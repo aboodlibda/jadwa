@@ -29,6 +29,7 @@
     </div> <!-- end row -->
 
 @endsection
+
 @section('script')
     <!--tinymce js-->
     <script src="assets/libs/tinymce/tinymce.min.js"></script>
