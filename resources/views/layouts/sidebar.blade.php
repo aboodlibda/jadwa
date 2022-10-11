@@ -8,7 +8,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="" class="waves-effect">
+                    <a href="{{ route('root') }}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span>الصفحة الرئيسية</span>
                     </a>
@@ -32,11 +32,7 @@
                         <span>بيانات المستخدم</span>
                     </a>
                 </li>
-<<<<<<< Updated upstream
-
-=======
                 
->>>>>>> Stashed changes
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>

@@ -31,18 +31,15 @@
             <div class="position-relative">
                 <input type="text" class="form-control" placeholder="@lang('translation.Search')">
                 <span class="bx bx-search-alt"></span>
-            </div>
-        </form> --}}
+            </div> --}}
+        </form>
 
-<<<<<<< Updated upstream
-      
-=======
-        <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
-            {{-- <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+        {{-- <div class="dropdown dropdown-mega d-none d-lg-block ms-2">
+            <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                 <span key="t-megamenu">@lang('translation.Mega_Menu')</span>
                 <i class="mdi mdi-chevron-down"></i>
-            </button> --}}
-            {{-- <div class="dropdown-menu dropdown-megamenu">
+            </button>
+            <div class="dropdown-menu dropdown-megamenu">
                 <div class="row">
                     <div class="col-sm-8">
 
@@ -165,17 +162,12 @@
                     </div>
                 </div>
 
-            </div> --}}
-        </div>
->>>>>>> Stashed changes
+            </div>
+        </div> --}}
     </div>
 
     <div class="d-flex">
 
-<<<<<<< Updated upstream
-       
-     
-=======
         {{-- <div class="dropdown d-inline-block d-lg-none ms-2">
             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -194,9 +186,9 @@
                     </div>
                 </form>
             </div>
-        </div> --}}
+        </div>
 
-        {{-- <div class="dropdown d-inline-block">
+        <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @switch(Session::get('lang'))
@@ -300,12 +292,11 @@
                 <i class="bx bx-fullscreen"></i>
             </button>
         </div> --}}
->>>>>>> Stashed changes
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="bx bx-bell bx-tada"></i>
-                <span class="badge bg-danger rounded-pill">3</span>
+                <span class="badge bg-danger rounded-pill">2</span>
             </button>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                 aria-labelledby="page-header-notifications-dropdown">
@@ -386,43 +377,34 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> 
 
         <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<<<<<<< Updated upstream
-              
-=======
-                {{-- <img class="rounded-circle header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/assets/images/users/avatar-1.jpg') }}"
-                    alt="Header Avatar"> --}}
-                    {{-- {{ucfirst(Auth::user()->name)}} --}}
->>>>>>> Stashed changes
+                <img class="rounded-circle header-profile-user" src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/assets/images/users/avatar-1.jpg') }}"
+                    alt="Header Avatar">
                 <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->name)}}</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="contacts-profile"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">@lang('translation.Profile')</span></a>
-                <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">@lang('translation.My_Wallet')</span></a>
+                <a class="dropdown-item" href="{{ route('my_profile' , Auth::user()->id) }}"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">ملفي الشخصي</span></a>
+                {{-- <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">@lang('translation.My_Wallet')</span></a>
                 <a class="dropdown-item d-block" href="#" data-bs-toggle="modal" data-bs-target=".change-password"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">@lang('translation.Settings')</span></a>
-                <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">@lang('translation.Lock_screen')</span></a>
+                <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">@lang('translation.Lock_screen')</span></a> --}}
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">@lang('translation.Logout')</span></a>
+                <a class="dropdown-item text-danger" href="javascript:void();" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">تسجيل الخروج</span></a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
             </div>
         </div>
-<<<<<<< Updated upstream
-      
-=======
-        {{-- <div class="dropdown d-inline-block">
+        <div class="dropdown d-inline-block">
             <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
                 <i class="bx bx-cog bx-spin"></i>
             </button>
-        </div> --}}
->>>>>>> Stashed changes
+        </div>
     </div>
 </div>
 </header>

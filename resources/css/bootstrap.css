@@ -1619,7 +1619,7 @@ progress {
   --bs-table-hover-bg: #f8f9fa;
   width: 100%;
   margin-bottom: 1rem;
-  color: #F9AA1C;
+  color: #495057;
   vertical-align: top;
   border-color: #eff2f7; }
   .table > :not(caption) > * > * {

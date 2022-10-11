@@ -131,4 +131,8 @@ class UsersController extends Controller
         return view('admin.users.index',compact('users'));
 
     }
+    public function my_profile()
+    {
+        # code...
+    }
 }

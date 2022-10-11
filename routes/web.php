@@ -40,6 +40,7 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
+Route::get('/my_profile', [App\Http\Controllers\UsersController::class, 'my_profile'])->name('my_profile')->middleware('auth');
 
 
 

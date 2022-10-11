@@ -11,13 +11,16 @@
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.ico') }}">
     @include('layouts.head-css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Work+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 @section('body')
+
     <body data-sidebar="dark">
-@show
+    @show
     <!-- Begin page -->
     <div id="layout-wrapper">
         @include('layouts.topbar')
@@ -40,7 +43,7 @@
     <!-- END layout-wrapper -->
 
     <!-- Right Sidebar -->
-    @include('layouts.right-sidebar')
+    {{-- @include('layouts.right-sidebar') --}}
     <!-- /Right-bar -->
 
     <!-- JAVASCRIPT -->
@@ -48,3 +51,4 @@
 </body>
 
 </html>
+

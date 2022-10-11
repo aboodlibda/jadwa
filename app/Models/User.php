@@ -50,10 +50,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     public function projects(){
         return $this->hasMany(Project::class , "user_id" , 'id');
     }

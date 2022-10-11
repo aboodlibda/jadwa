@@ -1,13 +1,21 @@
 @extends('layouts.master-without-nav')
 
 @section('title')
-    @lang('translation.Login')
+    تسجيل الدخول
 @endsection
 
 @section('css')
     <!-- owl.carousel css -->
-    <link rel="stylesheet" href="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('assets/libs/owl.carousel/owl.carousel.min.css') }}">
+    <style>
+        p {
+            font-weight: bold;
+        }
+
+        .none {
+            font-weight: normal;
+        }
+    </style>
 @endsection
 
 @section('body')
@@ -27,10 +35,10 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text">
                                         <a href="index" class="d-block auth-logo">
-                                            <img src="{{ URL::asset('assets/images/logo-light.png') }}" alt=""
-                                                height="18" class="auth-logo-dark">
-                                            <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt=""
-                                                height="18" class="auth-logo-light">
+                                            <img src="{{ asset('assets/images/logo.png') }}" alt="" height="35"
+                                                class="auth-logo-dark">
+                                            {{-- <img src="{{ URL::asset('/assets/images/logo-light.png') }}" alt=""
+                                                height="18" class="auth-logo-light"> --}}
                                         </a>
                                     </div>
                                     <div class="my-auto">
@@ -43,7 +51,7 @@
                                         <div class="mt-4">
                                             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                                                 @csrf
-                                                <div class="mb-3">
+                                                {{-- <div class="mb-3">
                                                     <label for="username" class="form-label colors fon">البريد
                                                         الإلكتروني</label>
                                                     <input name="email" type="email"
@@ -55,8 +63,22 @@
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
+                                                </div> --}}
+                                                <label for="username" class="form-label colors fon">البريد
+                                                    الإلكتروني</label>
+                                                <div class="input-group auth-pass-inputgroup ">
+                                                    <input name="email" type="email"
+                                                        class="form-control @error('email') is-invalid @enderror"
+                                                        value="{{ old('email') }}" id="username" placeholder="Enter Email"
+                                                        autocomplete="email" autofocus>
+                                                    <button class="btn btn-light " type="button"><i
+                                                            class="mdi mdi-email"></i></button>
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
-
                                                 <div class="mb-3">
                                                     <div class="float-end">
                                                         @if (Route::has('password.request'))
@@ -91,14 +113,15 @@
 
                                                 <div class="mt-3 d-grid">
                                                     <button class="btn btn-primary waves-effect waves-light log"
-                                                        type="submit">
+                                                        type="submit" id="login">
                                                         تسجيل دخول</button>
                                                 </div>
 
 
                                             </form>
                                             <div class="mt-5 text-center yell">
-                                                <p>ليس لديك حساب ؟ <a href="{{ url('register') }}" class="fw-medium yell">
+                                                <p id="none">ليس لديك حساب ؟ <a href="{{ url('register') }}"
+                                                        class="fw-medium yell">
                                                         حساب جديد</a> </p>
                                             </div>
                                         </div>
@@ -123,18 +146,44 @@
                                                     <div dir="ltr">
                                                         <div class="owl-carousel owl-theme auth-review-carousel"
                                                             id="auth-review-carousel">
-                                                            @foreach ($slider as $item)
-                                                                
-                                                      
                                                             <div class="item">
                                                                 <div class="py-3">
-                                                                    <p class="font-size-18 mb-4">{{ $item->title }}</p>
+                                                                    <p class="font-size-18 mb-4">جدوى كلاود تقدم خدماتها
+                                                                        بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك وبأقل
+                                                                        أسعار</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">سهل وبسيط</p>
                                                                     <div>
-                                                                        <h4 class="font-size-16">{{ $item->description }} </h4>
+                                                                        <h4 class="font-size-16">جدوى كلاود تقدم خدماتها
+                                                                            بدقة عالية وسعر تنافسي يتيح لك تحقيق أهدافك
+                                                                            وبأقل
+                                                                            أسعار</h4>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            @endforeach
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        السعر</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">سيقوم النظام بمساعدتك
+                                                                            وسيقوم بالتحليل المالي وتجهيز الدراسة</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="item">
+                                                                <div class="py-3">
+                                                                    <p class="font-size-18 mb-4">جدوى في
+                                                                        التعديل</p>
+                                                                    <div>
+                                                                        <h4 class="font-size-16">عدل ما تريد في أي وفت خلال
+                                                                            فترة التعديل المسموحة وذلك خلال دقائق</h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
