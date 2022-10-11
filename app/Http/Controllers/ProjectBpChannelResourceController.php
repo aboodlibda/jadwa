@@ -24,6 +24,7 @@ class ProjectBpChannelResourceController extends Controller
        return view('admin.projrctBpChanelRes.index',compact('projBpChanlRes','protype'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *

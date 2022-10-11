@@ -13,13 +13,13 @@ class MarketingChannelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $protype = ProjectType::all();
+    // public function index()
+    // {
+    //     $protype = ProjectType::all();
 
-        $markchanl =ProjectBpChannelResource::where('type','marketing_channel')->get();
-        return view('admin.MarktingChannel.index',compact('markchanl','protype'));
-    }
+    //     $markchanl =ProjectBpChannelResource::where('type','marketing_channel')->get();
+    //     return view('admin.MarktingChannel.index',compact('markchanl','protype'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -87,7 +87,14 @@ class MarketingChannelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $request->validate([
+            'title' => 'required',
+            'project_type_id' => 'required',
+         
+        ]);
+     $markchanl=   ProjectBpChannelResource::findOrFail($request->id);
+        $markchanl->update($request->all());
+                  return redirect()->route('marktchanl.index')->with('success', 'تم التعديل على بيانات  بنجاح');
     }
 
     /**

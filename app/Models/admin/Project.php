@@ -19,7 +19,6 @@ class Project extends Model
 {
     
     use HasFactory ,SoftDeletes;
-<<<<<<< Updated upstream
     protected $guarded = [];  
 
     public $timestamps = true;
@@ -28,13 +27,6 @@ class Project extends Model
 
     // protected $start_date =' datetime:m/d/y';
         public function user(){
-=======
-    protected $guraded = [];
-
-    protected $fillabel = [];
-
-    public function user(){
->>>>>>> Stashed changes
         return $this->belongsTo(User::class , "owner_id" , "id");
     }
 
@@ -42,7 +34,6 @@ class Project extends Model
         return $this->belongsTo(ProjectType::class );
     }
 
-<<<<<<< Updated upstream
     // public function setCreatedByAttribute() {
     //     $this->created_by = Auth::user()->id;
     // }
@@ -50,7 +41,4 @@ class Project extends Model
     // public function getStartDateAtAttribute($start_date) {
     //     return Carbon::parse($start_date)->format('m/d/Y');
     // }
-=======
-
->>>>>>> Stashed changes
 }
