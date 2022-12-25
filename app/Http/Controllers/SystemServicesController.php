@@ -9,33 +9,20 @@ use Illuminate\Http\Request;
 
 class SystemServicesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $services= SystemServices::query()->latest()->paginate(4);
         return view('admin.services.index',compact('services'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
         return view('admin.services.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreSystemServicesRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(StoreSystemServicesRequest $request)
     {
         $data =$request->all();
@@ -47,43 +34,18 @@ class SystemServicesController extends Controller
         }
         $pages = SystemServices::query()->create($data);
 
-        if ($pages) {
-            return  redirect()->route('services.index')->with('success', 'تم إنشاءالخدمة بنجاح');
-        }
-        else {
-            return back()->with('failed', 'حدث خطأ !');
-        }
+        return  redirect()->route('services.index')->with('success', 'تم إنشاءالخدمة بنجاح');
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SystemServices  $systemServices
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SystemServices $systemServices)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SystemServices  $systemServices
-     * @return \Illuminate\Http\Response
-     */
     public function edit(SystemServices $service)
     {
         return view('admin.services.edit',compact('service'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateSystemServicesRequest  $request
-     * @param  \App\Models\SystemServices  $systemServices
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(UpdateSystemServicesRequest $request, SystemServices $service)
     {
         $data = $request->all();
@@ -101,16 +63,23 @@ class SystemServicesController extends Controller
             return redirect()->route('services.index')->with('success', 'تم التعديل على بيانات الخدمة بنجاح');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SystemServices  $systemServices
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SystemServices $service)
+   
+    public function destroy(Request $request)
     {
-        $service = SystemServices::query()->findOrFail($service->id)->delete();
-       
-            return redirect()->route('services.index')->with('success', 'تم حذف الخدمة بنجاح');
+        $service = SystemServices::findOrFail($request->id);
+        $service->delete();
+        return response()->json(true, 200);
     }
+
+    public function search_services(Request $request){
+
+        $search = $request->get('query', false);
+        $services = SystemServices::query()->where(function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        })->latest()->paginate(3);
+
+        return view('admin.services.index',compact('services'));
+
+    }
+    
 }

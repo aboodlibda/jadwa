@@ -2988,7 +2988,7 @@ input[switch="dark"]:checked + label:before {
 }
 @media (min-width: 1200px) {
     .wizard.vertical-wizard .steps {
-        width: 25%;
+        width: 20%;
     }
 }
 .wizard.vertical-wizard .content {
@@ -4224,3 +4224,4 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
     transform: translateY(-50%);
     margin: 0 auto;
 }
+

@@ -17,7 +17,7 @@ class ProjectBpChannelResourceController extends Controller
      */
     public function index()
     {
-        $protype = ProjectType::all();
+        $protype = ProjectType::where('status' ,'active')->get();
 
        $projBpChanlRes=ProjectBpChannelResource::where('type','sale_channel')->get();
        
@@ -97,17 +97,5 @@ class ProjectBpChannelResourceController extends Controller
                   return redirect()->route('projBpChanlRes.index')->with('success', 'تم التعديل على بيانات  بنجاح');
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ProjectBpChannelResource  $projectBpChannelResource
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Request $request)
-    {
-        $projBpChanlRes = ProjectBpChannelResource::findOrFail($request->id);
-        $projBpChanlRes->delete();
-        return response()->json(true, 200);
-    }
+  
 }

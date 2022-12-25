@@ -16,12 +16,9 @@ return new class extends Migration
         Schema::create('project_types', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-<<<<<<< Updated upstream
-            $table->enum('status',['active','inactive']);
-=======
-            // $table->enum('status',['active','inactive'])->default('active');
->>>>>>> Stashed changes
+            $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

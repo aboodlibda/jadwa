@@ -5,8 +5,8 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') الخدمات @endslot
-        @slot('title') قائمة الخدمات @endslot
+        @slot('li_1') اعدادات النظام @endslot
+        @slot('title') الخدمات @endslot
     @endcomponent
 
     <div class="row">
@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-                            {{-- <form action="{{ route('search_user') }}" method="post">
+                             <form action="{{ route('search_services') }}" method="post">
                             <div class="search-box me-2 mb-2 d-inline-block">
                                 <div class="position-relative">
                                         @csrf
@@ -26,14 +26,14 @@
                                 </div>
 
                             </div>
-                        
-                            </form> --}}
+
+                            </form>
                         </div>
 
                         <div class="col-sm-8">
                             <div class="text-sm-end">
                                 <a href="{{ route('services.create') }}"
-                                        class="btn btn-success  waves-effect waves-light mb-2 me-2"> إضافة خدمة جديد <i
+                                        class="btn btn-success  waves-effect waves-light mb-2 me-2 bg-o yello"> إضافة خدمة جديد <i
                                         class="mdi mdi-plus me-1"></i></a>
                             </div>
                         </div><!-- end col-->
@@ -64,16 +64,20 @@
                                     <td>
                                         <div class="d-flex gap-3">
 
-          
+
                                             {{--editing project--}}
-                                            <a href="{{ route('services.edit', $services->id) }}" title="تعديل" class="text-success"><i
-                                                    class="mdi mdi-pencil font-size-18"></i></a>
-                                          
+                                            <a href="{{ route('services.edit', $services->id) }}" title="تعديل" style="cursor: pointer"  class="text-success"><i
+                                                    class="fa fa-pen"></i></a>
+
 
                                          {{--deleting project--}}
-                                         <a data-bs-toggle="modal" data-bs-target="#kt_modal_2" title="حذف" style="cursor: pointer"  data-id="{{ $services->id }}"  class="text-danger">
+                                         {{-- <a data-bs-toggle="modal" data-bs-target="#kt_modal_2" title="حذف" style="cursor: pointer"  data-id="{{ $services->id }}"  class="text-danger">
                                             <i
-                                                class="mdi mdi-delete font-size-18"></i></a>
+                                                class="mdi mdi-delete font-size-18"></i></a> --}}
+
+                                                <a  title="حذف" style="cursor: pointer"  data-id="{{ $services->id }}"  class="text-danger delete">
+                                                    <i
+                                                        class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -82,7 +86,7 @@
                         </table>
                     </div>
 
-              
+
                 </div>
             </div>
         </div>
@@ -90,72 +94,21 @@
     <!-- end row -->
 
 
- <div class="modal fade" tabindex="-1" id="kt_modal_2">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">حذف مشروع</h5>
 
-                    <!--begin::Close-->
-                    <div class="btn btn-icon btn-sm btn-active-light-danger ms-2" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="svg-icon svg-icon-2x"></span>
-                    </div>
-                    <!--end::Close-->
-                </div>
 
-                <form id="del_event" action="{{ route('services.destroy', $services) }}" method="post"style="display: inline;">
-                    {!! method_field('delete') !!}
-                    {{ csrf_field() }}
-                    <div class="modal-body">
-                        <p>هل أنت متأكد من عملية الحذف ؟</p>
-                        <input type="hidden" id="id" name="id">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">إلغاء</button>
-                        <button class="btn btn-danger" type="submit" id="del_id">delete</button>
-                                        </div>
-                </form>
-            </div>
-        </div>
-    </div> 
-
-@endsection
-
-@section('script-bottom')
+    @section('script-bottom')
     <script>
-        $('#kt_modal_1').on('show.bs.modal', function(event) {
+        $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var id = button.data('id')
+            var title = button.data('title')
+
             var modal = $(this)
             modal.find('.modal-body #id').val(id);
+            modal.find('.modal-body #title').val(title);
+
         })
-
-        $('#kt_modal_2').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var modal = $(this)
-            modal.find('.modal-body #id').val(id);
-            
-  	});
-
-        $('#kt_modal_3').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var modal = $(this)
-            modal.find('.modal-body #id').val(id);
-        })
-
-        $('#kt_modal_4').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget)
-            var id = button.data('id')
-            var modal = $(this)
-            modal.find('.modal-body #id').val(id);
-        })
-
-
-
-
-    $('.table-responsive').on('click', '.delete', function() {
+        $('.table-responsive').on('click', '.delete', function() {
                 let id = $(this).data('id');
                 swal.fire({
                     text: 'هل انت متاكد من الحذف',
@@ -170,7 +123,7 @@
                 }).then(function(status) {
                     if (status.value) {
                         $.ajax({
-                            url: '{{ route('proj.del') }}',
+                            url: '{{ url('services/{service}') }}',
                             type: 'Delete',
                             data: {
                                 'id': id,
@@ -185,9 +138,10 @@
                     }
                 })
             });
-     </script>
- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        </script>
+@endsection
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
-
 @endsection

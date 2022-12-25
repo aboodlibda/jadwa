@@ -30,4 +30,14 @@ class StorePagesRequest extends FormRequest
             'key' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            "title.required" => "لم يتم ادخال العنوان",
+            "content.required" => "لم يتم ادخال المحتوى",
+            "type.required" => "لم يتم ادخال النوع",
+            "key.required" => "لم يتم ادخال النص",
+        ];
+    }
 }

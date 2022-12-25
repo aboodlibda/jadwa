@@ -69,7 +69,7 @@
                                                 <div class="input-group auth-pass-inputgroup ">
                                                     <input name="email" type="email"
                                                         class="form-control @error('email') is-invalid @enderror"
-                                                        value="{{ old('email') }}" id="username" placeholder="Enter Email"
+                                                        value="{{ old('email') }}" id="username" placeholder="ادخل البريد الالكتروني"
                                                         autocomplete="email" autofocus>
                                                     <button class="btn btn-light " type="button"><i
                                                             class="mdi mdi-email"></i></button>
@@ -91,9 +91,10 @@
                                                         class="input-group auth-pass-inputgroup @error('password') is-invalid @enderror">
                                                         <input type="password" name="password"
                                                             class="form-control  @error('password') is-invalid @enderror"
-                                                            id="userpassword" placeholder="Enter password"
+                                                            id="password" placeholder="Enter password"
                                                             aria-label="Password" aria-describedby="password-addon">
-                                                        <button class="btn btn-light " type="button" id="password-addon"><i
+                                                        <button class="btn btn-light " id="show"
+                                                            type="button" id="password-addon"><i
                                                                 class="mdi mdi-eye-outline"></i></button>
                                                         @error('password')
                                                             <span class="invalid-feedback" role="alert">
@@ -202,6 +203,15 @@
         </div>
     @endsection
     @section('script')
+    <script>
+        $('#show').click(function name(params) {
+            if ($('#password').prop('type') == 'password') {
+                $('#password').attr('type', 'text')
+            } else {
+                $('#password').attr('type', 'password')
+            }
+        })
+    </script>
         <!-- owl.carousel js -->
         <script src="{{ URL::asset('/assets/libs/owl.carousel/owl.carousel.min.js') }}"></script>
         <!-- auth-2-carousel init -->

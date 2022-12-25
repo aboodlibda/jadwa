@@ -5,8 +5,8 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') الصفحات @endslot
-        @slot('title') قائمة الصفحات @endslot
+        @slot('li_1') اعدادات النظام @endslot
+        @slot('title')  الصفحات @endslot
     @endcomponent
 
     <div class="row">
@@ -15,13 +15,25 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-4">
-
+                            <form method="POST" action="{{ route('search_pages') }}" >
+                                <div class="search-box me-2 mb-2 d-inline-block">
+                                    <div class="position-relative">
+                                            @csrf
+                                            @method('POST')
+                                            <input type="text" name="query" class="form-control" placeholder=" ابحث عن صفحة">
+                                            <i class="bx bx-search-alt search-icon"></i>
+    
+                                    </div>
+    
+                                </div>
+                            
+                                </form>
                         </div>
 
                         <div class="col-sm-8">
                             <div class="text-sm-end">
                                 <a href="{{ route('pages.create') }}"
-                                   class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"> إضافة  جديد <i
+                                   class="btn btn-success bg-o waves-effect waves-light mb-2 me-2 yello"> إضافة  جديد <i
                                         class="mdi mdi-plus me-1"></i></a>
                             </div>
                         </div><!-- end col-->
@@ -39,8 +51,9 @@
                                 <th class="align-middle">العمليات</th>
                             </tr>
                             </thead>
+                           
                             @foreach($pages as $key => $page)
-                                <tbody>
+                                <tbody class="bg-p">
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$page->title}}</td>
@@ -51,12 +64,12 @@
                                         <div class="d-flex gap-3">
 
                                             {{--editing page--}}
-                                            <a href="{{route('pages.edit',$page)}}" title="تعديل" class="text-success"><i
-                                                    class="mdi mdi-pencil font-size-18"></i></a>
+                                            <a href="{{route('pages.edit',$page)}}" style="cursor: pointer"  title="تعديل" class="text-success"><i
+                                                    class="fa fa-pen"></i></a>
                                             {{--deleting page--}}
                                             
                                             <a  title="حذف" style="cursor: pointer"  data-id="{{ $page->id }}"  class="text-danger delete">
-                                               <i class="mdi mdi-delete font-size-18"></i></a>
+                                               <i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>

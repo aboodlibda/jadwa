@@ -14,6 +14,8 @@
                     </a>
 
                 </li>
+                @if (Auth::user()->type == "admin")
+              
                 <li>
                     <a href="{{ route('users.index') }}" class="waves-effect">
                         <i class="bx bx-user"></i>
@@ -26,13 +28,7 @@
                         <span>المشاريع</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('users.index') }}" class="waves-effect">
-                        <i class="bx bx-user-circle"></i>
-                        <span>بيانات المستخدم</span>
-                    </a>
-                </li>
-                
+              
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-calendar"></i>
@@ -42,12 +38,41 @@
                         <li><a href="{{ route('sliders.index') }}" key="t-tui-calendar">السلايدر </a></li>
                         <li><a href="{{ route('pages.index') }}" key="t-tui-calendar">الصفحات </a></li>
                         <li><a href="{{ route('services.index') }}" key="t-tui-calendar">الخدمات </a></li>
-
                         <li><a href="{{ route('contacts.index') }}" key="t-tui-calendar">معلومات التواصل </a></li>
 
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-calendar"></i>
+                        <span key="t-dashboards">اعدادات المشروع</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('projectype.index') }}" key="t-tui-calendar">أنواع المشاريع</a></li>
+                        <li><a href="{{ route('saleChanel.index') }}" key="t-full-calendar">قنوات البيع</a></li>
+                        <li><a href="{{ route('marketchanel.index')}}" key="t-full-calendar">قنوات التسويق</a></li>
+                        <li><a href="{{ route('incomSourc.index') }}" key="t-full-calendar"> مصادر الايرادات</a></li>
+                        <li><a href="{{ route('expensisModel.index') }}" key="t-full-calendar"> هيكل التكاليف </a></li>
+                        <li><a href="{{ route('mainActivity.index') }}" key="t-full-calendar"> الأنشطة الرئيسية  </a></li>
 
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{ route('adminstExp.index') }}" class="waves-effect">
+                        <i class="bx bx-user-circle"></i>
+                        <span> مصاريف ادارية</span>
+                    </a>
+                </li>
+                @else
+                    
+                <li>
+                    <a href="{{ route('projects.index') }}" class="waves-effect">
+                        <i class="bx bx-briefcase-alt-2"></i>
+                        <span>المشاريع</span>
+                    </a>
+                </li>
+
+                @endif
                 {{-- <li>
                     <a href="{{ route('sliders.index') }}" class="waves-effect">
                         <i class="bx bx-file"></i>
@@ -73,27 +98,7 @@
                         <span>  الخدمات</span>
                     </a>
                 </li> --}}
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-calendar"></i>
-                        <span key="t-dashboards">اعدادات المشروع</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('projectype.index') }}" key="t-tui-calendar">أنواع المشاريع</a></li>
-                        <li><a href="{{ route('projBpChanlRes.index') }}" key="t-full-calendar">قنوات البيع</a></li>
-                        <li><a href="{{ route('marktchanl.index') }}" key="t-full-calendar">قنوات التسويق</a></li>
-                        <li><a href="calendar-full" key="t-full-calendar"> مصادر الايرادات</a></li>
-                        <li><a href="calendar-full" key="t-full-calendar"> هيكل التكاليف </a></li>
-                        <li><a href="calendar-full" key="t-full-calendar"> الأنشطة الرئيسية  </a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="{{ route('adminstExp.index') }}" class="waves-effect">
-                        <i class="bx bx-user-circle"></i>
-                        <span> مصاريف ادارية</span>
-                    </a>
-                </li>
+                
                 {{-- <li>
                     <a href="chat" class="waves-effect">
                         <i class="bx bx-chat"></i>

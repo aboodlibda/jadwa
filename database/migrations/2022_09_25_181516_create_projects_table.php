@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('logo');
             $table->string('country');
             $table->string('city');
+            $table->string('language');
             $table->date('start_date');
             $table->integer('development_duration');
             $table->integer('number_days_year');
@@ -31,7 +32,7 @@ return new class extends Migration
             $table->enum('study_duration',['5','10'])->nullable()->default('5');
             $table->foreign('owner_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreign('created_by')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreign('project_type_id')->references('id')->on('project_types');
+            $table->foreign('project_type_id')->references('id')->on('project_types')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

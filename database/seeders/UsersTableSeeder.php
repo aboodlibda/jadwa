@@ -44,9 +44,6 @@ class UsersTableSeeder extends Seeder
             'type' => 'client',
             'email_verified_at' => Date::now(),
         ]);
-<<<<<<< Updated upstream
-        
-=======
->>>>>>> Stashed changes
+
     }
 }

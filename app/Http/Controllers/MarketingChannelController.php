@@ -8,103 +8,61 @@ use Illuminate\Http\Request;
 
 class MarketingChannelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index()
-    // {
-    //     $protype = ProjectType::all();
-
-    //     $markchanl =ProjectBpChannelResource::where('type','marketing_channel')->get();
-    //     return view('admin.MarktingChannel.index',compact('markchanl','protype'));
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function index()
     {
-        //
+        $protype = ProjectType::where('status' ,'active')->get();
+
+        $marktechanle = ProjectBpChannelResource::where('type','marketing_channel')->get();
+        return view('admin.MarketChanel.index',compact('marktechanle','protype'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
+   
+    
     public function store(Request $request)
     {
-        $data =   $request->validate([
-            'title' => 'required',
-            'project_type_id' => 'required',
-            'type'=>'required',
-         
-        ]);
+        $data =$request->only(['title','type','project_type_id']);
 
-        $markchanl = ProjectBpChannelResource::query()->create($data);
+        $markchanel = ProjectBpChannelResource::query()->create($data);
 
-        if ($markchanl) {
-            return  redirect()->route('marktchanl.index')->with('success', 'تم إنشاءالصفحة بنجاح');
+        if ($markchanel) {
+            return  redirect()->route('marketchanel.index')->with('success', 'تم إنشاءالصفحة بنجاح');
         }
         else {
             return back()->with('failed', 'حدث خطأ !');
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
-            'project_type_id' => 'required',
-         
         ]);
-     $markchanl=   ProjectBpChannelResource::findOrFail($request->id);
-        $markchanl->update($request->all());
-                  return redirect()->route('marktchanl.index')->with('success', 'تم التعديل على بيانات  بنجاح');
+     $marktechanle=   ProjectBpChannelResource::findOrFail($request->id);
+        $marktechanle->update($request->all());
+                  return redirect()->route('marketchanel.index')->with('success', 'تم التعديل على بيانات  بنجاح');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+   
+    public function destroy(Request $request)
     {
-        //
+        $marktechanle = ProjectBpChannelResource::findOrFail($request->id);
+        $marktechanle->delete();
+        return response()->json(true, 200);
+    }
+
+    public function search_marktechanle(Request $request){
+
+        $search = $request->get('query', false);
+        $marktechanle = ProjectBpChannelResource::where('type','marketing_channel')->where(function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        })->latest()->paginate(3);
+        $protype = ProjectType::all();
+
+        return view('admin.MarketChanel.index',compact('marktechanle','protype'));
+
     }
 }

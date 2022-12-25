@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('price');
             $table->string('image');
+            $table->string('route')->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->timestamps();
         });

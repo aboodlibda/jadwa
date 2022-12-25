@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('project_bp_channel_resources', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->enum('type',['sale_channel','marketing_channel','income_sources','exprnsis_modal','main_activity']);
+            $table->enum('type',['sale_channel','marketing_channel','income_sources','expensis_modal','main_activity']);
             $table->unsignedBigInteger('project_type_id');
-            $table->foreign('project_type_id')->references('id')->on('project_types');
+            $table->foreign('project_type_id')->references('id')->on('project_types')->cascadeOnDelete();           
             $table->timestamps();
             $table->softDeletes();
         });

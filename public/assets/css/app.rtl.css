@@ -1,6 +1,13 @@
 /*@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);*/
 
-
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    /*border: 3px solid #F9AA1C ;*/
+    /*border-radius: 7px;*/
+}
 
 #page-topbar {
     position: fixed;
@@ -3419,7 +3426,7 @@ input[switch=dark]:checked + label:before {
 }
 
 .wizard > .actions a, .wizard > .actions a:active, .wizard > .actions a:hover {
-    background-color: #556ee6;
+    background-color: #F9AA1C;
     border-radius: 4px;
     padding: 8px 15px;
     color: #fff
@@ -3427,8 +3434,9 @@ input[switch=dark]:checked + label:before {
 
 .wizard > .actions .disabled a, .wizard > .actions .disabled a:active, .wizard > .actions .disabled a:hover {
     opacity: .65;
-    background-color: #556ee6;
-    color: #fff;
+    background-color: #fff;
+    border: 50px #F9AA1C !important ;
+    color: #F9AA1C;
     cursor: not-allowed
 }
 
@@ -3850,7 +3858,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 @media (min-width: 1200px) {
     .auth-full-bg {
-        height: 100vh
+        height: 100%
     }
 }
 
@@ -3864,10 +3872,10 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .auth-full-bg .bg-overlay {
     background: url(../images/logo_slider.png);
-    background-size: 150px;
+    background-size: 195px;
     background-repeat: no-repeat;
     background-position: 80%;
-    height:195px;
+    height:252px;
 }
 
 .auth-full-page-content {
@@ -3977,7 +3985,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .checkout-tabs .nav-pills .nav-link.active {
-    background-color: #556ee6
+    background-color: #F9AA1C
 }
 
 .checkout-tabs .nav-pills .nav-link .check-nav-icon {
@@ -4928,7 +4936,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     transition: box-shadow .3s;
 }
 #login:hover{
-    box-shadow: 0px 0px 11px rgba(33,33,33,.2); 
+    box-shadow: 0px 0px 11px rgba(33,33,33,.2);
 }
 .fon{
     font-size: 18px;
@@ -4961,4 +4969,17 @@ div.dataTables_wrapper div.dataTables_filter input {
     padding: 15px;
 }
 
+.yello {
+    color: #fff !important;
+    background-color: #F9AA1C !important;
+    border-color: #F9AA1C !important;
+}
 
+.orange {
+    color: #F9AA1C !important;
+}
+
+.flex
+{
+    display: flex;
+}

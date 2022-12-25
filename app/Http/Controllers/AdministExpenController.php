@@ -20,23 +20,8 @@ class AdministExpenController extends Controller
         return view('admin.AdminstratorExp.index',compact('adminstExp'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAdministExpenRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreAdministExpenRequest $request)
+    
+    public function store(Request $request)
     {
         $data =$request->only(['item','value']);
 
@@ -50,35 +35,9 @@ class AdministExpenController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\AdministExpen  $administExpen
-     * @return \Illuminate\Http\Response
-     */
-    public function show(AdministExpen $administExpen)
-    {
-        //
-    }
+    
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\AdministExpen  $administExpen
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(AdministExpen $administExpen)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAdministExpenRequest  $request
-     * @param  \App\Models\AdministExpen  $administExpen
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(UpdateAdministExpenRequest $request, AdministExpen $administExpen)
     {
         $request->validate([
@@ -91,16 +50,20 @@ class AdministExpenController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\AdministExpen  $administExpen
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $administExpen = AdministExpen::findOrFail($request->id);
         $administExpen->delete();
         return response()->json(true, 200);
+    }
+    public function search_adminst_expen(Request $request){
+
+        $search = $request->get('query', false);
+        $adminstExp = AdministExpen::query()->where(function ($query) use ($search) {
+            $query->where('item', 'like', '%' . $search . '%');
+        })->latest()->paginate(3);
+
+        return view('admin.AdminstratorExp.index',compact('adminstExp'));
+
     }
 }

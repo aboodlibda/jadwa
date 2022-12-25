@@ -3,17 +3,11 @@
 namespace App\Models\admin;
 
 use App\Models\ProjectType;
-<<<<<<< Updated upstream
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
-=======
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
->>>>>>> Stashed changes
 
 class Project extends Model
 {

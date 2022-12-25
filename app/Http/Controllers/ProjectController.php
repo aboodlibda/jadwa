@@ -6,7 +6,6 @@ use App\Models\admin\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\ProjectType;
-<<<<<<< Updated upstream
 use App\Models\SystemServices;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,68 +13,124 @@ use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
-=======
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
->>>>>>> Stashed changes
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
-        $projects = Project::query()->latest()->paginate(2);
-
+        if(Auth::user()->type == "admin"){
+        $projects = Project::query()->latest()->paginate(1);
+        }else{
+        $projects = Project::where('owner_id' , Auth::user()->id)->latest()->paginate(1);
+        }
+        
         return view('admin.projects.index',compact('projects'));
     }
-    // public function get_projects()
-    // {
-    //     $project = Project::select('*');
-
-    //     return DataTables::of($project)
-    //         ->addIndexcolumn()
-    //         ->addColumn('action', function ($row) {
-    //             $btn = '';
-    //             // $btn = $btn . '&nbsp; <a data-bs-toggle="modal" data-bs-target="#kt_modal_1" title="تأكيد البريد" style="cursor: pointer"  data-id="{{ $user->id }}" class="text-primary"><i
-    //             // class="mdi mdi-email-send font-size-18"></i></a>';
-    //             $btn = $btn . '&nbsp;<a href="' . route('projects.edit', $row->id) . '" title="تعديل" class="text-success"><i
-    //                                                 class="mdi mdi-pencil font-size-18"></i></a>';
-    //             $btn = $btn . '&nbsp;<a data-bs-toggle="modal" data-bs-target="#kt_modal_2" title="حذف" style="cursor: pointer"  data-id="{{ $user->id }}"  class="text-danger"><i
-    //                                                 class="mdi mdi-delete font-size-18"></i></a>';
-    //             return $btn;
-    //         })
-    //         ->rawColumns(['action'])
-
-    //         ->make(true);
-    // }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function create()
     {
         $user=User::where('type','client')->get();
-        $protype = ProjectType::all();
-<<<<<<< Updated upstream
+        $protype = ProjectType::where('status' ,'active')->get();
 
-=======
-      
->>>>>>> Stashed changes
         return view('admin.projects.create',compact('user' , 'protype'));
     }
 
-   
+    public function store_project(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:3|max:255|string',
+            'idea' => 'required|min:3|max:255|string',
+        ], [
+            'required' => 'هذا الحقل مطلوب',
+            'string' => 'هذا الحقل يجب ان يحتوي على نص',
+            'max' => 'هذا الحقل طويل للفاية',
+            'min' => 'هذا الحقل قصير للغاية',
+        ]);
+
+        if (!$validator->passes()) {
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
+        } else {
+
+            $user_id = auth()->user()->id;
+            $data = $request->all();
+            $data['created_by'] = $user_id;
+
+            if ($request->file('logo')) {
+                $file = $request->file('logo');
+                $filename = $file->getClientOriginalName();
+                $file->move(public_path('public/logo'), $filename);
+                $data['logo'] = $filename;
+            }
+            $project = Project::create([
+                'name' => $data['name'],
+                'idea' => $data['idea'],
+                'project_type_id' => 1,
+                'owner_id' => 1,
+                'created_by' => 1,
+                'logo' => 1,
+                'language' => 'en',
+                'country' => 1,
+                'city' => 1,
+                'start_date' => '2022-10-27',
+                'development_duration' => 1,
+                'number_days_year' => 1,
+                'vat' => 1,
+                'currency' => 1,
+               
+            ]);
+        
+            return response()->json(['status' => 1, 'msg' => 'New Student has been successfully registered' , 'id' => $project->id]);
+        }
+    }
+    public function store_project_details(Request $request)
+    {
+    
+        $validator = Validator::make($request->all(), [
+            'project_type_id' => 'required|exists:project_types,id',
+            'study_duration' => 'required|numeric',
+            'language' => 'required',
+            'currency' => 'required',
+            'start_date' => 'required|date',
+            'development_duration' => 'required|numeric',
+            'vat' => 'required|numeric',
+            'number_days_year' => 'required|numeric',
+        ], [
+            'required' => 'هذا الحقل مطلوب',
+            'string' => 'هذا الحقل يجب ان يحتوي على نص',
+            'max' => 'هذا الحقل طويل للفاية',
+            'min' => 'هذا الحقل قصير للغاية',
+            'numeric' => 'هذا الحقل  يجب ان يحتوي على رقم',
+            'date' => 'هذا الحقل  يجب ان يحتوي على تاريخ',
+        ]);
+
+        if (!$validator->passes()) {
+            return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
+        } else {
+        $project = Project::where('id', $request->project_id)->first();
+        
+        $project->update([
+            // 'project_type_id' => $request->vat,
+            'id' => $request->project_id,
+            'study_duration' => $request->study_duration,
+            'language'  => $request->language,
+            'currency'  => $request->currency,
+            'start_date'  => $request->start_date,
+            'development_duration'  => $request->development_duration,
+            'vat'   => $request->vat,
+            'number_days_year'  => $request->number_days_year,
+        
+        ]);
+        return response()->json(['status' => 1, 'success' => 'تم اضافة المشروع بنجاح' ]);
+        }
+    }
+    
     public function store(StoreProjectRequest $request)
     {
-<<<<<<< Updated upstream
 
         $user_id = auth()->user()->id;
         $data =$request->validated();
@@ -87,41 +142,17 @@ class ProjectController extends Controller
             $file-> move(public_path('public/logo'), $filename);
             $data['logo']= $filename;
         }
-      
+
           $project = Project::create($data);
                $project->save();
-=======
-        // $validated = $request->validated();
-dd('ff');
-        
-        $request->created_by = Auth::user()->id;
-        $protype = ProjectType::find($request->project_type_id);
-        $request->projectType()->associate($protype);
-        $data =$request->validated()->all();
-        if($request->file('logo')){
-            $file = $request->file('logo');
-            $filename = date('Ymdhi').$file->getClientOriginalName();
-            $file->move(public_path('upload/logo/'),$filename);
-            $project['logo'] = $filename;
-           }
-           $project = Project::create($data);
-
-           $project->save();
->>>>>>> Stashed changes
            return redirect()->route('projects.index');
         }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\admin\Project  $project
-     * @return \Illuminate\Http\Response
-     */
+  
     public function show(Project $project)
     {
-<<<<<<< Updated upstream
-    //    $dates= $project->development_duration+$project->start_date; 
-  
+    //    $dates= $project->development_duration+$project->start_date;
+
     $date = new DateTime($project->start_date);
     $newDate=$date->modify('+'.$project->development_duration.'month'); // or you can use '-90 day' for deduct
 
@@ -132,66 +163,45 @@ dd('ff');
    $numofday = $newDate->modify('-'.'365'.'day');
 
    $numofday = $numofday->format('d');
-  
+
    $numofmonth = $newDate->modify('-'.'365'.'month');
 
    $numofmonth = $numofmonth->format('m');
 // dd(  $numofmonth);
         $services = SystemServices::where('status','active')->get();
-  
+
        return view('admin.projects.show',compact('project','services','dateStartOper','year','numofday','numofmonth'));
-=======
- 
->>>>>>> Stashed changes
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\admin\Project  $project
-     * @return \Illuminate\Http\Response
-     */
+  
     public function edit(Project $project)
     {
-        $projectType= ProjectType::all();
+        $projectType = ProjectType::where('status' ,'active')->get();
         $user=User::where('type','client')->get();
 
         return view('admin.projects.edit', compact('project','projectType','user'));
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateProjectRequest  $request
-     * @param  \App\Models\admin\Project  $project
-     * @return \Illuminate\Http\Response
-     */
+  
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->all();
         $project = Project::query()->findOrFail($project->id);
-
+        $data['logo'] = $project->logo;
         if($request->hasFile('logo')){
             $file= $request->file('logo');
             $filename= $file->getClientOriginalName();
-            $file-> move(public_path('public/logo'), $filename);
+            $file->move(public_path('public/logo'), $filename);
             $data['logo']= $filename;
-        }else{
-            $data['logo'] = $project->logo;
         }
            $project->update($data);
             return redirect()->route('projects.index')->with('success', 'تم التعديل على بيانات المشروع بنجاح');
 
-      
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\admin\Project  $project
-     * @return \Illuminate\Http\Response Request $request
-     */
+  
     public function destroy(Request $request)
     {
         $project = Project::findOrFail($request->id);
@@ -199,5 +209,18 @@ dd('ff');
         return response()->json(true, 200);
     }
 
+public function search_project(Request $request){
+
+    $search = $request->get('query', false);
+    $projects = Project::query()->where(function ($query) use ($search) {
+        $query->where('name', 'like', '%' . $search . '%');
+
+    })->latest()->paginate(2);
+
+    return view('admin.projects.index',compact('projects'));
+
 }
+}
+
+
 

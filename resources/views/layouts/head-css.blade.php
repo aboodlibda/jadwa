@@ -12,4 +12,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
+<style>
+    table.GeneratedTable {
+        width: 100%;
+        background-color: #ffffff;
+        border-collapse: collapse;
+        border-width: 2px;
+        border-color: #000000;
+        border-style: outset;
+        color: #000000;
+    }
+
+    table.GeneratedTable td, table.GeneratedTable th {
+        border-width: 2px;
+        border-color: #000000;
+        border-style: outset;
+        padding: 7px;
+        text-align:center;
+    }
+
+    table.GeneratedTable thead {
+        background-color: #ffac00;
+    }
+</style>
 

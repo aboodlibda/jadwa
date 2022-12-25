@@ -9,11 +9,7 @@ use Illuminate\Http\Request;
 
 class SystemContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $contact = SystemContact::get();
@@ -21,23 +17,11 @@ class SystemContactController extends Controller
         return view('admin.contact.index',compact('contact'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-    }
+   
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreSystemContactRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreSystemContactRequest $request)
     {
+        
         $data =$request->all();
 
         $contact = SystemContact::query()->create($data);
@@ -50,61 +34,44 @@ class SystemContactController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SystemContact  $systemContact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SystemContact $systemContact)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SystemContact  $systemContact
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SystemContact $systemContact)
-    {
-        
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateSystemContactRequest  $request
-     * @param  \App\Models\SystemContact  $systemContact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SystemContact $systemContact)
+    public function update(Request $request, $id)
     {
-        // dd($request->id);
-        $request->validate([
-            'title' => 'required',
-            'type' => 'required',
-            'value' => 'required',
+       
+        $data = $request->only([
+            'title', 'type', 'value'
         ]);
-     $contact=   SystemContact::findOrFail($request->id);
-        $contact->update($request->all());
-                  return redirect()->route('contacts.index')->with('success', 'تم التعديل على بيانات  بنجاح');
-
+    
+     $contact = SystemContact::query()->findOrFail($request->id)->update($data);
+    
+     if ($contact) {
+         return redirect()->route('contacts.index')->with('success', 'تم التعديل على بيانات الصفحة بنجاح');
+     } else {
+         return back()->with('error', 'حدث خطأ !');
+     }
+     
     }
         
     
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SystemContact  $systemContact
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
         $contact = SystemContact::findOrFail($request->id);
         $contact->delete();
         return response()->json(true, 200);
+    }
+
+     public function search_contact(Request $request){
+
+        $search = $request->get('query', false);
+        $contact = SystemContact::query()->where(function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%')
+            ->orWhere('type', 'like', '%' . $search . '%');
+        })->latest()->paginate(3);
+
+        return view('admin.contact.index',compact('contact'));
+
     }
 }

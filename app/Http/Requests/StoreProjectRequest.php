@@ -25,16 +25,10 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-<<<<<<< Updated upstream
             //
             'name' => 'required',     
             'idea' => 'required',
             'logo' =>  'required',
-=======
-            'name' => 'required',     
-            'idea' => 'required',
-            'logo' => 'required',
->>>>>>> Stashed changes
             'country' => 'required',
             'city' => 'required',
             'start_date' => 'required',
@@ -43,15 +37,9 @@ class StoreProjectRequest extends FormRequest
             'vat' => 'required',
             'currency' => 'required',
             'study_duration' => 'required',
-<<<<<<< Updated upstream
             'owner_id' => 'required',
             'project_type_id' => 'required',
             'created_by' => 'numeric',
-=======
-            'user_id' => 'required',
-            'project_type_id' => 'required',
-            
->>>>>>> Stashed changes
         ];
     }
 }

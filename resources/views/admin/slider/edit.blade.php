@@ -20,7 +20,7 @@
                         @method('PUT')
                         <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="title" class="form-label">العنوان</label>
                                     <input type="text"  name="title" class="form-control @error('title') is-invalid @enderror" value="{{$slider->title}}" id="title" >
@@ -35,9 +35,9 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="description" class="form-label">description </label>
+                                    <label for="description" class="form-label">الوصف </label>
                                     <textarea type="text" name="description"  class="form-control @error('description')"  is-invalid @enderror" id="formrow-description-input" >
                                         {{$slider->description}}   </textarea>
                                     @error('description')
@@ -54,7 +54,7 @@
             
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-success w-lg">حفظ</button>
+                            <button type="submit" class="btn btn-success w-lg bg-o">حفظ</button>
                         </div>
                     </form>
                 </div>

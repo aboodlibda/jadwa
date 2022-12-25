@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 
 @section('title') قنوات البيع @endsection
@@ -25,7 +24,7 @@
                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"> إضافة  جديد <i
                                         class="mdi mdi-plus me-1"></i></a> --}}
 
-                                        <button type="button" class="btn btn-success  waves-effect waves-light mb-2 me-2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">اضافة جديد</button>
+                                        <button type="button" class="btn btn-success  waves-effect waves-light mb-2 me-2 yello" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">اضافة جديد</button>
                                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
@@ -36,13 +35,13 @@
                                                     <div class="modal-body">
                                                         <form method="POST" action="{{ route('projBpChanlRes.store') }}">
                                                             @csrf
-                                                           
+
                                                             <div class="mb-3">
                                                                 <label for="title" class="col-form-label">البند</label>
                                                                 <input type="text" name="title" class="form-control" id="title" value="{{ old('title') }}">
                                                             </div>
 
-                                                            
+
                                                                 <div class="mb-3">
                                                                     <label for="project_type_id" class="form-label">project_type_id</label>
                                                                     <!-- All countries -->
@@ -62,7 +61,7 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -91,14 +90,14 @@
                                     <td>
                                         <div class="d-flex gap-3">
 
-                                        
+
                                             {{-- <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-bs-target="#editModal"   data-id="{{ $item->id }}"><i
                                                     class="mdi mdi-pencil font-size-24"></i></a> --}}
-                                                    <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-id="{{ $item->id }}" 
-                                               data-title="{{ $item->title }}"    data-project_type_id="{{ $item->project_type_id }}"     
+                                                    <a  title="تعديل" class="text-success"  data-bs-toggle="modal" data-id="{{ $item->id }}"
+                                               data-title="{{ $item->title }}"    data-project_type_id="{{ $item->project_type_id }}"
                                                data-bs-target="#editModal"><i
-                                               class="mdi mdi-pencil font-size-24"></i> </a>
-                                              
+                                               class="mdi mdi-pencil font-size-18"></i> </a>
+
                                            {{--deleting page--}}
 
                                          <a  title="حذف" style="cursor: pointer"  data-id="{{ $item->id }}"  class="text-danger delete">
@@ -124,8 +123,8 @@
                                         @csrf
                                         @method('put')
                                         <input type="hidden" id="id" name="id">
-                                
-                                     
+
+
                                          <div class="mb-3">
                                             <label for="title" class="col-form-label">البند</label>
                                             <input type="text" name="title" class="form-control" id="title" value="">
@@ -148,9 +147,9 @@
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary" >تعديل</button>
                                         </div>
-                                    </form> 
+                                    </form>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -163,7 +162,7 @@
         </div>
     </div>
     <!-- end row -->
- 
+
  @section('script-bottom')
     <script>
         $('#editModal').on('show.bs.modal', function(event) {
@@ -180,7 +179,6 @@
             
 
         })
-
         $('.table-responsive').on('click', '.delete', function() {
                 let id = $(this).data('id');
                 swal.fire({
@@ -211,16 +209,10 @@
                     }
                 })
             });
-     
+
         </script>
-@endsection 
+@endsection
 {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> --}}
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.min.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.5.1/sweetalert2.all.min.js"></script>
 @endsection
-
-
-
-
-
-

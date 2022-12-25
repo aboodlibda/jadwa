@@ -3123,13 +3123,13 @@ fieldset:disabled .btn {
 .btn-success:focus,
 .btn-success:hover {
     color: #fff;
-    background-color: #2ca67a;
-    border-color: #2a9c72;
+    background-color: #F9AA1C;
+    border-color: #F9AA1C;
 }
 .btn-check:focus + .btn-success,
 .btn-success:focus {
-    -webkit-box-shadow: 0 0 0 0.15rem rgba(82, 204, 160, 0.5);
-    box-shadow: 0 0 0 0.15rem rgba(82, 204, 160, 0.5);
+    -webkit-box-shadow: 0 0 0 0.15rem #F9AA1C;
+    box-shadow: 0 0 0 0.15rem #F9AA1C;
 }
 .btn-check:active + .btn-success,
 .btn-check:checked + .btn-success,
@@ -5181,8 +5181,8 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
     z-index: 3;
     color: #fff;
-    background-color: #556ee6;
-    border-color: #556ee6;
+    background-color: #F9AA1C;
+    border-color: #F9AA1C;
 }
 .page-item.disabled .page-link {
     color: #ced4da;
@@ -12275,7 +12275,6 @@ button {
     border-top: 0;
 }
 .pagination-rounded .page-link {
-    border-radius: 30px !important;
     margin: 0 3px !important;
     border: none;
     width: 32px;

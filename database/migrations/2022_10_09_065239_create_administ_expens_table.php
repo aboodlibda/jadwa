@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('item');
             $table->string('value');
+            $table->integer('project_id');
             $table->softDeletes();
             $table->timestamps();
         });

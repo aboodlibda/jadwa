@@ -22,30 +22,18 @@ class SystemPageController extends Controller
         return  view('admin.pages.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePagesRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(StorePagesRequest $request)
     {
         $data =$request->validated();
 
-        $pages = SystemPage::query()->create($data);
+        $pages = SystemPage::create($data);
 
-        if ($pages) {
-            return  redirect()->route('pages.index')->with('success', 'تم إنشاءالصفحة بنجاح');
-        }
-        else {
-            return back()->with('failed', 'حدث خطأ !');
-        }
+        return  redirect()->route('pages.index')->with('success', 'تم إنشاءالصفحة بنجاح');
+        
     }
 
-    public function show(SystemPage $pages)
-    {
-        //
-    }
+  
 
  
     public function edit(SystemPage $page)
@@ -56,12 +44,10 @@ class SystemPageController extends Controller
     public function update(UpdatePagesRequest $request, SystemPage $page)
     {
         $data = $request->all();
-        $page = SystemPage::query()->findOrFail($page->id)->update($data);
-        if ($page) {
-            return redirect()->route('pages.index')->with('success', 'تم التعديل على بيانات الصفحة بنجاح');
-        } else {
-            return back()->with('error', 'حدث خطأ !');
-        }
+        $page = SystemPage::findOrFail($page->id)->update($data);
+
+        return redirect()->route('pages.index')->with('success', 'تم التعديل على بيانات الصفحة بنجاح');
+        
     }
 
   
@@ -70,5 +56,16 @@ class SystemPageController extends Controller
         $page = SystemPage::findOrFail($request->id);
         $page->delete();
         return response()->json(true, 200);
+    }
+
+    public function search_pages(Request $request){
+
+        $search = $request->get('query', false);
+        $pages = SystemPage::query()->where(function ($query) use ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        })->latest()->paginate(3);
+
+        return view('admin.pages.index',compact('pages'));
+
     }
 }

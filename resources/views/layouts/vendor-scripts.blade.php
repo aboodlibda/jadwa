@@ -1,9 +1,9 @@
 <!-- JAVASCRIPT -->
-<script src="{{ URL::asset('/assets/libs/jquery/jquery.min.js')}}"></script>
-<script src="{{ URL::asset('/assets/libs/bootstrap/bootstrap.min.js')}}"></script>
-<script src="{{ URL::asset('/assets/libs/metismenu/metismenu.min.js')}}"></script>
-<script src="{{ URL::asset('/assets/libs/simplebar/simplebar.min.js')}}"></script>
-<script src="{{ URL::asset('/assets/libs/node-waves/node-waves.min.js')}}"></script>
+<script src="{{ asset('assets/libs/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('assets/libs/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{ asset('assets/libs/metismenu/metismenu.min.js')}}"></script>
+<script src="{{ asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+<script src="{{ asset('assets/libs/node-waves/node-waves.min.js')}}"></script>
 <script>
     $('#change-password').on('submit',function(event){
         event.preventDefault();
@@ -48,12 +48,9 @@
 
 <!-- App js -->
 
-<script src="{{ URL::asset('/assets/js/app.min.js')}}"></script>
-
-
-<script src="{{ URL::asset('assets/js/app.min.js')}}"></script>
+<script src="{{ asset('assets/js/app.min.js')}}"></script>
 {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 {{-- toastr js --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
